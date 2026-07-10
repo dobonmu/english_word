@@ -76,7 +76,14 @@ const Sync = (() => {
       await window._authMod.signInWithPopup(auth, provider);
     } catch (e) {
       console.warn('로그인 실패', e);
-      toast('로그인에 실패했습니다.');
+      const hints = {
+        'auth/unauthorized-domain': '이 도메인이 Firebase에 승인되지 않았습니다. Firebase 콘솔 > Authentication > Settings > 승인된 도메인에 이 사이트 주소를 추가하세요.',
+        'auth/popup-blocked': '브라우저가 로그인 팝업을 차단했습니다. 팝업 차단을 해제한 뒤 다시 시도하세요.',
+        'auth/popup-closed-by-user': '로그인 창이 닫혔습니다. 다시 시도해주세요.',
+        'auth/operation-not-allowed': 'Firebase 콘솔에서 Google 로그인 방법이 아직 활성화되지 않았습니다.',
+      };
+      const hint = hints[e.code] || e.message || '알 수 없는 오류';
+      toast(`로그인 실패: ${hint}`, 5000);
     }
   }
 
