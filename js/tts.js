@@ -61,6 +61,7 @@ const TTS = (() => {
   async function speakWordAndMeaning(word, meaning, settings) {
     cancel();
     await speak(word, { lang: 'en-US', rate: settings.ttsRate, voiceURI: settings.ttsVoiceEN });
+    if (settings.ttsEnglishOnly) return;
     await new Promise(r => setTimeout(r, 250));
     await speak(meaning, { lang: 'ko-KR', rate: settings.ttsRate, voiceURI: settings.ttsVoiceKR });
   }
@@ -68,6 +69,23 @@ const TTS = (() => {
   function supported() {
     return !!window.speechSynthesis;
   }
+
+  // iOS/모바일 브라우저는 사용자가 화면을 처음 탭한 시점(제스처) 안에서
+  // speechSynthesis.speak()를 한번 호출해줘야 이후 taps 없이도 재생이 막히지 않는다.
+  // 무음(빈 문자열은 무시되므로 공백 하나)으로 아주 짧게 "예열"만 한다.
+  let unlocked = false;
+  function unlockOnFirstGesture() {
+    if (unlocked || !window.speechSynthesis) return;
+    unlocked = true;
+    try {
+      const u = new SpeechSynthesisUtterance(' ');
+      u.volume = 0;
+      window.speechSynthesis.speak(u);
+    } catch (e) { /* noop */ }
+  }
+  ['pointerdown', 'touchstart', 'click'].forEach(evt => {
+    window.addEventListener(evt, unlockOnFirstGesture, { once: true, passive: true });
+  });
 
   return { onReady, speak, cancel, speakWordAndMeaning, getVoicesFor, supported };
 })();

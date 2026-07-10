@@ -10,6 +10,7 @@ const DEFAULT_PROGRESS = () => ({
     ttsRate: 1,
     ttsVoiceEN: '',
     ttsVoiceKR: '',
+    ttsEnglishOnly: false, // true면 한국어 뜻을 읽지 않고 영어 단어만 읽음
     autoStarThreshold: 3,
     theme: 'system' // system | light | dark
   }

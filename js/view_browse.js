@@ -162,7 +162,11 @@ function bindBrowse() {
   const vc = document.getElementById('vcard');
   if (vc) vc.addEventListener('click', () => { state.view = 'card'; state.idx = 0; state.flipped = false; render(); });
 
-  // list view actions
+  // list view actions: 행을 탭하면 발음이 재생됩니다.
+  document.querySelectorAll('.trow[data-key]').forEach(row => row.addEventListener('click', () => {
+    const w = getFiltered().find(x => x.key === row.dataset.key);
+    if (w) TTS.speakWordAndMeaning(w.word, w.meaning, progress.settings);
+  }));
   document.querySelectorAll('[data-star]').forEach(b => b.addEventListener('click', e => {
     e.stopPropagation(); toggleStar(b.dataset.star); render();
   }));
@@ -172,9 +176,11 @@ function bindBrowse() {
     if (w) TTS.speakWordAndMeaning(w.word, w.meaning, progress.settings);
   }));
 
-  // card view actions
+  // card view actions: 카드를 탭하면 발음도 같이 재생됩니다.
   const cw = document.getElementById('card-wrap');
   if (cw) cw.addEventListener('click', () => {
+    const f = getOrderedFiltered(); const cur = f[state.idx];
+    if (cur) TTS.speakWordAndMeaning(cur.word, cur.meaning, progress.settings);
     if (state.displayMode === 'both') return; // 모두 보기 모드는 뒤집을 필요 없음
     state.flipped = !state.flipped; render();
   });

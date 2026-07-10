@@ -27,6 +27,14 @@ function renderSettings() {
     <div class="section-card">
       <div class="section-title">&#128266; 음성 읽기 (TTS)</div>
       <div class="field">
+        <label>읽기 범위</label>
+        <div class="seg">
+          <button class="${!s.ttsEnglishOnly ? 'on' : ''}" data-tts-scope="both">영어 + 한국어 뜻</button>
+          <button class="${s.ttsEnglishOnly ? 'on' : ''}" data-tts-scope="en">영어 단어만</button>
+        </div>
+        <div class="hint-text">개별 단어 발음, 카드 클릭 발음, 목록 전체 읽어주기, 쓰기 시험 듣기 모드 등 모든 곳에 적용됩니다.</div>
+      </div>
+      <div class="field">
         <label>읽는 속도: <span id="rate-val">${s.ttsRate.toFixed(1)}x</span></label>
         <input type="range" id="rate-range" min="0.5" max="2" step="0.1" value="${s.ttsRate}">
       </div>
@@ -46,6 +54,11 @@ function renderSettings() {
       </div>
       <button class="lbtn" id="tts-test-btn">음성 테스트</button>
       ${!TTS.supported() ? `<div class="hint-text" style="color:var(--text-danger)">이 브라우저는 음성 읽기를 지원하지 않습니다.</div>` : ''}
+      <div class="hint-text" style="margin-top:10px">블루투스 이어폰이나 유선 이어폰을 연결했는데 소리가 휴대폰 스피커로 나온다면, 이는 앱이 아니라 휴대폰의 오디오 출력 장치 설정 문제입니다. 아래를 확인해보세요.
+        <br>· 이어폰이 "연결됨" 상태인지, 다른 앱(유튜브 등) 소리도 이어폰으로 나오는지 먼저 확인
+        <br>· iPhone: 제어센터에서 오디오 출력 카드를 눌러 이어폰을 직접 선택
+        <br>· Android: 알림창의 블루투스 기기 항목에서 "미디어 오디오" 사용 여부 확인
+        <br>· 무음/방해금지 모드가 꺼져 있는지 확인 (켜져 있으면 시스템 음성 출력이 막히는 기기가 있습니다)</div>
     </div>
 
     <div class="section-card">
@@ -87,6 +100,12 @@ function bindSettings() {
   if (signInBtn) signInBtn.addEventListener('click', async () => { await Sync.signIn(); render(); });
   const signOutBtn = document.getElementById('sync-signout-btn');
   if (signOutBtn) signOutBtn.addEventListener('click', async () => { await Sync.signOut(); render(); });
+
+  document.querySelectorAll('[data-tts-scope]').forEach(b => b.addEventListener('click', () => {
+    progress.settings.ttsEnglishOnly = (b.dataset.ttsScope === 'en');
+    saveProgress(progress);
+    render();
+  }));
 
   const rateRange = document.getElementById('rate-range');
   if (rateRange) rateRange.addEventListener('input', () => {
