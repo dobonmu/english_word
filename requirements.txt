@@ -1,0 +1,6 @@
+# 이 프로젝트의 웹앱 자체는 순수 HTML/CSS/JS로 동작하며 Python이 필요하지 않습니다.
+# 아래 의존성은 words/*.txt -> js/words_data.js 변환 스크립트(build_words.py)에서만 사용됩니다.
+# (표준 라이브러리만 사용하므로 실제로는 설치할 패키지가 없습니다.)
+#
+# 설치: pip install -r requirements.txt
+# 실행: python3 build_words.py
