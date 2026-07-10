@@ -154,6 +154,9 @@ button,input{font-family:inherit}
 .cmean{font-size:19px;font-weight:600;color:var(--text-accent);margin-bottom:12px}
 .cex{font-size:12px;color:var(--text-secondary);line-height:1.6}
 .cex .en{color:var(--text-primary);margin-bottom:3px}
+.cf .cmean{color:#fff}
+.cf .cex{color:rgba(255,255,255,.85)}
+.cf .cex .en{color:#fff}
 .cstar{position:absolute;top:10px;right:10px;background:none;border:none;font-size:17px;cursor:pointer;color:rgba(255,255,255,.75);z-index:2}
 .cb .cstar{color:var(--text-muted)}
 .cstar.on{color:#ffc22e}

@@ -75,9 +75,48 @@ function renderCardView(ordered, cur, total, learnedCount) {
   ).join('');
   const starred = cur && isStarred(cur.key);
   const learned = cur && isLearned(cur.key);
-  const showWord = state.displayMode !== 'meaningOnly';
-  const showMeaning = state.displayMode !== 'wordOnly' || state.flipped;
-  const hideFrontMeaning = state.displayMode === 'meaningOnly';
+  const mode = state.displayMode; // both | wordOnly | meaningOnly
+
+  // both 모드: 뒤집기 없이 앞면에 단어+뜻+예문을 모두 보여준다.
+  // wordOnly 모드: 앞면 단어만, 클릭하면 뒤집어서 뜻 확인.
+  // meaningOnly 모드: 앞면 뜻만, 클릭하면 뒤집어서 단어 확인.
+  let frontHtml, backHtml, hint;
+  if (mode === 'both') {
+    frontHtml = `
+      <div class="cnum">${state.idx + 1} / ${ordered.length}</div>
+      <div class="cword">${cur ? escapeHtml(cur.word) : ''}</div>
+      <div class="cmean">${cur ? escapeHtml(cur.meaning) : ''}</div>
+      <div class="cex">
+        <div class="en">${cur ? escapeHtml(cur.ex_en || '') : ''}</div>
+        <div>${cur ? escapeHtml(cur.ex_kr || '') : ''}</div>
+      </div>`;
+    backHtml = frontHtml;
+    hint = '';
+  } else if (mode === 'meaningOnly') {
+    frontHtml = `
+      <div class="cnum">${state.idx + 1} / ${ordered.length}</div>
+      <div class="cword">${cur ? escapeHtml(cur.meaning) : ''}</div>
+      <div class="chint">클릭해서 단어 확인</div>`;
+    backHtml = `
+      <div class="cnum">${cur ? cur.id : ''}</div>
+      <div class="cmean">${cur ? escapeHtml(cur.word) : ''}</div>
+      <div class="cex">
+        <div class="en">${cur ? escapeHtml(cur.ex_en || '') : ''}</div>
+        <div>${cur ? escapeHtml(cur.ex_kr || '') : ''}</div>
+      </div>`;
+  } else {
+    frontHtml = `
+      <div class="cnum">${state.idx + 1} / ${ordered.length}</div>
+      <div class="cword">${cur ? escapeHtml(cur.word) : ''}</div>
+      <div class="chint">클릭해서 의미 확인</div>`;
+    backHtml = `
+      <div class="cnum">${cur ? cur.id : ''}</div>
+      <div class="cmean">${cur ? escapeHtml(cur.meaning) : ''}</div>
+      <div class="cex">
+        <div class="en">${cur ? escapeHtml(cur.ex_en || '') : ''}</div>
+        <div>${cur ? escapeHtml(cur.ex_kr || '') : ''}</div>
+      </div>`;
+  }
 
   return `
     <div class="fc">
@@ -87,19 +126,12 @@ function renderCardView(ordered, cur, total, learnedCount) {
           <div class="cf">
             <button class="cstar ${starred ? 'on' : ''}" data-star-card="1" title="중요 표시">&#9733;</button>
             <button class="cspeak" data-speak-card="1" title="읽기">&#128266;</button>
-            <div class="cnum">${state.idx + 1} / ${ordered.length}</div>
-            <div class="cword">${cur ? (hideFrontMeaning ? escapeHtml(cur.meaning) : escapeHtml(cur.word)) : ''}</div>
-            <div class="chint">클릭해서 ${hideFrontMeaning ? '단어' : '의미'} 확인</div>
+            ${frontHtml}
           </div>
           <div class="cb">
             <button class="cstar ${starred ? 'on' : ''}" data-star-card="1" title="중요 표시">&#9733;</button>
             <button class="cspeak" data-speak-card="1" title="읽기">&#128266;</button>
-            <div class="cnum">${cur ? cur.id : ''}</div>
-            <div class="cmean">${cur ? (hideFrontMeaning ? escapeHtml(cur.word) : escapeHtml(cur.meaning)) : ''}</div>
-            <div class="cex">
-              <div class="en">${cur ? escapeHtml(cur.ex_en || '') : ''}</div>
-              <div>${cur ? escapeHtml(cur.ex_kr || '') : ''}</div>
-            </div>
+            ${backHtml}
           </div>
         </div>
       </div>
@@ -142,7 +174,10 @@ function bindBrowse() {
 
   // card view actions
   const cw = document.getElementById('card-wrap');
-  if (cw) cw.addEventListener('click', () => { state.flipped = !state.flipped; render(); });
+  if (cw) cw.addEventListener('click', () => {
+    if (state.displayMode === 'both') return; // 모두 보기 모드는 뒤집을 필요 없음
+    state.flipped = !state.flipped; render();
+  });
   const pb = document.getElementById('prev-btn');
   if (pb) pb.addEventListener('click', e => { e.stopPropagation(); state.flipped = false; state.idx = Math.max(0, state.idx - 1); render(); });
   const nb = document.getElementById('next-btn');
