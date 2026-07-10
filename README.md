@@ -68,9 +68,68 @@ git push -u origin main
 `https://<username>.github.io/<repo>/` 로 접속할 수 있습니다. Vercel, Netlify에
 그대로 드래그 앤 드롭해도 동작합니다.
 
+## 기기 간 동기화 설정하기 (폰 ↔ PC 자동 합치기)
+
+기본적으로 학습 기록은 브라우저(기기)마다 localStorage에 따로 저장됩니다. 폰에서
+공부한 기록을 PC에서도 그대로 보고 싶다면 **Firebase(무료)** 를 연결하세요. 한 번
+설정해두면 이후엔 구글 계정 로그인만으로 모든 기기의 기록이 자동으로 합쳐집니다.
+설정하지 않아도 앱은 지금처럼 로컬 저장 방식으로 완전히 정상 동작합니다.
+
+### 1) Firebase 프로젝트 만들기
+
+1. https://console.firebase.google.com 접속 → "프로젝트 추가"로 새 프로젝트 생성(무료 Spark 요금제 그대로 사용).
+2. 왼쪽 메뉴 **Authentication** → "시작하기" → 로그인 방법 탭에서 **Google** 활성화.
+3. 왼쪽 메뉴 **Firestore Database** → "데이터베이스 만들기" → 원하는 리전 선택 → **테스트 모드**로 시작(아래 4단계에서 보안 규칙을 바로 교체할 것입니다).
+4. Firestore의 "규칙" 탭에서 아래 규칙으로 교체 후 게시(본인 데이터만 읽고 쓸 수 있도록 제한):
+   ```
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /users/{userId} {
+         allow read, write: if request.auth != null && request.auth.uid == userId;
+       }
+     }
+   }
+   ```
+5. 프로젝트 설정(톱니바퀴 아이콘) → "내 앱"에서 **웹 앱 추가**(</> 아이콘) → 앱 등록만 하고 호스팅은 건너뜁니다. 화면에 나오는 `firebaseConfig` 객체 값을 복사해둡니다.
+
+### 2) 이 프로젝트에 설정 붙여넣기
+
+`js/firebase-config.example.js` 파일을 `js/firebase-config.js` 로 복사한 뒤, 방금 복사한
+값으로 안의 내용을 채워 넣습니다.
+
+```
+cp js/firebase-config.example.js js/firebase-config.js
+```
+
+`js/firebase-config.js`는 `.gitignore`에 등록되어 있어 `git push`해도 GitHub에는
+올라가지 않습니다. **GitHub Pages로 배포한 사이트에서 로그인 기능을 쓰려면** 이
+파일의 내용을 배포된 브랜치에도 반영해야 하므로(정적 호스팅은 서버 비밀값 개념이
+없음), 아래 중 하나를 선택하세요.
+- 간단한 방법: `.gitignore`에서 이 파일을 제외하고 그대로 커밋(Firebase 웹 API 키는
+  공개되어도 위 보안 규칙이 실제 데이터 접근을 막아주므로 안전합니다. Firebase 공식
+  문서도 이 방식을 권장합니다).
+- 더 신경 쓰고 싶다면: Firebase Hosting(역시 무료)에 별도로 올리고 API 키 노출을
+  최소화.
+
+가장 쉬운 방법을 쓰려면:
+```
+git add -f js/firebase-config.js
+git commit -m "add firebase config"
+./push.sh
+```
+
+### 3) 확인하기
+
+배포된 사이트(또는 로컬)에서 설정(⚙) 화면을 열면 "기기 간 동기화" 섹션에 Google
+로그인 버튼이 보입니다. 폰과 PC에서 같은 구글 계정으로 로그인하면 암기 완료, 중요
+표시, 오답 기록, 시험 이력이 자동으로 합쳐집니다(둘 다 있는 기록은 합집합으로 병합
+되므로 기존 기록이 사라지지 않습니다).
+
 ## 참고
 
-- 학습 기록은 브라우저(기기)마다 별도로 저장됩니다. 여러 기기에서 기록을 합치려면
-  설정 화면의 "기록 내보내기"로 받은 JSON 파일을 다른 기기에서 "기록 가져오기"로 불러오세요.
+- 동기화를 설정하지 않았다면 학습 기록은 브라우저(기기)마다 따로 저장됩니다. 이 경우
+  여러 기기의 기록을 합치려면 설정 화면의 "기록 내보내기"로 받은 JSON 파일을 다른
+  기기에서 "기록 가져오기"로 불러오세요.
 - 음성 읽기는 Web Speech API를 사용하므로 브라우저/OS에 설치된 음성 엔진에 따라
   음질과 사용 가능한 음성 목록이 달라질 수 있습니다.

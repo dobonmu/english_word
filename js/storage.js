@@ -29,11 +29,14 @@ function loadProgress() {
   }
 }
 
-function saveProgress(progress) {
+function saveProgress(progress, opts) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
   } catch (e) {
     console.warn('진행기록 저장 실패', e);
+  }
+  if (!(opts && opts.skipRemote) && typeof Sync !== 'undefined') {
+    Sync.scheduleSave(progress);
   }
 }
 

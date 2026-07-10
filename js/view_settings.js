@@ -2,8 +2,28 @@ function renderSettings() {
   const s = progress.settings;
   const enVoices = TTS.getVoicesFor('en');
   const krVoices = TTS.getVoicesFor('ko');
+  const user = (typeof Sync !== 'undefined') ? Sync.currentUser() : null;
+  const syncAvailable = (typeof Sync !== 'undefined') && Sync.configured();
 
   return `
+    <div class="section-card">
+      <div class="section-title">&#9729;&#65039; 기기 간 동기화</div>
+      ${!syncAvailable ? `
+        <div class="hint-text">동기화가 아직 설정되지 않았습니다. README의 "기기 간 동기화 설정하기" 안내를 참고해 firebase-config.js를 만들면, 구글 로그인만으로 폰/PC 학습 기록이 자동으로 합쳐집니다. 설정 전까지는 지금처럼 이 브라우저에만 기록이 저장됩니다.</div>
+      ` : user ? `
+        <div class="settings-row">
+          <div>
+            <div class="lbl">${escapeHtml(user.displayName || user.email || '로그인됨')}</div>
+            <div class="desc">이 계정으로 로그인한 모든 기기와 학습 기록이 자동으로 합쳐집니다.</div>
+          </div>
+          <button class="lbtn" id="sync-signout-btn">로그아웃</button>
+        </div>
+      ` : `
+        <div class="hint-text" style="margin-bottom:10px">구글 계정으로 로그인하면 폰과 컴퓨터의 학습 기록이 자동으로 동기화됩니다.</div>
+        <button class="big-btn" id="sync-signin-btn">Google 계정으로 로그인</button>
+      `}
+    </div>
+
     <div class="section-card">
       <div class="section-title">&#128266; 음성 읽기 (TTS)</div>
       <div class="field">
@@ -63,6 +83,11 @@ function renderSettings() {
 }
 
 function bindSettings() {
+  const signInBtn = document.getElementById('sync-signin-btn');
+  if (signInBtn) signInBtn.addEventListener('click', async () => { await Sync.signIn(); render(); });
+  const signOutBtn = document.getElementById('sync-signout-btn');
+  if (signOutBtn) signOutBtn.addEventListener('click', async () => { await Sync.signOut(); render(); });
+
   const rateRange = document.getElementById('rate-range');
   if (rateRange) rateRange.addEventListener('input', () => {
     progress.settings.ttsRate = parseFloat(rateRange.value);

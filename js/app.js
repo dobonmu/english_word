@@ -202,4 +202,9 @@ function bindPageEvents() {
 // kick off
 document.addEventListener('DOMContentLoaded', () => {
   render();
+  if (typeof Sync !== 'undefined') {
+    Sync.init().then(() => {
+      Sync.onAuthChange(() => { if (state.page === 'settings') render(); });
+    });
+  }
 });
