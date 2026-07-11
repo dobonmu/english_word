@@ -96,7 +96,7 @@ function renderCardView(ordered, cur, total, learnedCount) {
     frontHtml = `
       <div class="cnum">${state.idx + 1} / ${ordered.length}</div>
       <div class="cword">${cur ? escapeHtml(cur.meaning) : ''}</div>
-      <div class="chint">클릭해서 단어 확인</div>`;
+      <div class="chint">카드를 누르면 발음만 재생돼요. 단어는 아래 '정답 보기'로 확인하세요.</div>`;
     backHtml = `
       <div class="cnum">${cur ? cur.id : ''}</div>
       <div class="cmean">${cur ? escapeHtml(cur.word) : ''}</div>
@@ -108,7 +108,7 @@ function renderCardView(ordered, cur, total, learnedCount) {
     frontHtml = `
       <div class="cnum">${state.idx + 1} / ${ordered.length}</div>
       <div class="cword">${cur ? escapeHtml(cur.word) : ''}</div>
-      <div class="chint">클릭해서 의미 확인</div>`;
+      <div class="chint">카드를 누르면 발음만 재생돼요. 뜻은 아래 '정답 보기'로 확인하세요.</div>`;
     backHtml = `
       <div class="cnum">${cur ? cur.id : ''}</div>
       <div class="cmean">${cur ? escapeHtml(cur.meaning) : ''}</div>
@@ -141,6 +141,7 @@ function renderCardView(ordered, cur, total, learnedCount) {
         <button class="nbtn" id="next-btn" ${state.idx === ordered.length - 1 ? 'disabled' : ''}>&#8594;</button>
       </div>
       <div class="row-btns">
+        ${mode !== 'both' ? `<button class="lbtn ${state.flipped ? 'shuffle-on' : ''}" id="reveal-card-btn">${state.flipped ? '숨기기' : (mode === 'meaningOnly' ? '정답(단어) 보기' : '정답(뜻) 보기')}</button>` : ''}
         <button class="lbtn ${learned ? 'done' : ''}" id="lrn-btn">${learned ? '&#10003; 암기 완료' : '암기 완료로 표시'}</button>
       </div>
       <div class="stats">
@@ -176,12 +177,15 @@ function bindBrowse() {
     if (w) TTS.speakWordAndMeaning(w.word, w.meaning, progress.settings);
   }));
 
-  // card view actions: 카드를 탭하면 발음도 같이 재생됩니다.
+  // card view actions: 카드를 탭하면 발음만 재생됩니다(정답 공개는 별도 버튼).
   const cw = document.getElementById('card-wrap');
   if (cw) cw.addEventListener('click', () => {
     const f = getOrderedFiltered(); const cur = f[state.idx];
     if (cur) TTS.speakWordAndMeaning(cur.word, cur.meaning, progress.settings);
-    if (state.displayMode === 'both') return; // 모두 보기 모드는 뒤집을 필요 없음
+  });
+  const revealBtn = document.getElementById('reveal-card-btn');
+  if (revealBtn) revealBtn.addEventListener('click', e => {
+    e.stopPropagation();
     state.flipped = !state.flipped; render();
   });
   const pb = document.getElementById('prev-btn');

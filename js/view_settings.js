@@ -54,11 +54,6 @@ function renderSettings() {
       </div>
       <button class="lbtn" id="tts-test-btn">음성 테스트</button>
       ${!TTS.supported() ? `<div class="hint-text" style="color:var(--text-danger)">이 브라우저는 음성 읽기를 지원하지 않습니다.</div>` : ''}
-      <div class="hint-text" style="margin-top:10px">블루투스 이어폰이나 유선 이어폰을 연결했는데 소리가 휴대폰 스피커로 나온다면, 이는 앱이 아니라 휴대폰의 오디오 출력 장치 설정 문제입니다. 아래를 확인해보세요.
-        <br>· 이어폰이 "연결됨" 상태인지, 다른 앱(유튜브 등) 소리도 이어폰으로 나오는지 먼저 확인
-        <br>· iPhone: 제어센터에서 오디오 출력 카드를 눌러 이어폰을 직접 선택
-        <br>· Android: 알림창의 블루투스 기기 항목에서 "미디어 오디오" 사용 여부 확인
-        <br>· 무음/방해금지 모드가 꺼져 있는지 확인 (켜져 있으면 시스템 음성 출력이 막히는 기기가 있습니다)</div>
     </div>
 
     <div class="section-card">
