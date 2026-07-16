@@ -62,7 +62,7 @@ function renderQuizSetup(isWrite, isMock) {
         <button class="${quizSetupState.promptType === 'meaning' ? 'on' : ''}" data-prompt="meaning">뜻 보고 영단어 쓰기</button>
         <button class="${quizSetupState.promptType === 'listen' ? 'on' : ''}" data-prompt="listen">단어 듣고 영단어 쓰기</button>
       </div>
-      <div class="hint-text">'단어 듣고 쓰기'는 TTS로 단어를 읽어주고, 화면에는 뜻만 보여줍니다(정답은 직접 눌러 확인).</div>
+      <div class="hint-text">'단어 듣고 쓰기'는 뜻을 보여주지 않고 TTS로 단어만 들려줍니다. '다시 듣기' 버튼으로 반복해서 들을 수 있어요.</div>
     </div>`;
 
   return `

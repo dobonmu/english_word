@@ -12,7 +12,7 @@ function renderQuiz() {
   if (setup.isWrite) {
     if (isListen) {
       promptLabel = '단어를 듣고 영어 스펠링을 입력하세요';
-      promptText = item.word.meaning;
+      promptText = '';
     } else {
       promptLabel = '뜻을 보고 영어 단어를 입력하세요';
       promptText = item.word.meaning;
@@ -43,8 +43,7 @@ function renderQuiz() {
       <div class="quiz-card">
         <div class="quiz-prompt-label">${promptLabel}</div>
         ${isListen ? `
-          <button class="big-btn secondary" id="listen-btn" style="margin-top:6px">&#128266; 단어 듣기</button>
-          <div class="quiz-prompt" style="font-size:16px;color:var(--text-secondary);margin-top:6px">${escapeHtml(item.word.meaning)}</div>
+          <button class="big-btn secondary" id="listen-btn" style="margin-top:6px">&#128266; 단어 다시 듣기</button>
         ` : `<div class="quiz-prompt">${escapeHtml(promptText)}</div>`}
         <div class="quiz-answer-area">
           <input type="text" class="quiz-input ${item.revealed ? (item.status === 'correct' ? 'correct' : (item.status === 'partial' ? '' : 'wrong')) : ''}"
@@ -53,6 +52,7 @@ function renderQuiz() {
           ${item.revealed ? `
             <div class="quiz-answer" style="margin-top:10px">정답: ${escapeHtml(item.word.word)}</div>
             ${item.word.ex_en ? `<div class="quiz-ex"><span class="en">${escapeHtml(item.word.ex_en)}</span><br>${escapeHtml(item.word.ex_kr || '')}</div>` : ''}
+            ${item.word.note ? `<div class="quiz-note">${escapeHtml(item.word.note)}</div>` : ''}
           ` : ''}
         </div>
       </div>
@@ -76,6 +76,7 @@ function renderQuiz() {
           <div class="quiz-answer-area">
             <div class="quiz-answer">${escapeHtml(answerText)}</div>
             ${item.word.ex_en ? `<div class="quiz-ex"><span class="en">${escapeHtml(item.word.ex_en)}</span><br>${escapeHtml(item.word.ex_kr || '')}</div>` : ''}
+            ${item.word.note ? `<div class="quiz-note">${escapeHtml(item.word.note)}</div>` : ''}
           </div>
         ` : ''}
       </div>
@@ -153,9 +154,14 @@ function bindQuiz() {
       item.revealed = true; render();
     });
     const listenBtn = document.getElementById('listen-btn');
-    if (listenBtn) listenBtn.addEventListener('click', () => {
-      TTS.speak(item.word.word, { lang: 'en-US', rate: progress.settings.ttsRate, voiceURI: progress.settings.ttsVoiceEN });
-    });
+    if (listenBtn) {
+      const playListen = () => TTS.speak(item.word.word, { lang: 'en-US', rate: progress.settings.ttsRate, voiceURI: progress.settings.ttsVoiceEN });
+      listenBtn.addEventListener('click', playListen);
+      if (setup.promptType === 'listen' && !item.revealed && !item._autoPlayed) {
+        item._autoPlayed = true;
+        playListen();
+      }
+    }
   }
 
   const markWrong = document.getElementById('mark-wrong');

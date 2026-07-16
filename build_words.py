@@ -10,7 +10,7 @@
 words/ 디렉토리 안의 각 "*.txt" 파일이 하나의 단원이 됩니다.
 파일명(확장자 제외)이 단원 이름이 되고, 각 줄은 다음 형식입니다.
 
-    단어|뜻|예문(영어)|예문(한글)
+    단어|뜻|예문(영어)|예문(한글)|메모(선택, 문법/동의어/유의점 등)
 
 빈 줄이나 '#'으로 시작하는 줄은 무시합니다.
 """
@@ -40,12 +40,14 @@ def parse_file(path):
             meaning = parts[1].strip()
             ex_en = parts[2].strip() if len(parts) > 2 else ""
             ex_kr = parts[3].strip() if len(parts) > 3 else ""
+            note = parts[4].strip() if len(parts) > 4 else ""
             items.append({
                 "id": len(items) + 1,
                 "word": word,
                 "meaning": meaning,
                 "ex_en": ex_en,
                 "ex_kr": ex_kr,
+                "note": note,
             })
     return unit_name, items
 

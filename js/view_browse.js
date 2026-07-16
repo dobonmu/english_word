@@ -63,6 +63,7 @@ function renderListView(filtered) {
           </span>
         </div>
         ${w.ex_en ? `<div class="trow-ex"><span class="en">${escapeHtml(w.ex_en)}</span><br><span class="kr">${escapeHtml(w.ex_kr || '')}</span></div>` : ''}
+        ${w.note ? `<div class="trow-note">${escapeHtml(w.note)}</div>` : ''}
       </div>`;
   }).join('');
   return `<div class="tbl">${rows}</div>`;
@@ -89,7 +90,8 @@ function renderCardView(ordered, cur, total, learnedCount) {
       <div class="cex">
         <div class="en">${cur ? escapeHtml(cur.ex_en || '') : ''}</div>
         <div>${cur ? escapeHtml(cur.ex_kr || '') : ''}</div>
-      </div>`;
+      </div>
+      ${cur && cur.note ? `<div class="cnote">${escapeHtml(cur.note)}</div>` : ''}`;
     backHtml = frontHtml;
     hint = '';
   } else if (mode === 'meaningOnly') {
@@ -103,7 +105,8 @@ function renderCardView(ordered, cur, total, learnedCount) {
       <div class="cex">
         <div class="en">${cur ? escapeHtml(cur.ex_en || '') : ''}</div>
         <div>${cur ? escapeHtml(cur.ex_kr || '') : ''}</div>
-      </div>`;
+      </div>
+      ${cur && cur.note ? `<div class="cnote">${escapeHtml(cur.note)}</div>` : ''}`;
   } else {
     frontHtml = `
       <div class="cnum">${state.idx + 1} / ${ordered.length}</div>
@@ -115,7 +118,8 @@ function renderCardView(ordered, cur, total, learnedCount) {
       <div class="cex">
         <div class="en">${cur ? escapeHtml(cur.ex_en || '') : ''}</div>
         <div>${cur ? escapeHtml(cur.ex_kr || '') : ''}</div>
-      </div>`;
+      </div>
+      ${cur && cur.note ? `<div class="cnote">${escapeHtml(cur.note)}</div>` : ''}`;
   }
 
   return `
