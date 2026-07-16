@@ -1,3 +1,5 @@
+Candid|솔직한|The witness gave a candid testimony about the incident.|증인은 그 사건에 대해 솔직한 증언을 했습니다.|유의어: frank, honest
+Capable|유능한, ~할 수 있는|The new software is capable of processing large amounts of data.|새 소프트웨어는 대량의 데이터를 처리할 수 있습니다.|be capable of + 명사 / to + 동사원형
 Capacity|용량, 능력|The stadium has a seating capacity of 50,000 people.|경기장은 5만 명을 수용할 수 있는 좌석 용량을 갖추고 있습니다.
 Catastrophic|재앙적인|The oil spill had catastrophic effects on the local ecosystem.|기름 유출은 지역 생태계에 재앙적인 영향을 끼쳤습니다.
 Cause|원인, 야기하다|Global warming can cause a rise in sea levels.|지구 온난화는 해수면 상승을 야기할 수 있습니다.|cause A to B - drive A to B (A가 B하게 만들다)

@@ -406,6 +406,22 @@ const VOCAB_DATA = {
   "2단원": [
     {
       "id": 1,
+      "word": "Candid",
+      "meaning": "솔직한",
+      "ex_en": "The witness gave a candid testimony about the incident.",
+      "ex_kr": "증인은 그 사건에 대해 솔직한 증언을 했습니다.",
+      "note": "유의어: frank, honest"
+    },
+    {
+      "id": 2,
+      "word": "Capable",
+      "meaning": "유능한, ~할 수 있는",
+      "ex_en": "The new software is capable of processing large amounts of data.",
+      "ex_kr": "새 소프트웨어는 대량의 데이터를 처리할 수 있습니다.",
+      "note": "be capable of + 명사 / to + 동사원형"
+    },
+    {
+      "id": 3,
       "word": "Capacity",
       "meaning": "용량, 능력",
       "ex_en": "The stadium has a seating capacity of 50,000 people.",
@@ -413,7 +429,7 @@ const VOCAB_DATA = {
       "note": ""
     },
     {
-      "id": 2,
+      "id": 4,
       "word": "Catastrophic",
       "meaning": "재앙적인",
       "ex_en": "The oil spill had catastrophic effects on the local ecosystem.",
@@ -421,7 +437,7 @@ const VOCAB_DATA = {
       "note": ""
     },
     {
-      "id": 3,
+      "id": 5,
       "word": "Cause",
       "meaning": "원인, 야기하다",
       "ex_en": "Global warming can cause a rise in sea levels.",
@@ -429,7 +445,7 @@ const VOCAB_DATA = {
       "note": "cause A to B - drive A to B (A가 B하게 만들다)"
     },
     {
-      "id": 4,
+      "id": 6,
       "word": "Cease",
       "meaning": "중단하다",
       "ex_en": "The government ordered the company to cease operations.",
@@ -437,7 +453,7 @@ const VOCAB_DATA = {
       "note": "유의어: suspend, stop, halt"
     },
     {
-      "id": 5,
+      "id": 7,
       "word": "Channel",
       "meaning": "경로, 수도, (에너지 등을) 돌리다",
       "ex_en": "The city built a channel to redirect the flow of the river.",
@@ -445,7 +461,7 @@ const VOCAB_DATA = {
       "note": ""
     },
     {
-      "id": 6,
+      "id": 8,
       "word": "Chronological",
       "meaning": "시간 순서의",
       "ex_en": "The biography lists the events in chronological order.",
@@ -453,7 +469,7 @@ const VOCAB_DATA = {
       "note": ""
     },
     {
-      "id": 7,
+      "id": 9,
       "word": "Circulate",
       "meaning": "순환하다, 유포하다",
       "ex_en": "Blood begins to circulate through the body more quickly during exercise.",
@@ -461,7 +477,7 @@ const VOCAB_DATA = {
       "note": ""
     },
     {
-      "id": 8,
+      "id": 10,
       "word": "Circumstance",
       "meaning": "상황, 환경",
       "ex_en": "Under no circumstances should you leave the door unlocked.",
@@ -469,7 +485,7 @@ const VOCAB_DATA = {
       "note": "유의어: environment"
     },
     {
-      "id": 9,
+      "id": 11,
       "word": "Clarify",
       "meaning": "명확하게 하다",
       "ex_en": "The professor tried to clarify the complex theory with an example.",
@@ -477,7 +493,7 @@ const VOCAB_DATA = {
       "note": ""
     },
     {
-      "id": 10,
+      "id": 12,
       "word": "Cling",
       "meaning": "매달리다, 고수하다",
       "ex_en": "Some insects cling to the underside of leaves to hide.",
@@ -485,7 +501,7 @@ const VOCAB_DATA = {
       "note": "유의어: hang, suspend, mount"
     },
     {
-      "id": 11,
+      "id": 13,
       "word": "Coalesce",
       "meaning": "합쳐지다, 연합하다",
       "ex_en": "The puddles began to coalesce into a single large pool.",
@@ -493,7 +509,7 @@ const VOCAB_DATA = {
       "note": "유의어: unite"
     },
     {
-      "id": 12,
+      "id": 14,
       "word": "Coherent",
       "meaning": "일관성 있는, 논리적인",
       "ex_en": "The speaker failed to present a coherent argument.",
@@ -501,7 +517,7 @@ const VOCAB_DATA = {
       "note": ""
     },
     {
-      "id": 13,
+      "id": 15,
       "word": "Coincide",
       "meaning": "동시에 일어나다, 일치하다",
       "ex_en": "The festival was timed to coincide with the lunar eclipse.",
@@ -509,7 +525,7 @@ const VOCAB_DATA = {
       "note": "coincide with + 명사(~와 동시에 일어나다/일치하다)"
     },
     {
-      "id": 14,
+      "id": 16,
       "word": "Collaborate",
       "meaning": "협력하다",
       "ex_en": "Researchers from different fields often collaborate on projects.",
@@ -517,7 +533,7 @@ const VOCAB_DATA = {
       "note": "collaborate (with 사람/회사) (on 사물, 프로젝트명)"
     },
     {
-      "id": 15,
+      "id": 17,
       "word": "Collision",
       "meaning": "충돌",
       "ex_en": "The collision of the two tectonic plates formed the mountains.",
@@ -525,7 +541,7 @@ const VOCAB_DATA = {
       "note": ""
     },
     {
-      "id": 16,
+      "id": 18,
       "word": "Commence",
       "meaning": "시작하다",
       "ex_en": "The graduation ceremony is scheduled to commence at 10 a.m.",
@@ -533,7 +549,7 @@ const VOCAB_DATA = {
       "note": "유의어: begin, start, embark on(착수하다)"
     },
     {
-      "id": 17,
+      "id": 19,
       "word": "Commend",
       "meaning": "칭찬하다",
       "ex_en": "The principal decided to commend the students for their bravery.",
@@ -541,7 +557,7 @@ const VOCAB_DATA = {
       "note": "주의: command(명령하다)와 혼동 금지"
     },
     {
-      "id": 18,
+      "id": 20,
       "word": "Comparable",
       "meaning": "비교 가능한, 비슷한",
       "ex_en": "The quality of this product is comparable to that of more expensive brands.",
@@ -549,7 +565,7 @@ const VOCAB_DATA = {
       "note": ""
     },
     {
-      "id": 19,
+      "id": 21,
       "word": "Compelling",
       "meaning": "설득력 있는, 강렬한",
       "ex_en": "The lawyer presented compelling evidence to the jury.",
@@ -557,7 +573,7 @@ const VOCAB_DATA = {
       "note": "매력적인 뜻일 때 유의어: attractive, appealing, charming / 설득력있다는 뜻일 때 동의어: convincing"
     },
     {
-      "id": 20,
+      "id": 22,
       "word": "Compensate",
       "meaning": "보상하다, 상쇄하다",
       "ex_en": "The company will compensate the workers for the extra hours.",
@@ -565,7 +581,7 @@ const VOCAB_DATA = {
       "note": "compensate A for B (B에 대해 A에게 보상하다)"
     },
     {
-      "id": 21,
+      "id": 23,
       "word": "Competent",
       "meaning": "능숙한, 자격이 있는",
       "ex_en": "She is a competent engineer who can solve technical issues.",
@@ -573,7 +589,7 @@ const VOCAB_DATA = {
       "note": "유의어: skillful, adept, qualified"
     },
     {
-      "id": 22,
+      "id": 24,
       "word": "Compile",
       "meaning": "수집하다, 엮다",
       "ex_en": "It took years to compile all the data for the report.",
@@ -581,7 +597,7 @@ const VOCAB_DATA = {
       "note": "유의어: gather"
     },
     {
-      "id": 23,
+      "id": 25,
       "word": "Complement",
       "meaning": "보완하다",
       "ex_en": "The red wine was chosen to complement the flavor of the steak.",
@@ -589,7 +605,7 @@ const VOCAB_DATA = {
       "note": "유의어: make up"
     },
     {
-      "id": 24,
+      "id": 26,
       "word": "Complex",
       "meaning": "복잡한",
       "ex_en": "The human brain is the most complex organ in the body.",
@@ -597,7 +613,7 @@ const VOCAB_DATA = {
       "note": "유의어: elaborate(정교한)"
     },
     {
-      "id": 25,
+      "id": 27,
       "word": "Component",
       "meaning": "구성 요소",
       "ex_en": "Nitrogen is a major component of the Earth's atmosphere.",
@@ -605,7 +621,7 @@ const VOCAB_DATA = {
       "note": "유의어: part"
     },
     {
-      "id": 26,
+      "id": 28,
       "word": "Comprehensive",
       "meaning": "종합적인, 포괄적인",
       "ex_en": "The book provides a comprehensive study of ancient Rome.",
@@ -613,7 +629,7 @@ const VOCAB_DATA = {
       "note": "유의어: extensive, wide / 혼동주의 comprehensible = understandable(이해할 수 있는)"
     },
     {
-      "id": 27,
+      "id": 29,
       "word": "Comprise",
       "meaning": "구성하다, 차지하다",
       "ex_en": "Ten chapters comprise the entire textbook.",
@@ -621,7 +637,7 @@ const VOCAB_DATA = {
       "note": "= compose of"
     },
     {
-      "id": 28,
+      "id": 30,
       "word": "Compulsory",
       "meaning": "의무적인",
       "ex_en": "In many countries, primary education is compulsory.",
@@ -629,7 +645,7 @@ const VOCAB_DATA = {
       "note": "유의어: mandatory"
     },
     {
-      "id": 29,
+      "id": 31,
       "word": "Conceal",
       "meaning": "숨기다",
       "ex_en": "The chameleon can change its color to conceal itself.",
@@ -637,7 +653,7 @@ const VOCAB_DATA = {
       "note": "유의어: hide"
     },
     {
-      "id": 30,
+      "id": 32,
       "word": "Concede",
       "meaning": "인정하다, 양보하다",
       "ex_en": "The candidate had to concede defeat after the votes were counted.",
@@ -645,7 +661,7 @@ const VOCAB_DATA = {
       "note": ""
     },
     {
-      "id": 31,
+      "id": 33,
       "word": "Conceive",
       "meaning": "상상하다, 생각하다",
       "ex_en": "It is hard to conceive of a world without the internet.",
@@ -653,7 +669,7 @@ const VOCAB_DATA = {
       "note": "유의어: imagine"
     },
     {
-      "id": 32,
+      "id": 34,
       "word": "Concentrate",
       "meaning": "집중하다, 모으다",
       "ex_en": "Tropical storms tend to concentrate in warm ocean areas.",
@@ -661,7 +677,7 @@ const VOCAB_DATA = {
       "note": "concentrate on, focus on, stress, highlight(강조하다, 집중하다) / mark(표시하다) / gather, assemble(모으다)"
     },
     {
-      "id": 33,
+      "id": 35,
       "word": "Concise",
       "meaning": "간결한",
       "ex_en": "Please provide a concise summary of the meeting.",
@@ -669,7 +685,7 @@ const VOCAB_DATA = {
       "note": "유의어: brief"
     },
     {
-      "id": 34,
+      "id": 36,
       "word": "Concrete",
       "meaning": "구체적인",
       "ex_en": "Scientists are looking for concrete proof of life on other planets.",
@@ -677,7 +693,7 @@ const VOCAB_DATA = {
       "note": "유의어: exact(정확한), clear/apparent(분명한)"
     },
     {
-      "id": 35,
+      "id": 37,
       "word": "Concurrent",
       "meaning": "동시에 발생하는",
       "ex_en": "The exhibition features concurrent events in three different galleries.",
@@ -685,7 +701,7 @@ const VOCAB_DATA = {
       "note": "at the same time, simultaneously"
     },
     {
-      "id": 36,
+      "id": 38,
       "word": "Condense",
       "meaning": "응축하다, 요약하다",
       "ex_en": "Steam begins to condense into water droplets as it cools.",
@@ -693,7 +709,7 @@ const VOCAB_DATA = {
       "note": "유의어: summarize"
     },
     {
-      "id": 37,
+      "id": 39,
       "word": "Conduct",
       "meaning": "수행하다, 진도하다",
       "ex_en": "The laboratory will conduct a series of experiments.",
@@ -701,7 +717,7 @@ const VOCAB_DATA = {
       "note": "유의어: carry out"
     },
     {
-      "id": 38,
+      "id": 40,
       "word": "Confer",
       "meaning": "수여하다, 상의하다",
       "ex_en": "The board met to confer an award on the winner.",
@@ -709,7 +725,7 @@ const VOCAB_DATA = {
       "note": "유의어: give, send, offer, grant, charge, issue, award"
     },
     {
-      "id": 39,
+      "id": 41,
       "word": "Confine",
       "meaning": "제한하다, 가두다",
       "ex_en": "The infection was confined to a small area of the skin.",
@@ -717,7 +733,7 @@ const VOCAB_DATA = {
       "note": "유의어: limit"
     },
     {
-      "id": 40,
+      "id": 42,
       "word": "Confirm",
       "meaning": "확인하다",
       "ex_en": "New research results confirm the previous theory.",
@@ -725,7 +741,7 @@ const VOCAB_DATA = {
       "note": "주의: conform to(~을 준수하다)와 혼동 금지"
     },
     {
-      "id": 41,
+      "id": 43,
       "word": "Conflict",
       "meaning": "갈등, 충돌하다",
       "ex_en": "The two theories conflict with each other.",
@@ -733,7 +749,7 @@ const VOCAB_DATA = {
       "note": ""
     },
     {
-      "id": 42,
+      "id": 44,
       "word": "Conform",
       "meaning": "따르다, 순응하다",
       "ex_en": "All products must conform to safety regulations.",
@@ -741,7 +757,7 @@ const VOCAB_DATA = {
       "note": "conform to, comply with, confirm to + a stipulation / abide by + a regulation / adhere to + a provision / obey, follow, observe"
     },
     {
-      "id": 43,
+      "id": 45,
       "word": "Confront",
       "meaning": "직면하다",
       "ex_en": "The hero had to confront many challenges on his journey.",
@@ -749,7 +765,7 @@ const VOCAB_DATA = {
       "note": ""
     },
     {
-      "id": 44,
+      "id": 46,
       "word": "Congestion",
       "meaning": "혼잡",
       "ex_en": "The new bridge was built to reduce traffic congestion.",
@@ -757,7 +773,7 @@ const VOCAB_DATA = {
       "note": ""
     },
     {
-      "id": 45,
+      "id": 47,
       "word": "Conscientious",
       "meaning": "양심적인, 성실한",
       "ex_en": "A conscientious worker pays great attention to detail.",
@@ -765,7 +781,7 @@ const VOCAB_DATA = {
       "note": ""
     },
     {
-      "id": 46,
+      "id": 48,
       "word": "Consecutive",
       "meaning": "연속적인",
       "ex_en": "It rained for three consecutive days this week.",
@@ -773,7 +789,7 @@ const VOCAB_DATA = {
       "note": "숫자 + consecutive, successive + 숫자"
     },
     {
-      "id": 47,
+      "id": 49,
       "word": "Consensus",
       "meaning": "합의, 의견 일치",
       "ex_en": "The committee reached a consensus after hours of debate.",
@@ -781,7 +797,7 @@ const VOCAB_DATA = {
       "note": ""
     },
     {
-      "id": 48,
+      "id": 50,
       "word": "Consequence",
       "meaning": "결과, 중요성",
       "ex_en": "Climate change has serious consequences for the entire world.",
