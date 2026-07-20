@@ -6,7 +6,7 @@ let progress = loadProgress();
 applyTheme();
 
 let state = {
-  page: 'home',          // home | browse | quizSetup | quiz | quizResult | writeSetup | writeQuiz | writeResult | mock | review | settings
+  page: 'home',          // home | browse | quizSetup | quiz | quizResult | writeSetup | writeQuiz | writeResult | writingSetup | writingPractice | writingResult | mock | review | settings
   unit: UNIT_NAMES[0] || null,
   view: 'list',           // list | card
   search: '',
@@ -123,6 +123,7 @@ function renderHeader() {
     { id: 'browse', label: '단어 보기' },
     { id: 'quizSetup', label: '시험' },
     { id: 'writeSetup', label: '쓰기시험' },
+    { id: 'writingSetup', label: '영작문 연습' },
     { id: 'mock', label: '모의고사' },
     { id: 'review', label: '오답/중요' },
   ];
@@ -150,6 +151,7 @@ function samePageGroup(page, navId) {
     browse: ['browse'],
     quizSetup: ['quizSetup', 'quiz', 'quizResult'],
     writeSetup: ['writeSetup', 'writeQuiz', 'writeResult'],
+    writingSetup: ['writingSetup', 'writingPractice', 'writingResult'],
     mock: ['mockSetup', 'mock', 'mockQuiz', 'mockResult'],
     review: ['review'],
   };
@@ -180,6 +182,9 @@ function renderPage() {
     case 'writeSetup': return renderQuizSetup(true);
     case 'writeQuiz': return renderQuiz();
     case 'writeResult': return renderQuizResult();
+    case 'writingSetup': return renderWritingSetup();
+    case 'writingPractice': return renderWritingPractice();
+    case 'writingResult': return renderWritingResult();
     case 'mockSetup': return renderQuizSetup(false, true);
     case 'mockQuiz': return renderQuiz();
     case 'mockResult': return renderQuizResult();
@@ -196,6 +201,9 @@ function bindPageEvents() {
     case 'quizSetup': case 'writeSetup': case 'mockSetup': return bindQuizSetup();
     case 'quiz': case 'writeQuiz': case 'mockQuiz': return bindQuiz();
     case 'quizResult': case 'writeResult': case 'mockResult': return bindQuizResult();
+    case 'writingSetup': return bindWritingSetup();
+    case 'writingPractice': return bindWritingPractice();
+    case 'writingResult': return bindWritingResult();
   }
 }
 

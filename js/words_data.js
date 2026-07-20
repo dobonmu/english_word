@@ -804,5 +804,255 @@ const VOCAB_DATA = {
       "ex_kr": "기후 변화는 전 세계에 심각한 결과를 가져옵니다.",
       "note": "유의어: result, importance"
     }
+  ],
+  "3단원": [
+    {
+      "id": 1,
+      "word": "Damp",
+      "meaning": "축축한, 눅눅한",
+      "ex_en": "The basement felt damp after the heavy rain.",
+      "ex_kr": "폭우가 내린 후 지하실은 축축하게 느껴졌습니다.",
+      "note": "동의어: moist, soggy"
+    },
+    {
+      "id": 2,
+      "word": "Bold",
+      "meaning": "대담한, 용감한",
+      "ex_en": "It was a bold decision to launch the product without more testing.",
+      "ex_kr": "더 많은 테스트 없이 제품을 출시한 것은 대담한 결정이었습니다.",
+      "note": "동의어: audacious, intrepid"
+    },
+    {
+      "id": 3,
+      "word": "Brilliant",
+      "meaning": "훌륭한, 뛰어난, 눈부신",
+      "ex_en": "She came up with a brilliant solution to the problem.",
+      "ex_kr": "그녀는 그 문제에 대해 훌륭한 해결책을 생각해 냈습니다.",
+      "note": "동의어: outstanding, ingenious"
+    },
+    {
+      "id": 4,
+      "word": "Deceive",
+      "meaning": "속이다, 기만하다",
+      "ex_en": "The scammer tried to deceive elderly customers over the phone.",
+      "ex_kr": "그 사기꾼은 전화로 노인 고객들을 속이려 했습니다.",
+      "note": "동의어: mislead, dupe, cheat"
+    },
+    {
+      "id": 5,
+      "word": "Decipher",
+      "meaning": "해독하다, 판독하다",
+      "ex_en": "Archaeologists worked for years to decipher the ancient script.",
+      "ex_kr": "고고학자들은 그 고대 문자를 해독하기 위해 수년간 작업했습니다.",
+      "note": "동의어: decode, interpret"
+    },
+    {
+      "id": 6,
+      "word": "Decline",
+      "meaning": "감소하다; 거절하다",
+      "ex_en": "Sales began to decline sharply after the new tax was introduced.",
+      "ex_kr": "새로운 세금이 도입된 후 매출이 급격히 감소하기 시작했습니다.",
+      "note": "감소하다: decrease, reduce, abate, alleviate, lower, plummet, plunge / 거절하다: decline, reject, refuse to"
+    },
+    {
+      "id": 7,
+      "word": "Error",
+      "meaning": "실수, 오류",
+      "ex_en": "The report contained a small error in the calculations.",
+      "ex_kr": "그 보고서에는 계산상의 작은 오류가 있었습니다.",
+      "note": "유의어: issue, mistake"
+    },
+    {
+      "id": 8,
+      "word": "Postpone",
+      "meaning": "연기하다, 미루다",
+      "ex_en": "The meeting was postponed due to the CEO's sudden illness.",
+      "ex_kr": "그 회의는 CEO의 갑작스러운 병환으로 연기되었습니다.",
+      "note": "동의어: defer, delay, push back, put off, put on hold, procrastinate, impede"
+    },
+    {
+      "id": 9,
+      "word": "Deficient",
+      "meaning": "부족한, 결핍된",
+      "ex_en": "A diet deficient in vitamins can lead to serious health problems.",
+      "ex_kr": "비타민이 부족한 식단은 심각한 건강 문제로 이어질 수 있습니다.",
+      "note": "동의어: lacked, insufficient, not enough"
+    },
+    {
+      "id": 10,
+      "word": "Evident",
+      "meaning": "분명한, 명백한",
+      "ex_en": "It was evident from her expression that she disagreed.",
+      "ex_kr": "그녀의 표정에서 그녀가 동의하지 않는다는 것이 분명했습니다.",
+      "note": "동의어: clear"
+    },
+    {
+      "id": 11,
+      "word": "Evade",
+      "meaning": "피하다, 회피하다",
+      "ex_en": "The suspect tried to evade the police for several hours.",
+      "ex_kr": "용의자는 몇 시간 동안 경찰을 피하려 했습니다.",
+      "note": "동의어: avoid"
+    },
+    {
+      "id": 12,
+      "word": "Distort",
+      "meaning": "왜곡하다, 비틀다",
+      "ex_en": "The heat began to distort the shape of the plastic frame.",
+      "ex_kr": "열기가 플라스틱 프레임의 모양을 왜곡시키기 시작했습니다.",
+      "note": "동의어: change, transform, modify, deform"
+    },
+    {
+      "id": 13,
+      "word": "Proficient",
+      "meaning": "능숙한, 숙달된",
+      "ex_en": "After years of practice, she became proficient in three languages.",
+      "ex_kr": "수년간의 연습 끝에 그녀는 세 개 언어에 능숙해졌습니다.",
+      "note": "동의어: adept, skillful"
+    },
+    {
+      "id": 14,
+      "word": "Deliberate",
+      "meaning": "신중한; 의도적인, 고의의",
+      "ex_en": "The judge made a deliberate decision to delay the verdict.",
+      "ex_kr": "판사는 판결을 미루기로 신중한 결정을 내렸습니다.",
+      "note": "신중한: considerate / 의도적인: intended, planned"
+    },
+    {
+      "id": 15,
+      "word": "Elucidate",
+      "meaning": "설명하다, 명료하게 하다",
+      "ex_en": "The professor paused to elucidate a difficult point in the theory.",
+      "ex_kr": "교수는 그 이론의 어려운 부분을 설명하기 위해 잠시 멈췄습니다.",
+      "note": "동의어: account for, explain, detail, elaborate, illustrate, describe"
+    },
+    {
+      "id": 16,
+      "word": "Demolish",
+      "meaning": "철거하다, 파괴하다, 없애다",
+      "ex_en": "The old factory will be demolished to make way for a new park.",
+      "ex_kr": "그 오래된 공장은 새 공원 부지를 만들기 위해 철거될 것입니다.",
+      "note": "동의어: get rid of, remove, discard, dispose of"
+    },
+    {
+      "id": 17,
+      "word": "Demonstrate",
+      "meaning": "입증하다, 보여주다",
+      "ex_en": "The experiment demonstrated that the new drug was effective.",
+      "ex_kr": "그 실험은 새 약이 효과적이라는 것을 입증했습니다.",
+      "note": "입증하다: prove / 보여주다: showcase"
+    },
+    {
+      "id": 18,
+      "word": "Depict",
+      "meaning": "묘사하다, 그리다",
+      "ex_en": "The mural depicts the history of the small fishing village.",
+      "ex_kr": "그 벽화는 작은 어촌 마을의 역사를 묘사합니다.",
+      "note": "동의어: describe"
+    },
+    {
+      "id": 19,
+      "word": "Descend",
+      "meaning": "내려가다, 하강하다",
+      "ex_en": "The plane began to descend as it approached the airport.",
+      "ex_kr": "비행기는 공항에 접근하면서 하강하기 시작했습니다.",
+      "note": "반대어: ascend(올라가다)"
+    },
+    {
+      "id": 20,
+      "word": "Designate",
+      "meaning": "지정하다, 지명하다",
+      "ex_en": "The mayor designated a new area as a wildlife reserve.",
+      "ex_kr": "시장은 새로운 구역을 야생동물 보호구역으로 지정했습니다.",
+      "note": "동의어: assign"
+    },
+    {
+      "id": 21,
+      "word": "Deter",
+      "meaning": "막다, 단념시키다",
+      "ex_en": "Strict penalties are meant to deter people from speeding.",
+      "ex_kr": "엄격한 처벌은 사람들이 과속하는 것을 막기 위한 것입니다.",
+      "note": "동의어: stop a from b, prohibit a from b (a를 b로부터 막다)"
+    },
+    {
+      "id": 22,
+      "word": "Determine",
+      "meaning": "결정하다, 알아내다",
+      "ex_en": "Scientists are trying to determine the cause of the outbreak.",
+      "ex_kr": "과학자들은 그 발병의 원인을 알아내려 하고 있습니다.",
+      "note": "결정하다: decide / 찾다: find out, search for, look for, seek"
+    },
+    {
+      "id": 23,
+      "word": "Endeavor",
+      "meaning": "노력하다, 애쓰다",
+      "ex_en": "The team endeavored to finish the project before the deadline.",
+      "ex_kr": "팀은 마감일 전에 프로젝트를 끝내려고 노력했습니다.",
+      "note": "동의어: strive to, struggle, try to, attempt to"
+    },
+    {
+      "id": 24,
+      "word": "Barring",
+      "meaning": "~을 제외하고, ~이 없다면",
+      "ex_en": "Barring any delays, the shipment should arrive by Friday.",
+      "ex_kr": "지연이 없다면 그 화물은 금요일까지 도착할 것입니다.",
+      "note": "동의어: without, with few, but for"
+    },
+    {
+      "id": 25,
+      "word": "Devoted",
+      "meaning": "헌신적인, 몰두하는",
+      "ex_en": "She is devoted to helping stray animals find new homes.",
+      "ex_kr": "그녀는 유기동물들이 새 가정을 찾도록 돕는 데 헌신적입니다.",
+      "note": "be devoted to 명사, be dedicated to 명사, be committed to 명사 (~에 헌신되다)"
+    },
+    {
+      "id": 26,
+      "word": "Alleviate",
+      "meaning": "완화하다, 줄이다",
+      "ex_en": "The new medication helped alleviate her chronic back pain.",
+      "ex_kr": "그 새 약은 그녀의 만성 요통을 완화하는 데 도움이 되었습니다.",
+      "note": "동의어: reduce, lower, abate, ease"
+    },
+    {
+      "id": 27,
+      "word": "Eliminate",
+      "meaning": "없애다, 제거하다",
+      "ex_en": "The new filter system eliminates over 99% of bacteria in water.",
+      "ex_kr": "새 필터 시스템은 물속 박테리아의 99% 이상을 제거합니다.",
+      "note": "동의어: dispose of, get rid of, remove"
+    },
+    {
+      "id": 28,
+      "word": "Suspend",
+      "meaning": "중단하다, 정지시키다",
+      "ex_en": "The airline suspended all flights due to the volcanic ash cloud.",
+      "ex_kr": "그 항공사는 화산재 구름 때문에 모든 항공편을 중단했습니다.",
+      "note": "동의어: stop, keep, disrupt, prohibit a from b"
+    },
+    {
+      "id": 29,
+      "word": "Dupe",
+      "meaning": "속이다, 기만하다; 잘 속는 사람",
+      "ex_en": "He was duped into investing in a fake company.",
+      "ex_kr": "그는 속아서 가짜 회사에 투자하게 되었습니다.",
+      "note": "동의어: deceive, mislead, cheat"
+    },
+    {
+      "id": 30,
+      "word": "Intrepid",
+      "meaning": "용맹한, 두려움 없는",
+      "ex_en": "The intrepid explorer crossed the desert without any support team.",
+      "ex_kr": "그 용맹한 탐험가는 지원팀 없이 사막을 횡단했습니다.",
+      "note": "동의어: bold, audacious, fearless"
+    },
+    {
+      "id": 31,
+      "word": "Discard",
+      "meaning": "버리다, 폐기하다",
+      "ex_en": "Please discard any expired medication safely.",
+      "ex_kr": "유통기한이 지난 약은 안전하게 폐기해 주세요.",
+      "note": "동의어: dispose of, get rid of, throw away"
+    }
   ]
 };
