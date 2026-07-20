@@ -46,8 +46,8 @@ function renderHome() {
         <p>뜻을 보고 영어 단어를 직접 입력해서 채점하는 시험 모드</p>
       </div>
       <div class="opt-card" data-go="writingSetup">
-        <h3>&#128221; 영작문 연습</h3>
-        <p>단어를 직접 활용해서 영어 문장을 써보고 예시 예문과 비교하는 모드</p>
+        <h3>&#128221; Writing</h3>
+        <p>실전 영어 문장을 공부하거나, 뜻/문장을 보고 서로 바꿔 써보는 시험 모드</p>
       </div>
       <div class="opt-card" data-go="mockSetup">
         <h3>&#128220; 모의고사</h3>

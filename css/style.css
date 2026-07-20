@@ -250,6 +250,10 @@ button,input{font-family:inherit}
 .qmark.correct{background:var(--fill-success)}
 .qmark.wrong{background:var(--fill-danger)}
 .qmark.partial{background:var(--fill-warn)}
+.status-tag{font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px}
+.status-tag.correct{background:var(--bg-success);color:var(--fill-success)}
+.status-tag.wrong{background:var(--bg-danger);color:var(--fill-danger)}
+.status-tag.partial{background:var(--bg-accent);color:var(--fill-warn)}
 
 .quiz-result{text-align:center;padding:20px}
 .result-score{font-size:44px;font-weight:800;color:var(--fill-accent);margin:12px 0 4px}

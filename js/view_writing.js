@@ -1,158 +1,102 @@
-// ===== Writing 연습: 단어를 활용해 직접 영작문을 써보는 모드 + 문장 표현 학습 =====
+// ===== Writing 학습: 문장 표현을 공부하거나 시험보는 모드 =====
 let writingSetupState = {
-  mode: 'wordPractice',   // wordPractice(단어 활용 작문) | sentenceStudy(문장 표현 학습)
-  scopeType: 'unit',      // unit | multiUnit | all | wrongList | starredList
-  scopeUnits: [],
-  count: 20,
+  mode: 'study',          // study(영어/뜻 카드 학습) | quiz(시험)
   setName: null,
+  quizPromptType: 'kr',    // kr(뜻 보고 문장 쓰기) | en(문장 보고 뜻 쓰기)
 };
 
-let writingSession = null; // { words: [...], idx, inputs: [...] }
 let sentenceStudyState = { setName: null, idx: 0, flipped: false };
+let writingQuiz = null; // { setName, items: [{it, status, userInput, revealed}], idx }
 
 const WRITING_SET_NAMES = (typeof WRITING_DATA !== 'undefined') ? Object.keys(WRITING_DATA) : [];
-
-function buildWritingScopeWords(setup) {
-  if (setup.scopeType === 'wrongList') return getWrongWords();
-  if (setup.scopeType === 'starredList') return getStarredWords();
-  if (setup.scopeType === 'all') return ALL_WORDS.slice();
-  if (setup.scopeType === 'multiUnit') return ALL_WORDS.filter(w => setup.scopeUnits.includes(w.unit));
-  const unit = setup.scopeUnits[0] || state.unit;
-  return ALL_WORDS.filter(w => w.unit === unit);
-}
-
-function startWriting(setup) {
-  const pool = buildWritingScopeWords(setup);
-  if (pool.length === 0) { toast('선택한 범위에 단어가 없습니다.'); return false; }
-  const count = Math.min(setup.count || 20, pool.length);
-  const words = shuffleArray(pool).slice(0, count);
-  writingSession = {
-    setup,
-    words,
-    idx: 0,
-    inputs: words.map(() => ''),
-    revealed: words.map(() => false),
-    startedAt: Date.now(),
-  };
-  goto('writingPractice');
-  return true;
-}
 
 function renderWritingSetup() {
   const modeTabs = `
     <div class="seg" style="margin-bottom:16px">
-      <button class="${writingSetupState.mode === 'wordPractice' ? 'on' : ''}" data-w-mode="wordPractice">단어 활용 작문</button>
-      <button class="${writingSetupState.mode === 'sentenceStudy' ? 'on' : ''}" data-w-mode="sentenceStudy">문장 표현 학습</button>
+      <button class="${writingSetupState.mode === 'study' ? 'on' : ''}" data-w-mode="study">공부하기</button>
+      <button class="${writingSetupState.mode === 'quiz' ? 'on' : ''}" data-w-mode="quiz">시험보기</button>
     </div>
   `;
 
-  if (writingSetupState.mode === 'sentenceStudy') {
-    return modeTabs + renderSentenceStudySetup();
-  }
-
-  const scopeTypes = [
-    { id: 'unit', label: '단원별 연습', desc: '선택한 한 단원의 단어로 작문 연습' },
-    { id: 'multiUnit', label: '여러 단원 연습', desc: '원하는 단원을 여러 개 골라서 연습' },
-    { id: 'all', label: '전체 단원 연습', desc: '모든 단원의 단어를 섞어서 연습' },
-    { id: 'wrongList', label: '자주 틀린 단어', desc: '오답 기록이 있는 단어로 연습' },
-    { id: 'starredList', label: '중요 표시 단어', desc: '중요 표시한 단어로 연습' },
-  ];
-
-  const scopeCards = scopeTypes.map(s => `
-    <div class="opt-card ${writingSetupState.scopeType === s.id ? 'on' : ''}" data-wscope="${s.id}">
-      <h3>${s.label}</h3>
-      <p>${s.desc}</p>
-    </div>
-  `).join('');
-
-  const unitPicker = writingSetupState.scopeType === 'unit' ? `
-    <div class="field">
-      <label>단원 선택</label>
-      <select id="w-unit-select">
-        ${UNIT_NAMES.map(u => `<option value="${escapeHtml(u)}" ${writingSetupState.scopeUnits[0] === u ? 'selected' : ''}>${escapeHtml(u)}</option>`).join('')}
-      </select>
-    </div>` : '';
-
-  const multiUnitPicker = writingSetupState.scopeType === 'multiUnit' ? `
-    <div class="field">
-      <label>단원 선택 (여러 개 가능)</label>
-      <div class="unit-check-list">
-        ${UNIT_NAMES.map(u => `<button class="unit-check ${writingSetupState.scopeUnits.includes(u) ? 'on' : ''}" data-w-multi-unit="${escapeHtml(u)}">${escapeHtml(u)}</button>`).join('')}
-      </div>
-    </div>` : '';
-
-  const scopeCountInfo = (() => {
-    if (writingSetupState.scopeType === 'wrongList') return getWrongWords().length;
-    if (writingSetupState.scopeType === 'starredList') return getStarredWords().length;
-    return null;
-  })();
-
-  return modeTabs + `
-    <div class="section-card">
-      <div class="section-title">&#128221; 영작문 연습 설정</div>
-      <p class="hint-text" style="margin-bottom:14px">단어마다 그 단어를 사용한 영어 문장을 직접 작문해보고, 예시 예문과 비교하며 스스로 확인하는 모드입니다. 정답을 채점하지는 않으니 자유롭게 작문 연습에 활용하세요.</p>
-      <div class="field">
-        <label>연습 범위</label>
-        <div class="grid-cards">${scopeCards}</div>
-        ${scopeCountInfo !== null ? `<div class="hint-text">현재 ${scopeCountInfo}개 단어가 있습니다.</div>` : ''}
-      </div>
-      ${unitPicker}
-      ${multiUnitPicker}
-      <div class="field">
-        <label>단어 수 (기본 20)</label>
-        <input type="number" id="w-count-input" min="1" max="200" value="${writingSetupState.count}">
-      </div>
-      <div class="row-btns" style="justify-content:flex-start">
-        <button class="big-btn" id="start-writing-btn">작문 연습 시작</button>
-      </div>
-    </div>
-  `;
-}
-
-function renderSentenceStudySetup() {
   if (WRITING_SET_NAMES.length === 0) {
-    return `<div class="section-card"><div class="empty">아직 등록된 문장 학습 세트가 없습니다.</div></div>`;
+    return modeTabs + `<div class="section-card"><div class="empty">아직 등록된 writing 학습 세트가 없습니다.</div></div>`;
   }
-  if (!sentenceStudyState.setName) sentenceStudyState.setName = WRITING_SET_NAMES[0];
+  if (!writingSetupState.setName) writingSetupState.setName = WRITING_SET_NAMES[0];
+
   const cards = WRITING_SET_NAMES.map(name => `
-    <div class="opt-card ${sentenceStudyState.setName === name ? 'on' : ''}" data-w-set="${escapeHtml(name)}">
+    <div class="opt-card ${writingSetupState.setName === name ? 'on' : ''}" data-w-set="${escapeHtml(name)}">
       <h3>${escapeHtml(name)}</h3>
       <p>${WRITING_DATA[name].length}개 문장</p>
     </div>
   `).join('');
 
-  return `
+  if (writingSetupState.mode === 'quiz') {
+    return modeTabs + `
+      <div class="section-card">
+        <div class="section-title">&#9997;&#65039; Writing 시험 설정</div>
+        <p class="hint-text" style="margin-bottom:14px">뜻을 보고 영어 문장을 직접 써보거나, 영어 문장을 보고 뜻을 써보는 시험입니다. 채점은 스스로 비교해서 표시합니다.</p>
+        <div class="field">
+          <label>학습 세트 선택</label>
+          <div class="grid-cards">${cards}</div>
+        </div>
+        <div class="field">
+          <label>문제 형식</label>
+          <div class="seg">
+            <button class="${writingSetupState.quizPromptType === 'kr' ? 'on' : ''}" data-w-prompt="kr">뜻 보고 문장 쓰기</button>
+            <button class="${writingSetupState.quizPromptType === 'en' ? 'on' : ''}" data-w-prompt="en">문장 보고 뜻 쓰기</button>
+          </div>
+        </div>
+        <div class="row-btns" style="justify-content:flex-start">
+          <button class="big-btn" id="start-writing-quiz-btn">시험 시작</button>
+        </div>
+      </div>
+    `;
+  }
+
+  return modeTabs + `
     <div class="section-card">
-      <div class="section-title">&#128221; 문장 표현 학습 설정</div>
-      <p class="hint-text" style="margin-bottom:14px">실제 서식/이메일에 쓰이는 영어 문장을 통째로 익히고, 문장에 담긴 표현과 학습 포인트(패턴, 동의어, 관용구)를 함께 정리하는 모드입니다.</p>
+      <div class="section-title">&#128221; Writing 공부하기</div>
+      <p class="hint-text" style="margin-bottom:14px">영어 문장과 뜻을 함께 보면서 실전 표현을 익히는 모드입니다.</p>
       <div class="field">
         <label>학습 세트 선택</label>
         <div class="grid-cards">${cards}</div>
       </div>
       <div class="row-btns" style="justify-content:flex-start">
-        <button class="big-btn" id="start-sentence-study-btn">문장 학습 시작</button>
+        <button class="big-btn" id="start-sentence-study-btn">공부 시작</button>
       </div>
     </div>
   `;
 }
 
-function bindSentenceStudySetup() {
-  document.querySelectorAll('[data-w-set]').forEach(el => el.addEventListener('click', () => {
-    sentenceStudyState.setName = el.dataset.wSet;
+function bindWritingSetup() {
+  document.querySelectorAll('[data-w-mode]').forEach(el => el.addEventListener('click', () => {
+    writingSetupState.mode = el.dataset.wMode;
     render();
   }));
-  const startBtn = document.getElementById('start-sentence-study-btn');
-  if (startBtn) startBtn.addEventListener('click', () => {
-    sentenceStudyState.idx = 0;
-    sentenceStudyState.flipped = false;
+  document.querySelectorAll('[data-w-set]').forEach(el => el.addEventListener('click', () => {
+    writingSetupState.setName = el.dataset.wSet;
+    render();
+  }));
+  document.querySelectorAll('[data-w-prompt]').forEach(el => el.addEventListener('click', () => {
+    writingSetupState.quizPromptType = el.dataset.wPrompt;
+    render();
+  }));
+  const startStudyBtn = document.getElementById('start-sentence-study-btn');
+  if (startStudyBtn) startStudyBtn.addEventListener('click', () => {
+    sentenceStudyState = { setName: writingSetupState.setName, idx: 0, flipped: false };
     goto('sentenceStudy');
+  });
+  const startQuizBtn = document.getElementById('start-writing-quiz-btn');
+  if (startQuizBtn) startQuizBtn.addEventListener('click', () => {
+    startWritingQuiz(writingSetupState.setName, writingSetupState.quizPromptType);
   });
 }
 
+// ===== 공부하기: 영어 문장 <-> 뜻 카드 =====
 function renderSentenceStudy() {
   const name = sentenceStudyState.setName;
   const items = (name && WRITING_DATA[name]) || [];
-  if (items.length === 0) return `<div class="empty">진행 중인 문장 학습이 없습니다.</div>`;
+  if (items.length === 0) return `<div class="empty">진행 중인 학습이 없습니다.</div>`;
   const idx = sentenceStudyState.idx;
   const it = items[idx];
   const total = items.length;
@@ -171,7 +115,7 @@ function renderSentenceStudy() {
         <div class="quiz-prompt" style="font-size:19px;text-align:center">${escapeHtml(it.en)}</div>
         <div class="quiz-actions" style="margin:10px 0 0">
           <button class="qbtn" id="sentence-speak-btn">&#128266; 문장 듣기</button>
-          <button class="qbtn neutral" id="sentence-reveal-btn">${sentenceStudyState.flipped ? '해석 숨기기' : '해석 보기'}</button>
+          <button class="qbtn neutral" id="sentence-reveal-btn">${sentenceStudyState.flipped ? '뜻 숨기기' : '뜻 보기'}</button>
         </div>
         ${sentenceStudyState.flipped ? `
           <div class="quiz-answer-area" style="margin-top:10px">
@@ -226,179 +170,175 @@ function bindSentenceStudy() {
   if (homeBtn) homeBtn.addEventListener('click', () => goto('writingSetup'));
 }
 
-function bindWritingSetup() {
-  document.querySelectorAll('[data-w-mode]').forEach(el => el.addEventListener('click', () => {
-    writingSetupState.mode = el.dataset.wMode;
-    render();
-  }));
-  if (writingSetupState.mode === 'sentenceStudy') { bindSentenceStudySetup(); return; }
-  document.querySelectorAll('[data-wscope]').forEach(el => el.addEventListener('click', () => {
-    writingSetupState.scopeType = el.dataset.wscope;
-    if (writingSetupState.scopeType === 'unit' && writingSetupState.scopeUnits.length === 0) {
-      writingSetupState.scopeUnits = [state.unit || UNIT_NAMES[0]];
-    }
-    render();
-  }));
-  const unitSelect = document.getElementById('w-unit-select');
-  if (unitSelect) unitSelect.addEventListener('change', () => {
-    writingSetupState.scopeUnits = [unitSelect.value];
-  });
-  document.querySelectorAll('[data-w-multi-unit]').forEach(el => el.addEventListener('click', () => {
-    const u = el.dataset.wMultiUnit;
-    const i = writingSetupState.scopeUnits.indexOf(u);
-    if (i >= 0) writingSetupState.scopeUnits.splice(i, 1);
-    else writingSetupState.scopeUnits.push(u);
-    render();
-  }));
-  const countInput = document.getElementById('w-count-input');
-  if (countInput) countInput.addEventListener('input', () => {
-    writingSetupState.count = parseInt(countInput.value) || 1;
-  });
-  const startBtn = document.getElementById('start-writing-btn');
-  if (startBtn) startBtn.addEventListener('click', () => {
-    if (writingSetupState.scopeType === 'unit' && writingSetupState.scopeUnits.length === 0) {
-      writingSetupState.scopeUnits = [state.unit || UNIT_NAMES[0]];
-    }
-    if (writingSetupState.scopeType === 'multiUnit' && writingSetupState.scopeUnits.length === 0) {
-      toast('단원을 하나 이상 선택하세요.'); return;
-    }
-    startWriting(Object.assign({}, writingSetupState));
-  });
+// ===== 시험보기: 뜻 보고 문장 쓰기 / 문장 보고 뜻 쓰기 =====
+function startWritingQuiz(setName, promptType) {
+  const items = (setName && WRITING_DATA[setName]) || [];
+  if (items.length === 0) { toast('선택한 세트에 문장이 없습니다.'); return; }
+  writingQuiz = {
+    setName,
+    promptType,
+    items: items.map(it => ({ it, status: null, userInput: '', revealed: false })),
+    idx: 0,
+  };
+  goto('writingQuiz');
 }
 
-function renderWritingPractice() {
-  if (!writingSession) return `<div class="empty">진행 중인 작문 연습이 없습니다.</div>`;
-  const { words, idx } = writingSession;
-  const w = words[idx];
-  const total = words.length;
+function renderWritingQuizPage() {
+  if (!writingQuiz) return `<div class="empty">진행 중인 시험이 없습니다.</div>`;
+  const { items, idx, promptType, setName } = writingQuiz;
+  const item = items[idx];
+  const total = items.length;
   const progressPct = Math.round(((idx + 1) / total) * 100);
-  const revealed = writingSession.revealed[idx];
-  const dots = words.map((_, i) => `<button class="qmark ${i === idx ? 'cur' : ''} ${writingSession.inputs[i] ? 'correct' : ''}" data-w-jump="${i}"></button>`).join('');
+  const isKrPrompt = promptType === 'kr';
+  const promptLabel = isKrPrompt ? '뜻을 보고 영어 문장을 쓰세요' : '문장을 보고 뜻을 쓰세요';
+  const promptText = isKrPrompt ? item.it.kr : item.it.en;
+  const answerText = isKrPrompt ? item.it.en : item.it.kr;
+
+  const marks = items.map((it, i) => {
+    let cls = '';
+    if (i === idx) cls += ' cur';
+    if (it.status === 'correct') cls += ' correct';
+    else if (it.status === 'wrong') cls += ' wrong';
+    else if (it.status === 'partial') cls += ' partial';
+    return `<button class="qmark${cls}" data-wq-jump="${i}"></button>`;
+  }).join('');
 
   return `
     <div class="quiz-wrap">
       <div class="quiz-progress">
         <span>${idx + 1} / ${total}</span>
         <div class="quiz-bar"><div class="quiz-bar-fill" style="width:${progressPct}%"></div></div>
+        <span>${escapeHtml(setName)}</span>
       </div>
       <div class="quiz-card" style="text-align:left;align-items:stretch">
-        <div class="quiz-prompt-label" style="text-align:center">이 단어를 사용해서 영어 문장을 만들어보세요</div>
-        <div class="quiz-prompt" style="text-align:center">${escapeHtml(w.word)}</div>
-        <div class="cmean" style="text-align:center;margin-bottom:6px">${escapeHtml(w.meaning)}</div>
+        <div class="quiz-prompt-label" style="text-align:center">${promptLabel}</div>
+        <div class="quiz-prompt" style="font-size:18px;text-align:center">${escapeHtml(promptText)}</div>
         <div class="quiz-answer-area">
-          <textarea id="writing-input" placeholder="${escapeHtml(w.word)}를 사용한 영어 문장을 입력하세요" rows="3"
-            style="width:100%;padding:12px 14px;border:2px solid var(--border-strong);border-radius:var(--radius);background:var(--surface-1);color:var(--text-primary);font-size:15px;line-height:1.5;resize:vertical;box-sizing:border-box">${escapeHtml(writingSession.inputs[idx] || '')}</textarea>
+          <textarea id="wq-input" placeholder="${isKrPrompt ? '영어 문장을 입력하세요' : '뜻을 입력하세요'}" rows="3"
+            style="width:100%;padding:12px 14px;border:2px solid var(--border-strong);border-radius:var(--radius);background:var(--surface-1);color:var(--text-primary);font-size:15px;line-height:1.5;resize:vertical;box-sizing:border-box" ${item.revealed ? 'disabled' : ''}>${escapeHtml(item.userInput || '')}</textarea>
         </div>
-        ${revealed ? `
+        ${item.revealed ? `
           <div class="quiz-answer-area" style="margin-top:4px">
-            <div class="quiz-answer" style="text-align:left">예시 예문</div>
-            <div class="quiz-ex" style="margin-top:6px">
-              <span class="en">${escapeHtml(w.ex_en || '')}</span><br>${escapeHtml(w.ex_kr || '')}
-            </div>
-            ${w.note ? `<div class="quiz-note">${escapeHtml(w.note)}</div>` : ''}
+            <div class="quiz-answer" style="text-align:left">정답: ${escapeHtml(answerText)}</div>
+            ${item.it.point ? `<div class="quiz-note">${escapeHtml(item.it.point)}</div>` : ''}
           </div>
         ` : ''}
       </div>
       <div class="quiz-actions">
-        <button class="qbtn neutral" id="writing-reveal-btn">${revealed ? '예시 숨기기' : '예시 예문 보기'}</button>
-        <button class="qbtn" id="writing-speak-btn">&#128266; 단어 듣기</button>
+        ${!item.revealed ? `
+          <button class="qbtn neutral" id="wq-reveal-btn">정답 보기</button>
+        ` : `
+          <button class="qbtn wrong" id="wq-mark-wrong" ${item.status === 'wrong' ? 'disabled' : ''}>틀림으로 표시</button>
+          <button class="qbtn correct" id="wq-mark-correct" ${item.status === 'correct' ? 'disabled' : ''}>맞음으로 표시</button>
+          <button class="qbtn neutral" id="wq-mark-partial" ${item.status === 'partial' ? 'disabled' : ''}>부분 맞음</button>
+        `}
       </div>
       <div class="quiz-navrow">
-        <button class="nbtn" id="writing-prev" ${idx === 0 ? 'disabled' : ''}>&#8592;</button>
-        <div class="quiz-marks">${dots}</div>
-        <button class="nbtn" id="writing-next">${idx === total - 1 ? '&#10003;' : '&#8594;'}</button>
+        <button class="nbtn" id="wq-prev" ${idx === 0 ? 'disabled' : ''}>&#8592;</button>
+        <div class="quiz-marks">${marks}</div>
+        <button class="nbtn" id="wq-next">${idx === total - 1 ? '&#10003;' : '&#8594;'}</button>
       </div>
       <div class="row-btns">
-        <button class="lbtn" id="writing-finish-btn">연습 마치고 내가 쓴 문장 모아보기</button>
+        <button class="lbtn" id="wq-finish-btn">시험 종료하고 결과 보기</button>
       </div>
     </div>
   `;
 }
 
-function commitWritingInput() {
-  if (!writingSession) return;
-  const input = document.getElementById('writing-input');
-  if (input) writingSession.inputs[writingSession.idx] = input.value;
+function commitWritingQuizInput() {
+  if (!writingQuiz) return;
+  const input = document.getElementById('wq-input');
+  const item = writingQuiz.items[writingQuiz.idx];
+  if (input && item) item.userInput = input.value;
 }
 
-function bindWritingPractice() {
-  const input = document.getElementById('writing-input');
+function bindWritingQuizPage() {
+  const item = writingQuiz.items[writingQuiz.idx];
+  const input = document.getElementById('wq-input');
   if (input) {
     input.focus();
-    input.addEventListener('input', () => { writingSession.inputs[writingSession.idx] = input.value; });
+    input.addEventListener('input', () => { item.userInput = input.value; });
   }
-  document.querySelectorAll('[data-w-jump]').forEach(b => b.addEventListener('click', () => {
-    commitWritingInput();
-    writingSession.idx = parseInt(b.dataset.wJump);
+  document.querySelectorAll('[data-wq-jump]').forEach(b => b.addEventListener('click', () => {
+    commitWritingQuizInput();
+    writingQuiz.idx = parseInt(b.dataset.wqJump);
     render();
   }));
-  const prevBtn = document.getElementById('writing-prev');
+  const prevBtn = document.getElementById('wq-prev');
   if (prevBtn) prevBtn.addEventListener('click', () => {
-    commitWritingInput();
-    writingSession.idx = Math.max(0, writingSession.idx - 1);
+    commitWritingQuizInput();
+    writingQuiz.idx = Math.max(0, writingQuiz.idx - 1);
     render();
   });
-  const nextBtn = document.getElementById('writing-next');
+  const nextBtn = document.getElementById('wq-next');
   if (nextBtn) nextBtn.addEventListener('click', () => {
-    commitWritingInput();
-    if (writingSession.idx === writingSession.words.length - 1) goto('writingResult');
-    else { writingSession.idx += 1; render(); }
+    commitWritingQuizInput();
+    if (writingQuiz.idx === writingQuiz.items.length - 1) finishWritingQuiz();
+    else { writingQuiz.idx += 1; render(); }
   });
-  const revealBtn = document.getElementById('writing-reveal-btn');
+  const revealBtn = document.getElementById('wq-reveal-btn');
   if (revealBtn) revealBtn.addEventListener('click', () => {
-    commitWritingInput();
-    writingSession.revealed[writingSession.idx] = !writingSession.revealed[writingSession.idx];
+    commitWritingQuizInput();
+    item.revealed = true;
     render();
   });
-  const speakBtn = document.getElementById('writing-speak-btn');
-  if (speakBtn) speakBtn.addEventListener('click', () => {
-    const w = writingSession.words[writingSession.idx];
-    TTS.speak(w.word, { lang: 'en-US', rate: progress.settings.ttsRate, voiceURI: progress.settings.ttsVoiceEN });
-  });
-  const finishBtn = document.getElementById('writing-finish-btn');
-  if (finishBtn) finishBtn.addEventListener('click', () => {
-    commitWritingInput();
-    goto('writingResult');
-  });
+  const markWrong = document.getElementById('wq-mark-wrong');
+  if (markWrong) markWrong.addEventListener('click', () => { item.status = 'wrong'; render(); });
+  const markCorrect = document.getElementById('wq-mark-correct');
+  if (markCorrect) markCorrect.addEventListener('click', () => { item.status = 'correct'; render(); });
+  const markPartial = document.getElementById('wq-mark-partial');
+  if (markPartial) markPartial.addEventListener('click', () => { item.status = 'partial'; render(); });
+  const finishBtn = document.getElementById('wq-finish-btn');
+  if (finishBtn) finishBtn.addEventListener('click', () => { commitWritingQuizInput(); finishWritingQuiz(); });
 }
 
-function renderWritingResult() {
-  if (!writingSession) return `<div class="empty">작문 연습 기록이 없습니다.</div>`;
-  const { words, inputs } = writingSession;
-  const writtenCount = inputs.filter(v => v.trim()).length;
+function finishWritingQuiz() {
+  writingQuiz.items.forEach(it => { if (it.status === null) it.status = 'correct'; });
+  goto('writingQuizResult');
+}
 
-  const rows = words.map((w, i) => `
-    <div class="section-card" style="margin-bottom:10px">
-      <div class="trow-top" style="margin-bottom:8px">
-        <span class="trow-word">${escapeHtml(w.word)}</span>
-        <span class="trow-meaning">${escapeHtml(w.meaning)}</span>
+function renderWritingQuizResultPage() {
+  if (!writingQuiz) return `<div class="empty">시험 결과가 없습니다.</div>`;
+  const { items, promptType, setName } = writingQuiz;
+  const isKrPrompt = promptType === 'kr';
+  const correct = items.filter(i => i.status === 'correct').length;
+  const wrong = items.filter(i => i.status === 'wrong').length;
+  const partial = items.filter(i => i.status === 'partial').length;
+
+  const rows = items.map((item, i) => {
+    const promptText = isKrPrompt ? item.it.kr : item.it.en;
+    const answerText = isKrPrompt ? item.it.en : item.it.kr;
+    const statusLabel = item.status === 'correct' ? '&#10003; 맞음' : item.status === 'wrong' ? '&#10005; 틀림' : '&#8776; 부분맞음';
+    const statusClass = item.status === 'correct' ? 'correct' : item.status === 'wrong' ? 'wrong' : 'partial';
+    return `
+      <div class="section-card" style="margin-bottom:10px">
+        <div class="trow-top" style="margin-bottom:8px">
+          <span class="status-tag ${statusClass}">${statusLabel}</span>
+        </div>
+        <div class="quiz-answer" style="text-align:left;margin-bottom:6px">${escapeHtml(promptText)}</div>
+        ${item.userInput && item.userInput.trim() ? `<div class="hint-text" style="margin-bottom:6px">내가 쓴 답: ${escapeHtml(item.userInput)}</div>` : `<div class="hint-text" style="margin-bottom:6px">작성한 답이 없습니다.</div>`}
+        <div class="quiz-ex">정답: ${escapeHtml(answerText)}</div>
+        ${item.it.point ? `<div class="quiz-note">${escapeHtml(item.it.point)}</div>` : ''}
       </div>
-      ${inputs[i] && inputs[i].trim() ? `
-        <div class="quiz-answer" style="text-align:left;margin-bottom:8px">내가 쓴 문장: ${escapeHtml(inputs[i])}</div>
-      ` : `<div class="hint-text" style="margin-bottom:8px">작성한 문장이 없습니다.</div>`}
-      <div class="quiz-ex">
-        <span class="en">${escapeHtml(w.ex_en || '')}</span><br>${escapeHtml(w.ex_kr || '')}
-      </div>
-      ${w.note ? `<div class="quiz-note">${escapeHtml(w.note)}</div>` : ''}
-    </div>
-  `).join('');
+    `;
+  }).join('');
 
   return `
     <div class="section-card">
-      <div class="section-title">&#128221; 작문 연습 결과</div>
-      <p class="hint-text">총 ${words.length}개 단어 중 ${writtenCount}개 문장을 작성했습니다. 내가 쓴 문장과 예시 예문을 비교하며 복습해보세요.</p>
+      <div class="section-title">&#9997;&#65039; Writing 시험 결과</div>
+      <p class="hint-text">${escapeHtml(setName)} · 총 ${items.length}문제 중 정답 ${correct} / 오답 ${wrong} ${partial ? `/ 부분맞음 ${partial}` : ''}</p>
       <div class="row-btns" style="justify-content:flex-start;margin-top:10px">
-        <button class="big-btn" id="writing-again-btn">다시 연습하기</button>
-        <button class="big-btn secondary" id="writing-home-btn">홈으로</button>
+        <button class="big-btn" id="wq-again-btn">다시 시험보기</button>
+        <button class="big-btn secondary" id="wq-home-btn">홈으로</button>
       </div>
     </div>
     ${rows}
   `;
 }
 
-function bindWritingResult() {
-  const againBtn = document.getElementById('writing-again-btn');
+function bindWritingQuizResultPage() {
+  const againBtn = document.getElementById('wq-again-btn');
   if (againBtn) againBtn.addEventListener('click', () => goto('writingSetup'));
-  const homeBtn = document.getElementById('writing-home-btn');
+  const homeBtn = document.getElementById('wq-home-btn');
   if (homeBtn) homeBtn.addEventListener('click', () => goto('home'));
 }

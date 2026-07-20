@@ -6,7 +6,7 @@ let progress = loadProgress();
 applyTheme();
 
 let state = {
-  page: 'home',          // home | browse | quizSetup | quiz | quizResult | writeSetup | writeQuiz | writeResult | writingSetup | writingPractice | writingResult | sentenceStudy | mock | review | settings
+  page: 'home',          // home | browse | quizSetup | quiz | quizResult | writeSetup | writeQuiz | writeResult | writingSetup | sentenceStudy | writingQuiz | writingQuizResult | mock | review | settings
   unit: UNIT_NAMES[0] || null,
   view: 'list',           // list | card
   search: '',
@@ -123,7 +123,7 @@ function renderHeader() {
     { id: 'browse', label: '단어 보기' },
     { id: 'quizSetup', label: '시험' },
     { id: 'writeSetup', label: '쓰기시험' },
-    { id: 'writingSetup', label: '영작문 연습' },
+    { id: 'writingSetup', label: 'Writing' },
     { id: 'mock', label: '모의고사' },
     { id: 'review', label: '오답/중요' },
   ];
@@ -151,7 +151,7 @@ function samePageGroup(page, navId) {
     browse: ['browse'],
     quizSetup: ['quizSetup', 'quiz', 'quizResult'],
     writeSetup: ['writeSetup', 'writeQuiz', 'writeResult'],
-    writingSetup: ['writingSetup', 'writingPractice', 'writingResult', 'sentenceStudy'],
+    writingSetup: ['writingSetup', 'sentenceStudy', 'writingQuiz', 'writingQuizResult'],
     mock: ['mockSetup', 'mock', 'mockQuiz', 'mockResult'],
     review: ['review'],
   };
@@ -183,9 +183,9 @@ function renderPage() {
     case 'writeQuiz': return renderQuiz();
     case 'writeResult': return renderQuizResult();
     case 'writingSetup': return renderWritingSetup();
-    case 'writingPractice': return renderWritingPractice();
-    case 'writingResult': return renderWritingResult();
     case 'sentenceStudy': return renderSentenceStudy();
+    case 'writingQuiz': return renderWritingQuizPage();
+    case 'writingQuizResult': return renderWritingQuizResultPage();
     case 'mockSetup': return renderQuizSetup(false, true);
     case 'mockQuiz': return renderQuiz();
     case 'mockResult': return renderQuizResult();
@@ -203,9 +203,9 @@ function bindPageEvents() {
     case 'quiz': case 'writeQuiz': case 'mockQuiz': return bindQuiz();
     case 'quizResult': case 'writeResult': case 'mockResult': return bindQuizResult();
     case 'writingSetup': return bindWritingSetup();
-    case 'writingPractice': return bindWritingPractice();
-    case 'writingResult': return bindWritingResult();
     case 'sentenceStudy': return bindSentenceStudy();
+    case 'writingQuiz': return bindWritingQuizPage();
+    case 'writingQuizResult': return bindWritingQuizResultPage();
   }
 }
 
