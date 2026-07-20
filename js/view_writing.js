@@ -5,7 +5,7 @@ let writingSetupState = {
   quizPromptType: 'kr',    // kr(뜻 보고 문장 쓰기) | en(문장 보고 뜻 쓰기)
 };
 
-let sentenceStudyState = { setName: null, idx: 0, flipped: false };
+let sentenceStudyState = { setName: null, idx: 0, flipped: false, displayMode: 'both' }; // both | enOnly | krOnly
 let writingQuiz = null; // { setName, items: [{it, status, userInput, revealed}], idx }
 
 const WRITING_SET_NAMES = (typeof WRITING_DATA !== 'undefined') ? Object.keys(WRITING_DATA) : [];
@@ -83,7 +83,7 @@ function bindWritingSetup() {
   }));
   const startStudyBtn = document.getElementById('start-sentence-study-btn');
   if (startStudyBtn) startStudyBtn.addEventListener('click', () => {
-    sentenceStudyState = { setName: writingSetupState.setName, idx: 0, flipped: false };
+    sentenceStudyState = { setName: writingSetupState.setName, idx: 0, flipped: false, displayMode: sentenceStudyState.displayMode || 'both' };
     goto('sentenceStudy');
   });
   const startQuizBtn = document.getElementById('start-writing-quiz-btn');
@@ -92,7 +92,7 @@ function bindWritingSetup() {
   });
 }
 
-// ===== 공부하기: 영어 문장 <-> 뜻 카드 =====
+// ===== 공부하기: 모두보기 / 영어만 보기 / 뜻만 보기 =====
 function renderSentenceStudy() {
   const name = sentenceStudyState.setName;
   const items = (name && WRITING_DATA[name]) || [];
@@ -102,6 +102,47 @@ function renderSentenceStudy() {
   const total = items.length;
   const progressPct = Math.round(((idx + 1) / total) * 100);
   const dots = items.map((_, i) => `<button class="qmark ${i === idx ? 'cur' : ''}" data-s-jump="${i}"></button>`).join('');
+  const mode = sentenceStudyState.displayMode || 'both';
+
+  const modeSeg = `
+    <div class="seg" style="margin-bottom:12px">
+      <button class="${mode === 'both' ? 'on' : ''}" data-s-mode="both">모두보기</button>
+      <button class="${mode === 'enOnly' ? 'on' : ''}" data-s-mode="enOnly">영어만 보기</button>
+      <button class="${mode === 'krOnly' ? 'on' : ''}" data-s-mode="krOnly">뜻만 보기</button>
+    </div>
+  `;
+
+  let bodyHtml;
+  if (mode === 'both') {
+    bodyHtml = `
+      <div class="quiz-prompt-label" style="text-align:center">영어 문장</div>
+      <div class="quiz-prompt" style="font-size:19px;text-align:center">${escapeHtml(it.en)}</div>
+      <div class="quiz-answer-area" style="margin-top:10px">
+        <div class="quiz-answer" style="text-align:left">${escapeHtml(it.kr)}</div>
+        ${it.point ? `<div class="quiz-note" style="margin-top:10px">${escapeHtml(it.point)}</div>` : ''}
+      </div>
+      <div class="quiz-actions" style="margin:10px 0 0">
+        <button class="qbtn" id="sentence-speak-btn">&#128266; 문장 듣기</button>
+      </div>
+    `;
+  } else {
+    const shown = mode === 'enOnly' ? it.en : it.kr;
+    const label = mode === 'enOnly' ? '영어 문장' : '뜻';
+    bodyHtml = `
+      <div class="quiz-prompt-label" style="text-align:center">${label}</div>
+      <div class="quiz-prompt" style="font-size:19px;text-align:center">${escapeHtml(shown)}</div>
+      <div class="quiz-actions" style="margin:10px 0 0">
+        <button class="qbtn" id="sentence-speak-btn">&#128266; 문장 듣기</button>
+        <button class="qbtn neutral" id="sentence-reveal-btn">${sentenceStudyState.flipped ? '숨기기' : (mode === 'enOnly' ? '뜻 보기' : '영어 문장 보기')}</button>
+      </div>
+      ${sentenceStudyState.flipped ? `
+        <div class="quiz-answer-area" style="margin-top:10px">
+          <div class="quiz-answer" style="text-align:left">${escapeHtml(mode === 'enOnly' ? it.kr : it.en)}</div>
+          ${it.point ? `<div class="quiz-note" style="margin-top:10px">${escapeHtml(it.point)}</div>` : ''}
+        </div>
+      ` : ''}
+    `;
+  }
 
   return `
     <div class="quiz-wrap">
@@ -110,19 +151,9 @@ function renderSentenceStudy() {
         <div class="quiz-bar"><div class="quiz-bar-fill" style="width:${progressPct}%"></div></div>
         <span>${escapeHtml(name)}</span>
       </div>
+      ${modeSeg}
       <div class="quiz-card" style="text-align:left;align-items:stretch">
-        <div class="quiz-prompt-label" style="text-align:center">영어 문장</div>
-        <div class="quiz-prompt" style="font-size:19px;text-align:center">${escapeHtml(it.en)}</div>
-        <div class="quiz-actions" style="margin:10px 0 0">
-          <button class="qbtn" id="sentence-speak-btn">&#128266; 문장 듣기</button>
-          <button class="qbtn neutral" id="sentence-reveal-btn">${sentenceStudyState.flipped ? '뜻 숨기기' : '뜻 보기'}</button>
-        </div>
-        ${sentenceStudyState.flipped ? `
-          <div class="quiz-answer-area" style="margin-top:10px">
-            <div class="quiz-answer" style="text-align:left">${escapeHtml(it.kr)}</div>
-            ${it.point ? `<div class="quiz-note" style="margin-top:10px">${escapeHtml(it.point)}</div>` : ''}
-          </div>
-        ` : ''}
+        ${bodyHtml}
       </div>
       <div class="quiz-navrow">
         <button class="nbtn" id="sentence-prev" ${idx === 0 ? 'disabled' : ''}>&#8592;</button>
@@ -139,6 +170,11 @@ function renderSentenceStudy() {
 function bindSentenceStudy() {
   const name = sentenceStudyState.setName;
   const items = (name && WRITING_DATA[name]) || [];
+  document.querySelectorAll('[data-s-mode]').forEach(b => b.addEventListener('click', () => {
+    sentenceStudyState.displayMode = b.dataset.sMode;
+    sentenceStudyState.flipped = false;
+    render();
+  }));
   document.querySelectorAll('[data-s-jump]').forEach(b => b.addEventListener('click', () => {
     sentenceStudyState.idx = parseInt(b.dataset.sJump);
     sentenceStudyState.flipped = false;
