@@ -1,4 +1,4 @@
-// 이 파일은 build_words.py 로 자동 생성됩니다. words/*.txt 를 수정한 뒤
+// 이 파일은 build_words.py 로 자동 생성됩니다. words/*.txt, writing/*.txt 를 수정한 뒤
 // `python3 build_words.py` 를 다시 실행하세요.
 const VOCAB_DATA = {
   "1단원": [
@@ -809,250 +809,454 @@ const VOCAB_DATA = {
     {
       "id": 1,
       "word": "Damp",
-      "meaning": "축축한, 눅눅한",
-      "ex_en": "The basement felt damp after the heavy rain.",
-      "ex_kr": "폭우가 내린 후 지하실은 축축하게 느껴졌습니다.",
-      "note": "동의어: moist, soggy"
+      "meaning": "축축한",
+      "ex_en": "The walls of the cave were damp and covered in moss.",
+      "ex_kr": "동굴의 벽은 축축하고 이끼로 덮여 있었습니다.",
+      "note": ""
     },
     {
       "id": 2,
-      "word": "Bold",
-      "meaning": "대담한, 용감한",
-      "ex_en": "It was a bold decision to launch the product without more testing.",
-      "ex_kr": "더 많은 테스트 없이 제품을 출시한 것은 대담한 결정이었습니다.",
-      "note": "동의어: audacious, intrepid"
+      "word": "Daring",
+      "meaning": "대담한",
+      "ex_en": "The explorer made a daring attempt to cross the desert alone.",
+      "ex_kr": "탐험가는 혼자 사막을 횡단하려는 대담한 시도를 했습니다.",
+      "note": ""
     },
     {
       "id": 3,
-      "word": "Brilliant",
-      "meaning": "훌륭한, 뛰어난, 눈부신",
-      "ex_en": "She came up with a brilliant solution to the problem.",
-      "ex_kr": "그녀는 그 문제에 대해 훌륭한 해결책을 생각해 냈습니다.",
-      "note": "동의어: outstanding, ingenious"
+      "word": "Dazzling",
+      "meaning": "눈부신",
+      "ex_en": "The sun reflected off the snow with a dazzling light.",
+      "ex_kr": "태양 빛이 눈에 반사되어 눈부신 빛을 내뿜었습니다.",
+      "note": ""
     },
     {
       "id": 4,
       "word": "Deceive",
-      "meaning": "속이다, 기만하다",
-      "ex_en": "The scammer tried to deceive elderly customers over the phone.",
-      "ex_kr": "그 사기꾼은 전화로 노인 고객들을 속이려 했습니다.",
-      "note": "동의어: mislead, dupe, cheat"
+      "meaning": "속이다",
+      "ex_en": "Some animals use camouflage to deceive their predators.",
+      "ex_kr": "어떤 동물들은 포식자를 속이기 위해 위장술을 사용합니다.",
+      "note": ""
     },
     {
       "id": 5,
       "word": "Decipher",
-      "meaning": "해독하다, 판독하다",
-      "ex_en": "Archaeologists worked for years to decipher the ancient script.",
-      "ex_kr": "고고학자들은 그 고대 문자를 해독하기 위해 수년간 작업했습니다.",
-      "note": "동의어: decode, interpret"
+      "meaning": "해독하다",
+      "ex_en": "Scholars worked for years to decipher the ancient hieroglyphs.",
+      "ex_kr": "학자들은 고대 상형문자를 해독하기 위해 수년간 연구했습니다.",
+      "note": ""
     },
     {
       "id": 6,
       "word": "Decline",
-      "meaning": "감소하다; 거절하다",
-      "ex_en": "Sales began to decline sharply after the new tax was introduced.",
-      "ex_kr": "새로운 세금이 도입된 후 매출이 급격히 감소하기 시작했습니다.",
-      "note": "감소하다: decrease, reduce, abate, alleviate, lower, plummet, plunge / 거절하다: decline, reject, refuse to"
+      "meaning": "감소하다, 거절하다",
+      "ex_en": "The population of the species began to decline rapidly.",
+      "ex_kr": "그 종의 개체 수가 급격히 감소하기 시작했습니다.",
+      "note": ""
     },
     {
       "id": 7,
-      "word": "Error",
-      "meaning": "실수, 오류",
-      "ex_en": "The report contained a small error in the calculations.",
-      "ex_kr": "그 보고서에는 계산상의 작은 오류가 있었습니다.",
-      "note": "유의어: issue, mistake"
+      "word": "Decompose",
+      "meaning": "부패하다, 분해되다",
+      "ex_en": "Fungi help to decompose fallen leaves on the forest floor.",
+      "ex_kr": "버섯류는 숲 바닥에 떨어진 잎들을 분해하는 것을 돕습니다.",
+      "note": ""
     },
     {
       "id": 8,
-      "word": "Postpone",
-      "meaning": "연기하다, 미루다",
-      "ex_en": "The meeting was postponed due to the CEO's sudden illness.",
-      "ex_kr": "그 회의는 CEO의 갑작스러운 병환으로 연기되었습니다.",
-      "note": "동의어: defer, delay, push back, put off, put on hold, procrastinate, impede"
+      "word": "Decorate",
+      "meaning": "장식하다",
+      "ex_en": "Early humans used natural pigments to decorate cave walls.",
+      "ex_kr": "초기 인류는 동굴 벽을 장식하기 위해 천연 안료를 사용했습니다.",
+      "note": ""
     },
     {
       "id": 9,
-      "word": "Deficient",
-      "meaning": "부족한, 결핍된",
-      "ex_en": "A diet deficient in vitamins can lead to serious health problems.",
-      "ex_kr": "비타민이 부족한 식단은 심각한 건강 문제로 이어질 수 있습니다.",
-      "note": "동의어: lacked, insufficient, not enough"
+      "word": "Defect",
+      "meaning": "결함",
+      "ex_en": "A small defect in the lens caused the blurry images.",
+      "ex_kr": "렌즈의 작은 결함이 흐릿한 이미지를 만들어냈습니다.",
+      "note": ""
     },
     {
       "id": 10,
-      "word": "Evident",
-      "meaning": "분명한, 명백한",
-      "ex_en": "It was evident from her expression that she disagreed.",
-      "ex_kr": "그녀의 표정에서 그녀가 동의하지 않는다는 것이 분명했습니다.",
-      "note": "동의어: clear"
+      "word": "Defer",
+      "meaning": "미루다, 연기하다",
+      "ex_en": "The committee decided to defer the decision until next month.",
+      "ex_kr": "위원회는 결정을 다음 달까지 미루기로 했습니다.",
+      "note": ""
     },
     {
       "id": 11,
-      "word": "Evade",
-      "meaning": "피하다, 회피하다",
-      "ex_en": "The suspect tried to evade the police for several hours.",
-      "ex_kr": "용의자는 몇 시간 동안 경찰을 피하려 했습니다.",
-      "note": "동의어: avoid"
+      "word": "Deficient",
+      "meaning": "부족한, 결핍된",
+      "ex_en": "Plants grown in deficient soil often have stunted growth.",
+      "ex_kr": "영양분이 부족한 토양에서 자란 식물은 종종 성장이 저해됩니다.",
+      "note": ""
     },
     {
       "id": 12,
-      "word": "Distort",
-      "meaning": "왜곡하다, 비틀다",
-      "ex_en": "The heat began to distort the shape of the plastic frame.",
-      "ex_kr": "열기가 플라스틱 프레임의 모양을 왜곡시키기 시작했습니다.",
-      "note": "동의어: change, transform, modify, deform"
+      "word": "Definite",
+      "meaning": "명확한, 확실한",
+      "ex_en": "There is no definite proof that the theory is correct.",
+      "ex_kr": "그 이론이 맞다는 명확한 증거는 없습니다.",
+      "note": ""
     },
     {
       "id": 13,
-      "word": "Proficient",
-      "meaning": "능숙한, 숙달된",
-      "ex_en": "After years of practice, she became proficient in three languages.",
-      "ex_kr": "수년간의 연습 끝에 그녀는 세 개 언어에 능숙해졌습니다.",
-      "note": "동의어: adept, skillful"
+      "word": "Deflect",
+      "meaning": "굴절시키다, 피하다",
+      "ex_en": "The Earth's magnetic field helps deflect harmful solar radiation.",
+      "ex_kr": "지구의 자기장은 해로운 태양 방사선을 굴절시키는 데 도움을 줍니다.",
+      "note": ""
     },
     {
       "id": 14,
-      "word": "Deliberate",
-      "meaning": "신중한; 의도적인, 고의의",
-      "ex_en": "The judge made a deliberate decision to delay the verdict.",
-      "ex_kr": "판사는 판결을 미루기로 신중한 결정을 내렸습니다.",
-      "note": "신중한: considerate / 의도적인: intended, planned"
+      "word": "Deform",
+      "meaning": "변형시키다",
+      "ex_en": "Extreme pressure can deform the structure of rocks deep underground.",
+      "ex_kr": "극심한 압력은 지하 깊은 곳의 암석 구조를 변형시킬 수 있습니다.",
+      "note": ""
     },
     {
       "id": 15,
-      "word": "Elucidate",
-      "meaning": "설명하다, 명료하게 하다",
-      "ex_en": "The professor paused to elucidate a difficult point in the theory.",
-      "ex_kr": "교수는 그 이론의 어려운 부분을 설명하기 위해 잠시 멈췄습니다.",
-      "note": "동의어: account for, explain, detail, elaborate, illustrate, describe"
+      "word": "Deft",
+      "meaning": "능숙한, 솜씨 좋은",
+      "ex_en": "The artisan's deft hands shaped the clay into a beautiful vase.",
+      "ex_kr": "장인의 능숙한 손길이 점토를 아름다운 꽃병으로 빚어냈습니다.",
+      "note": ""
     },
     {
       "id": 16,
-      "word": "Demolish",
-      "meaning": "철거하다, 파괴하다, 없애다",
-      "ex_en": "The old factory will be demolished to make way for a new park.",
-      "ex_kr": "그 오래된 공장은 새 공원 부지를 만들기 위해 철거될 것입니다.",
-      "note": "동의어: get rid of, remove, discard, dispose of"
+      "word": "Degrade",
+      "meaning": "저하시키다, 분해되다",
+      "ex_en": "Plastic can take hundreds of years to degrade in the ocean.",
+      "ex_kr": "플라스틱은 바다에서 분해되는 데 수백 년이 걸릴 수 있습니다.",
+      "note": ""
     },
     {
       "id": 17,
-      "word": "Demonstrate",
-      "meaning": "입증하다, 보여주다",
-      "ex_en": "The experiment demonstrated that the new drug was effective.",
-      "ex_kr": "그 실험은 새 약이 효과적이라는 것을 입증했습니다.",
-      "note": "입증하다: prove / 보여주다: showcase"
+      "word": "Deliberate",
+      "meaning": "의도적인, 신중한",
+      "ex_en": "The bird made a deliberate movement to attract a mate.",
+      "ex_kr": "그 새는 짝을 유혹하기 위해 의도적인 움직임을 보였습니다.",
+      "note": ""
     },
     {
       "id": 18,
-      "word": "Depict",
-      "meaning": "묘사하다, 그리다",
-      "ex_en": "The mural depicts the history of the small fishing village.",
-      "ex_kr": "그 벽화는 작은 어촌 마을의 역사를 묘사합니다.",
-      "note": "동의어: describe"
+      "word": "Delicate",
+      "meaning": "섬세한, 취약한",
+      "ex_en": "The delicate balance of the ecosystem must be protected.",
+      "ex_kr": "생태계의 섬세한 균형은 보호되어야 합니다.",
+      "note": ""
     },
     {
       "id": 19,
-      "word": "Descend",
-      "meaning": "내려가다, 하강하다",
-      "ex_en": "The plane began to descend as it approached the airport.",
-      "ex_kr": "비행기는 공항에 접근하면서 하강하기 시작했습니다.",
-      "note": "반대어: ascend(올라가다)"
+      "word": "Delineate",
+      "meaning": "설명하다, 묘사하다",
+      "ex_en": "The report clearly delineates the steps for the project.",
+      "ex_kr": "그 보고서는 프로젝트의 단계를 명확하게 설명하고 있습니다.",
+      "note": ""
     },
     {
       "id": 20,
-      "word": "Designate",
-      "meaning": "지정하다, 지명하다",
-      "ex_en": "The mayor designated a new area as a wildlife reserve.",
-      "ex_kr": "시장은 새로운 구역을 야생동물 보호구역으로 지정했습니다.",
-      "note": "동의어: assign"
+      "word": "Demise",
+      "meaning": "종말, 몰락",
+      "ex_en": "The sudden climate change led to the demise of the dinosaurs.",
+      "ex_kr": "갑작스러운 기후 변화가 공룡의 멸종(종말)으로 이어졌습니다.",
+      "note": ""
     },
     {
       "id": 21,
-      "word": "Deter",
-      "meaning": "막다, 단념시키다",
-      "ex_en": "Strict penalties are meant to deter people from speeding.",
-      "ex_kr": "엄격한 처벌은 사람들이 과속하는 것을 막기 위한 것입니다.",
-      "note": "동의어: stop a from b, prohibit a from b (a를 b로부터 막다)"
+      "word": "Demolish",
+      "meaning": "파괴하다, 허물다",
+      "ex_en": "The old factory was demolished to make room for a park.",
+      "ex_kr": "그 오래된 공장은 공원을 만들기 위해 철거되었습니다.",
+      "note": ""
     },
     {
       "id": 22,
-      "word": "Determine",
-      "meaning": "결정하다, 알아내다",
-      "ex_en": "Scientists are trying to determine the cause of the outbreak.",
-      "ex_kr": "과학자들은 그 발병의 원인을 알아내려 하고 있습니다.",
-      "note": "결정하다: decide / 찾다: find out, search for, look for, seek"
+      "word": "Demonstrate",
+      "meaning": "입증하다, 보여주다",
+      "ex_en": "The experiment was designed to demonstrate the law of gravity.",
+      "ex_kr": "그 실험은 중력의 법칙을 입증하기 위해 설계되었습니다.",
+      "note": ""
     },
     {
       "id": 23,
-      "word": "Endeavor",
-      "meaning": "노력하다, 애쓰다",
-      "ex_en": "The team endeavored to finish the project before the deadline.",
-      "ex_kr": "팀은 마감일 전에 프로젝트를 끝내려고 노력했습니다.",
-      "note": "동의어: strive to, struggle, try to, attempt to"
+      "word": "Denote",
+      "meaning": "나타내다, 의미하다",
+      "ex_en": "Dark clouds usually denote an approaching storm.",
+      "ex_kr": "먹구름은 보통 폭풍이 다가오고 있음을 나타냅니다.",
+      "note": ""
     },
     {
       "id": 24,
-      "word": "Barring",
-      "meaning": "~을 제외하고, ~이 없다면",
-      "ex_en": "Barring any delays, the shipment should arrive by Friday.",
-      "ex_kr": "지연이 없다면 그 화물은 금요일까지 도착할 것입니다.",
-      "note": "동의어: without, with few, but for"
+      "word": "Dense",
+      "meaning": "밀집한, 빽빽한",
+      "ex_en": "The Amazon is known for its dense vegetation.",
+      "ex_kr": "아마존은 빽빽한 초목으로 유명합니다.",
+      "note": ""
     },
     {
       "id": 25,
-      "word": "Devoted",
-      "meaning": "헌신적인, 몰두하는",
-      "ex_en": "She is devoted to helping stray animals find new homes.",
-      "ex_kr": "그녀는 유기동물들이 새 가정을 찾도록 돕는 데 헌신적입니다.",
-      "note": "be devoted to 명사, be dedicated to 명사, be committed to 명사 (~에 헌신되다)"
+      "word": "Depart",
+      "meaning": "떠나다, 벗어나다",
+      "ex_en": "The birds depart for the south when winter approaches.",
+      "ex_kr": "겨울이 다가오면 새들은 남쪽으로 떠납니다.",
+      "note": ""
     },
     {
       "id": 26,
-      "word": "Alleviate",
-      "meaning": "완화하다, 줄이다",
-      "ex_en": "The new medication helped alleviate her chronic back pain.",
-      "ex_kr": "그 새 약은 그녀의 만성 요통을 완화하는 데 도움이 되었습니다.",
-      "note": "동의어: reduce, lower, abate, ease"
+      "word": "Depict",
+      "meaning": "묘사하다",
+      "ex_en": "The painting depicts a scene from the daily life of ancient Greeks.",
+      "ex_kr": "그 그림은 고대 그리스인의 일상생활 장면을 묘사합니다.",
+      "note": ""
     },
     {
       "id": 27,
-      "word": "Eliminate",
-      "meaning": "없애다, 제거하다",
-      "ex_en": "The new filter system eliminates over 99% of bacteria in water.",
-      "ex_kr": "새 필터 시스템은 물속 박테리아의 99% 이상을 제거합니다.",
-      "note": "동의어: dispose of, get rid of, remove"
+      "word": "Deplete",
+      "meaning": "고갈시키다",
+      "ex_en": "Overfishing can deplete the local fish population.",
+      "ex_kr": "과도한 어업은 지역 물고기 개체 수를 고갈시킬 수 있습니다.",
+      "note": ""
     },
     {
       "id": 28,
-      "word": "Suspend",
-      "meaning": "중단하다, 정지시키다",
-      "ex_en": "The airline suspended all flights due to the volcanic ash cloud.",
-      "ex_kr": "그 항공사는 화산재 구름 때문에 모든 항공편을 중단했습니다.",
-      "note": "동의어: stop, keep, disrupt, prohibit a from b"
+      "word": "Deposit",
+      "meaning": "퇴적시키다, 예치하다",
+      "ex_en": "Rivers deposit silt and sand at their mouths.",
+      "ex_kr": "강은 하구에 침전물과 모래를 퇴적시킵니다.",
+      "note": ""
     },
     {
       "id": 29,
-      "word": "Dupe",
-      "meaning": "속이다, 기만하다; 잘 속는 사람",
-      "ex_en": "He was duped into investing in a fake company.",
-      "ex_kr": "그는 속아서 가짜 회사에 투자하게 되었습니다.",
-      "note": "동의어: deceive, mislead, cheat"
+      "word": "Deprive",
+      "meaning": "박탈하다",
+      "ex_en": "Sleep debt can deprive the brain of the ability to focus.",
+      "ex_kr": "수면 부족은 뇌에서 집중력을 박탈할 수 있습니다.",
+      "note": ""
     },
     {
       "id": 30,
-      "word": "Intrepid",
-      "meaning": "용맹한, 두려움 없는",
-      "ex_en": "The intrepid explorer crossed the desert without any support team.",
-      "ex_kr": "그 용맹한 탐험가는 지원팀 없이 사막을 횡단했습니다.",
-      "note": "동의어: bold, audacious, fearless"
+      "word": "Derive",
+      "meaning": "유래하다, 얻다",
+      "ex_en": "Many modern medicines derive from plants found in the rainforest.",
+      "ex_kr": "많은 현대 의약품이 열대 우림에서 발견되는 식물에서 유래합니다.",
+      "note": ""
     },
     {
       "id": 31,
+      "word": "Descend",
+      "meaning": "내려가다, 계승되다",
+      "ex_en": "The divers began to descend into the dark water.",
+      "ex_kr": "잠수부들이 어두운 물속으로 내려가기 시작했습니다.",
+      "note": ""
+    },
+    {
+      "id": 32,
+      "word": "Designate",
+      "meaning": "지정하다",
+      "ex_en": "The area was designated as a national wildlife refuge.",
+      "ex_kr": "그 구역은 국립 야생동물 보호구역으로 지정되었습니다.",
+      "note": ""
+    },
+    {
+      "id": 33,
+      "word": "Desolate",
+      "meaning": "황량한",
+      "ex_en": "The lunar landscape is desolate and devoid of life.",
+      "ex_kr": "달의 풍경은 황량하고 생명체가 전혀 없습니다.",
+      "note": ""
+    },
+    {
+      "id": 34,
+      "word": "Detach",
+      "meaning": "떼다, 분리하다",
+      "ex_en": "It is easy to detach the lens from this camera.",
+      "ex_kr": "이 카메라에서 렌즈를 떼는 것은 쉽습니다.",
+      "note": ""
+    },
+    {
+      "id": 35,
+      "word": "Detect",
+      "meaning": "탐지하다, 찾아내다",
+      "ex_en": "Sensors can detect even the slightest movement in the ground.",
+      "ex_kr": "센서는 지면의 아주 작은 움직임조차 탐지할 수 있습니다.",
+      "note": ""
+    },
+    {
+      "id": 36,
+      "word": "Deter",
+      "meaning": "방해하다, 단념시키다",
+      "ex_en": "High fences were built to deter intruders.",
+      "ex_kr": "침입자를 막기 위해 높은 울타리가 세워졌습니다.",
+      "note": ""
+    },
+    {
+      "id": 37,
+      "word": "Deteriorate",
+      "meaning": "악화되다",
+      "ex_en": "The condition of the old building continued to deteriorate.",
+      "ex_kr": "오래된 건물의 상태가 계속해서 악화되었습니다.",
+      "note": ""
+    },
+    {
+      "id": 38,
+      "word": "Determine",
+      "meaning": "결정하다, 알아내다",
+      "ex_en": "DNA testing can help determine the identity of the remains.",
+      "ex_kr": "DNA 검사는 유해의 신원을 알아내는 데 도움을 줄 수 있습니다.",
+      "note": ""
+    },
+    {
+      "id": 39,
+      "word": "Detrimental",
+      "meaning": "해로운",
+      "ex_en": "Smoking has a detrimental effect on lung health.",
+      "ex_kr": "흡연은 폐 건강에 해로운 영향을 미칩니다.",
+      "note": ""
+    },
+    {
+      "id": 40,
+      "word": "Devastate",
+      "meaning": "황폐화하다",
+      "ex_en": "The hurricane devastated the entire coastal town.",
+      "ex_kr": "허리케인이 해안 마을 전체를 황폐화했습니다.",
+      "note": ""
+    },
+    {
+      "id": 41,
+      "word": "Devise",
+      "meaning": "고안하다",
+      "ex_en": "Engineers are trying to devise a more efficient battery.",
+      "ex_kr": "엔지니어들은 더 효율적인 배터리를 고안하려 노력 중입니다.",
+      "note": ""
+    },
+    {
+      "id": 42,
+      "word": "Devoid",
+      "meaning": "~이 없는",
+      "ex_en": "The desert is almost devoid of water.",
+      "ex_kr": "사막에는 물이 거의 없습니다.",
+      "note": ""
+    },
+    {
+      "id": 43,
+      "word": "Devote",
+      "meaning": "헌신하다, 바치다",
+      "ex_en": "She decided to devote her life to environmental protection.",
+      "ex_kr": "그녀는 환경 보호에 일생을 바치기로 했습니다.",
+      "note": ""
+    },
+    {
+      "id": 44,
+      "word": "Diffuse",
+      "meaning": "확산시키다, 퍼진",
+      "ex_en": "The light became diffuse as it passed through the fog.",
+      "ex_kr": "빛이 안개를 통과하면서 확산되었습니다.",
+      "note": ""
+    },
+    {
+      "id": 45,
+      "word": "Digest",
+      "meaning": "소화하다, 요약하다",
+      "ex_en": "Some animals have a complex stomach to digest tough plants.",
+      "ex_kr": "어떤 동물들은 질긴 식물을 소화하기 위해 복잡한 위를 가지고 있습니다.",
+      "note": ""
+    },
+    {
+      "id": 46,
+      "word": "Diligent",
+      "meaning": "부지런한",
+      "ex_en": "Through diligent study, he was able to master the language.",
+      "ex_kr": "부지런한 공부를 통해 그는 그 언어를 마스터할 수 있었습니다.",
+      "note": ""
+    },
+    {
+      "id": 47,
+      "word": "Dilute",
+      "meaning": "희석하다",
+      "ex_en": "You should dilute the concentrated juice with water.",
+      "ex_kr": "농축 주스는 물로 희석해서 마셔야 합니다.",
+      "note": ""
+    },
+    {
+      "id": 48,
+      "word": "Diminish",
+      "meaning": "줄어들다",
+      "ex_en": "The sound of the music began to diminish as we walked away.",
+      "ex_kr": "우리가 멀어지자 음악 소리가 줄어들기 시작했습니다.",
+      "note": ""
+    },
+    {
+      "id": 49,
       "word": "Discard",
-      "meaning": "버리다, 폐기하다",
+      "meaning": "버리다",
       "ex_en": "Please discard any expired medication safely.",
-      "ex_kr": "유통기한이 지난 약은 안전하게 폐기해 주세요.",
-      "note": "동의어: dispose of, get rid of, throw away"
+      "ex_kr": "유통기한이 지난 약은 안전하게 버려주세요.",
+      "note": ""
+    },
+    {
+      "id": 50,
+      "word": "Disrupt",
+      "meaning": "방해하다, 중단시키다",
+      "ex_en": "The loud noise could disrupt the birds' nesting habits.",
+      "ex_kr": "큰 소음은 새들의 둥지 트기 습성을 방해할 수 있습니다.",
+      "note": ""
+    }
+  ]
+};
+const WRITING_DATA = {
+  "시설개선건의편지": [
+    {
+      "id": 1,
+      "en": "To whom it may concern,",
+      "kr": "관계자분께,",
+      "point": "격식 있는 이메일의 시작 표현"
+    },
+    {
+      "id": 2,
+      "en": "I am writing to share my thoughts on the facility and suggest some necessary improvements.",
+      "kr": "시설에 대한 제 생각을 공유하고 몇 가지 필요한 개선 사항을 제안하고자 이 글을 씁니다.",
+      "point": "I am writing to ~ : 용건을 밝히는 편지 시작 패턴"
+    },
+    {
+      "id": 3,
+      "en": "I was impressed by the wide variety of healthy food options available for the students.",
+      "kr": "학생들이 이용할 수 있는 건강한 음식 선택권이 매우 다양해서 깊은 인상을 받았습니다.",
+      "point": "다양한(동의어): a wide range of, wide, comprehensive, extensive, broad, a diverse array of, a variety of, an assortment of"
+    },
+    {
+      "id": 4,
+      "en": "Several of the wooden dining tables have rough edges and splinters.",
+      "kr": "몇몇 나무 식탁의 모서리가 거칠고 가시가 돋아 있습니다.",
+      "point": "인접한: adjacent to / 바로 맞은편: right across"
+    },
+    {
+      "id": 5,
+      "en": "The water fountain near the entrance is leaking, making the floor quite slippery.",
+      "kr": "입구 근처의 식수대에서 물이 새서 바닥이 꽤 미끄럽습니다.",
+      "point": "leaking(새는), slippery(미끄러운)"
+    },
+    {
+      "id": 6,
+      "en": "I would like to suggest that the maintenance team sand down the table surfaces.",
+      "kr": "관리팀이 식탁 표면을 사포 등으로 매끄럽게 갈아낼 것을 제안합니다.",
+      "point": "sand down: 사포 등으로 갈아서 매끄럽게 하다"
+    },
+    {
+      "id": 7,
+      "en": "It would be great if you could fix the leaking fountain as soon as possible.",
+      "kr": "가능한 한 빨리 새는 식수대를 수리해 주신다면 정말 좋을 것 같습니다.",
+      "point": "~라면 좋겠다는 정중한 제안: It would be great if you could ~ / provided that, providing that, assuming that, as long as (~라는 조건하에)"
+    },
+    {
+      "id": 8,
+      "en": "I look forward to your reply.",
+      "kr": "당신의 답변을 기다리겠습니다.",
+      "point": "이메일을 마무리하는 관용구"
     }
   ]
 };

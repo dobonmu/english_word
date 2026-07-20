@@ -6,7 +6,7 @@ let progress = loadProgress();
 applyTheme();
 
 let state = {
-  page: 'home',          // home | browse | quizSetup | quiz | quizResult | writeSetup | writeQuiz | writeResult | writingSetup | writingPractice | writingResult | mock | review | settings
+  page: 'home',          // home | browse | quizSetup | quiz | quizResult | writeSetup | writeQuiz | writeResult | writingSetup | writingPractice | writingResult | sentenceStudy | mock | review | settings
   unit: UNIT_NAMES[0] || null,
   view: 'list',           // list | card
   search: '',
@@ -151,7 +151,7 @@ function samePageGroup(page, navId) {
     browse: ['browse'],
     quizSetup: ['quizSetup', 'quiz', 'quizResult'],
     writeSetup: ['writeSetup', 'writeQuiz', 'writeResult'],
-    writingSetup: ['writingSetup', 'writingPractice', 'writingResult'],
+    writingSetup: ['writingSetup', 'writingPractice', 'writingResult', 'sentenceStudy'],
     mock: ['mockSetup', 'mock', 'mockQuiz', 'mockResult'],
     review: ['review'],
   };
@@ -185,6 +185,7 @@ function renderPage() {
     case 'writingSetup': return renderWritingSetup();
     case 'writingPractice': return renderWritingPractice();
     case 'writingResult': return renderWritingResult();
+    case 'sentenceStudy': return renderSentenceStudy();
     case 'mockSetup': return renderQuizSetup(false, true);
     case 'mockQuiz': return renderQuiz();
     case 'mockResult': return renderQuizResult();
@@ -204,6 +205,7 @@ function bindPageEvents() {
     case 'writingSetup': return bindWritingSetup();
     case 'writingPractice': return bindWritingPractice();
     case 'writingResult': return bindWritingResult();
+    case 'sentenceStudy': return bindSentenceStudy();
   }
 }
 

@@ -1,11 +1,16 @@
-// ===== Writing 연습: 단어를 활용해 직접 영작문을 써보는 모드 =====
+// ===== Writing 연습: 단어를 활용해 직접 영작문을 써보는 모드 + 문장 표현 학습 =====
 let writingSetupState = {
+  mode: 'wordPractice',   // wordPractice(단어 활용 작문) | sentenceStudy(문장 표현 학습)
   scopeType: 'unit',      // unit | multiUnit | all | wrongList | starredList
   scopeUnits: [],
   count: 20,
+  setName: null,
 };
 
 let writingSession = null; // { words: [...], idx, inputs: [...] }
+let sentenceStudyState = { setName: null, idx: 0, flipped: false };
+
+const WRITING_SET_NAMES = (typeof WRITING_DATA !== 'undefined') ? Object.keys(WRITING_DATA) : [];
 
 function buildWritingScopeWords(setup) {
   if (setup.scopeType === 'wrongList') return getWrongWords();
@@ -34,6 +39,17 @@ function startWriting(setup) {
 }
 
 function renderWritingSetup() {
+  const modeTabs = `
+    <div class="seg" style="margin-bottom:16px">
+      <button class="${writingSetupState.mode === 'wordPractice' ? 'on' : ''}" data-w-mode="wordPractice">단어 활용 작문</button>
+      <button class="${writingSetupState.mode === 'sentenceStudy' ? 'on' : ''}" data-w-mode="sentenceStudy">문장 표현 학습</button>
+    </div>
+  `;
+
+  if (writingSetupState.mode === 'sentenceStudy') {
+    return modeTabs + renderSentenceStudySetup();
+  }
+
   const scopeTypes = [
     { id: 'unit', label: '단원별 연습', desc: '선택한 한 단원의 단어로 작문 연습' },
     { id: 'multiUnit', label: '여러 단원 연습', desc: '원하는 단원을 여러 개 골라서 연습' },
@@ -71,7 +87,7 @@ function renderWritingSetup() {
     return null;
   })();
 
-  return `
+  return modeTabs + `
     <div class="section-card">
       <div class="section-title">&#128221; 영작문 연습 설정</div>
       <p class="hint-text" style="margin-bottom:14px">단어마다 그 단어를 사용한 영어 문장을 직접 작문해보고, 예시 예문과 비교하며 스스로 확인하는 모드입니다. 정답을 채점하지는 않으니 자유롭게 작문 연습에 활용하세요.</p>
@@ -93,7 +109,129 @@ function renderWritingSetup() {
   `;
 }
 
+function renderSentenceStudySetup() {
+  if (WRITING_SET_NAMES.length === 0) {
+    return `<div class="section-card"><div class="empty">아직 등록된 문장 학습 세트가 없습니다.</div></div>`;
+  }
+  if (!sentenceStudyState.setName) sentenceStudyState.setName = WRITING_SET_NAMES[0];
+  const cards = WRITING_SET_NAMES.map(name => `
+    <div class="opt-card ${sentenceStudyState.setName === name ? 'on' : ''}" data-w-set="${escapeHtml(name)}">
+      <h3>${escapeHtml(name)}</h3>
+      <p>${WRITING_DATA[name].length}개 문장</p>
+    </div>
+  `).join('');
+
+  return `
+    <div class="section-card">
+      <div class="section-title">&#128221; 문장 표현 학습 설정</div>
+      <p class="hint-text" style="margin-bottom:14px">실제 서식/이메일에 쓰이는 영어 문장을 통째로 익히고, 문장에 담긴 표현과 학습 포인트(패턴, 동의어, 관용구)를 함께 정리하는 모드입니다.</p>
+      <div class="field">
+        <label>학습 세트 선택</label>
+        <div class="grid-cards">${cards}</div>
+      </div>
+      <div class="row-btns" style="justify-content:flex-start">
+        <button class="big-btn" id="start-sentence-study-btn">문장 학습 시작</button>
+      </div>
+    </div>
+  `;
+}
+
+function bindSentenceStudySetup() {
+  document.querySelectorAll('[data-w-set]').forEach(el => el.addEventListener('click', () => {
+    sentenceStudyState.setName = el.dataset.wSet;
+    render();
+  }));
+  const startBtn = document.getElementById('start-sentence-study-btn');
+  if (startBtn) startBtn.addEventListener('click', () => {
+    sentenceStudyState.idx = 0;
+    sentenceStudyState.flipped = false;
+    goto('sentenceStudy');
+  });
+}
+
+function renderSentenceStudy() {
+  const name = sentenceStudyState.setName;
+  const items = (name && WRITING_DATA[name]) || [];
+  if (items.length === 0) return `<div class="empty">진행 중인 문장 학습이 없습니다.</div>`;
+  const idx = sentenceStudyState.idx;
+  const it = items[idx];
+  const total = items.length;
+  const progressPct = Math.round(((idx + 1) / total) * 100);
+  const dots = items.map((_, i) => `<button class="qmark ${i === idx ? 'cur' : ''}" data-s-jump="${i}"></button>`).join('');
+
+  return `
+    <div class="quiz-wrap">
+      <div class="quiz-progress">
+        <span>${idx + 1} / ${total}</span>
+        <div class="quiz-bar"><div class="quiz-bar-fill" style="width:${progressPct}%"></div></div>
+        <span>${escapeHtml(name)}</span>
+      </div>
+      <div class="quiz-card" style="text-align:left;align-items:stretch">
+        <div class="quiz-prompt-label" style="text-align:center">영어 문장</div>
+        <div class="quiz-prompt" style="font-size:19px;text-align:center">${escapeHtml(it.en)}</div>
+        <div class="quiz-actions" style="margin:10px 0 0">
+          <button class="qbtn" id="sentence-speak-btn">&#128266; 문장 듣기</button>
+          <button class="qbtn neutral" id="sentence-reveal-btn">${sentenceStudyState.flipped ? '해석 숨기기' : '해석 보기'}</button>
+        </div>
+        ${sentenceStudyState.flipped ? `
+          <div class="quiz-answer-area" style="margin-top:10px">
+            <div class="quiz-answer" style="text-align:left">${escapeHtml(it.kr)}</div>
+            ${it.point ? `<div class="quiz-note" style="margin-top:10px">${escapeHtml(it.point)}</div>` : ''}
+          </div>
+        ` : ''}
+      </div>
+      <div class="quiz-navrow">
+        <button class="nbtn" id="sentence-prev" ${idx === 0 ? 'disabled' : ''}>&#8592;</button>
+        <div class="quiz-marks">${dots}</div>
+        <button class="nbtn" id="sentence-next" ${idx === total - 1 ? 'disabled' : ''}>&#8594;</button>
+      </div>
+      <div class="row-btns">
+        <button class="lbtn" id="sentence-home-btn">학습 세트 선택으로 돌아가기</button>
+      </div>
+    </div>
+  `;
+}
+
+function bindSentenceStudy() {
+  const name = sentenceStudyState.setName;
+  const items = (name && WRITING_DATA[name]) || [];
+  document.querySelectorAll('[data-s-jump]').forEach(b => b.addEventListener('click', () => {
+    sentenceStudyState.idx = parseInt(b.dataset.sJump);
+    sentenceStudyState.flipped = false;
+    render();
+  }));
+  const prevBtn = document.getElementById('sentence-prev');
+  if (prevBtn) prevBtn.addEventListener('click', () => {
+    sentenceStudyState.idx = Math.max(0, sentenceStudyState.idx - 1);
+    sentenceStudyState.flipped = false;
+    render();
+  });
+  const nextBtn = document.getElementById('sentence-next');
+  if (nextBtn) nextBtn.addEventListener('click', () => {
+    sentenceStudyState.idx = Math.min(items.length - 1, sentenceStudyState.idx + 1);
+    sentenceStudyState.flipped = false;
+    render();
+  });
+  const revealBtn = document.getElementById('sentence-reveal-btn');
+  if (revealBtn) revealBtn.addEventListener('click', () => {
+    sentenceStudyState.flipped = !sentenceStudyState.flipped;
+    render();
+  });
+  const speakBtn = document.getElementById('sentence-speak-btn');
+  if (speakBtn) speakBtn.addEventListener('click', () => {
+    const it = items[sentenceStudyState.idx];
+    TTS.speak(it.en, { lang: 'en-US', rate: progress.settings.ttsRate, voiceURI: progress.settings.ttsVoiceEN });
+  });
+  const homeBtn = document.getElementById('sentence-home-btn');
+  if (homeBtn) homeBtn.addEventListener('click', () => goto('writingSetup'));
+}
+
 function bindWritingSetup() {
+  document.querySelectorAll('[data-w-mode]').forEach(el => el.addEventListener('click', () => {
+    writingSetupState.mode = el.dataset.wMode;
+    render();
+  }));
+  if (writingSetupState.mode === 'sentenceStudy') { bindSentenceStudySetup(); return; }
   document.querySelectorAll('[data-wscope]').forEach(el => el.addEventListener('click', () => {
     writingSetupState.scopeType = el.dataset.wscope;
     if (writingSetupState.scopeType === 'unit' && writingSetupState.scopeUnits.length === 0) {
