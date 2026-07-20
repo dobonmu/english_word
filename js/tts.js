@@ -39,6 +39,24 @@ const TTS = (() => {
     return voices.filter(v => v.lang && v.lang.toLowerCase().startsWith(langPrefix));
   }
 
+  // Chrome/Safari의 Web Speech API는 발화가 조금만 길어져도(대략 15초 이상)
+  // 내부적으로 멈춰버리는 고질적인 버그가 있다. speaking 상태인 동안 주기적으로
+  // pause()/resume()을 호출해 깨워주면 끊기지 않고 끝까지 재생된다.
+  let keepAliveTimer = null;
+  function startKeepAlive() {
+    stopKeepAlive();
+    keepAliveTimer = setInterval(() => {
+      if (!window.speechSynthesis) return;
+      if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+        window.speechSynthesis.pause();
+        window.speechSynthesis.resume();
+      }
+    }, 5000);
+  }
+  function stopKeepAlive() {
+    if (keepAliveTimer) { clearInterval(keepAliveTimer); keepAliveTimer = null; }
+  }
+
   function speak(text, { lang = 'en-US', rate = 1, voiceURI = null } = {}) {
     return new Promise((resolve) => {
       if (!window.speechSynthesis || !text) { resolve(); return; }
@@ -48,13 +66,15 @@ const TTS = (() => {
       u.rate = rate;
       const v = pickVoice(lang, voiceURI);
       if (v) u.voice = v;
-      u.onend = () => resolve();
-      u.onerror = () => resolve();
+      startKeepAlive();
+      u.onend = () => { stopKeepAlive(); resolve(); };
+      u.onerror = () => { stopKeepAlive(); resolve(); };
       window.speechSynthesis.speak(u);
     });
   }
 
   function cancel() {
+    stopKeepAlive();
     if (window.speechSynthesis) window.speechSynthesis.cancel();
   }
 
