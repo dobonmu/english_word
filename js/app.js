@@ -6,7 +6,7 @@ let progress = loadProgress();
 applyTheme();
 
 let state = {
-  page: 'home',          // home | browse | quizSetup | quiz | quizResult | writeSetup | writeQuiz | writeResult | writingSetup | sentenceStudy | writingQuiz | writingQuizResult | mock | review | settings
+  page: 'home',          // home | browse | quizSetup | quiz | quizResult | writeSetup | writeQuiz | writeResult | writingSetup | sentenceStudy | writingQuiz | writingQuizResult | speakingSetup | speakingPractice | mock | review | settings
   unit: UNIT_NAMES[0] || null,
   view: 'list',           // list | card
   search: '',
@@ -124,6 +124,7 @@ function renderHeader() {
     { id: 'quizSetup', label: '시험' },
     { id: 'writeSetup', label: '쓰기시험' },
     { id: 'writingSetup', label: 'Writing' },
+    { id: 'speakingSetup', label: 'Speaking' },
     { id: 'mock', label: '모의고사' },
     { id: 'review', label: '오답/중요' },
   ];
@@ -152,6 +153,7 @@ function samePageGroup(page, navId) {
     quizSetup: ['quizSetup', 'quiz', 'quizResult'],
     writeSetup: ['writeSetup', 'writeQuiz', 'writeResult'],
     writingSetup: ['writingSetup', 'sentenceStudy', 'writingQuiz', 'writingQuizResult'],
+    speakingSetup: ['speakingSetup', 'speakingPractice'],
     mock: ['mockSetup', 'mock', 'mockQuiz', 'mockResult'],
     review: ['review'],
   };
@@ -186,6 +188,8 @@ function renderPage() {
     case 'sentenceStudy': return renderSentenceStudy();
     case 'writingQuiz': return renderWritingQuizPage();
     case 'writingQuizResult': return renderWritingQuizResultPage();
+    case 'speakingSetup': return renderSpeakingSetup();
+    case 'speakingPractice': return renderSpeakingPractice();
     case 'mockSetup': return renderQuizSetup(false, true);
     case 'mockQuiz': return renderQuiz();
     case 'mockResult': return renderQuizResult();
@@ -206,6 +210,8 @@ function bindPageEvents() {
     case 'sentenceStudy': return bindSentenceStudy();
     case 'writingQuiz': return bindWritingQuizPage();
     case 'writingQuizResult': return bindWritingQuizResultPage();
+    case 'speakingSetup': return bindSpeakingSetup();
+    case 'speakingPractice': return bindSpeakingPractice();
   }
 }
 

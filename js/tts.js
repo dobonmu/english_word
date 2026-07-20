@@ -43,18 +43,24 @@ const TTS = (() => {
   // onend 콜백이 뒤늦게 와도 새 재생을 건드리지 않도록 막는다.
   let generation = 0;
 
+  // iOS(WebKit) Safari/Chrome은 SpeechSynthesisUtterance 객체가 지역변수로만
+  // 남아있으면 재생 도중 가비지 컬렉션되어 문장이 단어 단위로 끊기는 유명한
+  // 버그가 있다. 모듈 스코프에 강한 참조를 유지해서 GC를 막는다.
+  let currentUtterance = null;
+
   function speak(text, { lang = 'en-US', rate = 1, voiceURI = null } = {}) {
     return new Promise((resolve) => {
       if (!window.speechSynthesis || !text) { resolve(); return; }
       window.speechSynthesis.cancel();
       const myGen = ++generation;
       const u = new SpeechSynthesisUtterance(text);
+      currentUtterance = u;
       u.lang = lang;
       u.rate = rate;
       const v = pickVoice(lang, voiceURI);
       if (v) u.voice = v;
-      u.onend = () => { if (myGen === generation) resolve(); };
-      u.onerror = () => { if (myGen === generation) resolve(); };
+      u.onend = () => { if (myGen === generation) { currentUtterance = null; resolve(); } };
+      u.onerror = () => { if (myGen === generation) { currentUtterance = null; resolve(); } };
       window.speechSynthesis.speak(u);
     });
   }

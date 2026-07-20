@@ -49,6 +49,10 @@ function renderHome() {
         <h3>&#128221; Writing</h3>
         <p>실전 영어 문장을 공부하거나, 뜻/문장을 보고 서로 바꿔 써보는 시험 모드</p>
       </div>
+      <div class="opt-card" data-go="speakingSetup">
+        <h3>&#127908; Speaking</h3>
+        <p>단원별 단어와 예문을 TTS로 듣고 따라 말하는 연습 모드</p>
+      </div>
       <div class="opt-card" data-go="mockSetup">
         <h3>&#128220; 모의고사</h3>
         <p>기록에 남기지 않고 편하게 연습할 수 있는 모드</p>

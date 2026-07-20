@@ -232,6 +232,10 @@ button,input{font-family:inherit}
 .quiz-ex .en{color:var(--text-primary)}
 .quiz-note{font-size:12px;color:var(--text-accent);line-height:1.5;margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);text-align:left}
 .quiz-note::before{content:"\1F4CC  ";}
+.wmark{cursor:pointer;border-radius:4px;padding:1px 2px;transition:background .15s}
+.wmark:hover{background:var(--bg-accent)}
+.wmark-wrong{background:var(--bg-danger);color:var(--fill-danger);text-decoration:underline wavy var(--fill-danger);text-underline-offset:3px}
+.wmark-important{background:var(--bg-warn);color:var(--fill-warn);font-weight:700}
 .quiz-input{width:100%;max-width:320px;padding:12px 14px;border:2px solid var(--border-strong);border-radius:var(--radius);background:var(--surface-1);color:var(--text-primary);font-size:16px;text-align:center;outline:none;margin-top:6px}
 .quiz-input:focus{border-color:var(--fill-accent)}
 .quiz-input.correct{border-color:var(--fill-success);background:var(--bg-success)}

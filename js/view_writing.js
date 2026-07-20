@@ -112,11 +112,15 @@ function renderSentenceStudy() {
     </div>
   `;
 
+  const markKeyPrefix = `writing::${name}::${idx}`;
+  const hint = `<div class="hint-text" style="text-align:center;margin-top:6px">영어 단어를 누르면 틀린 부분(빨강)/중요 표시(노랑)를 남길 수 있어요.</div>`;
+
   let bodyHtml;
   if (mode === 'both') {
     bodyHtml = `
       <div class="quiz-prompt-label" style="text-align:center">영어 문장</div>
-      <div class="quiz-prompt" style="font-size:19px;text-align:center">${escapeHtml(it.en)}</div>
+      <div class="quiz-prompt" style="font-size:19px;text-align:center">${renderMarkableSentence(it.en, markKeyPrefix)}</div>
+      ${hint}
       <div class="quiz-answer-area" style="margin-top:10px">
         <div class="quiz-answer" style="text-align:left">${escapeHtml(it.kr)}</div>
         ${it.point ? `<div class="quiz-note" style="margin-top:10px">${escapeHtml(it.point)}</div>` : ''}
@@ -125,21 +129,36 @@ function renderSentenceStudy() {
         <button class="qbtn" id="sentence-speak-btn">&#128266; 문장 듣기</button>
       </div>
     `;
-  } else {
-    const shown = mode === 'enOnly' ? it.en : it.kr;
-    const label = mode === 'enOnly' ? '영어 문장' : '뜻';
+  } else if (mode === 'enOnly') {
     bodyHtml = `
-      <div class="quiz-prompt-label" style="text-align:center">${label}</div>
-      <div class="quiz-prompt" style="font-size:19px;text-align:center">${escapeHtml(shown)}</div>
+      <div class="quiz-prompt-label" style="text-align:center">영어 문장</div>
+      <div class="quiz-prompt" style="font-size:19px;text-align:center">${renderMarkableSentence(it.en, markKeyPrefix)}</div>
+      ${hint}
       <div class="quiz-actions" style="margin:10px 0 0">
         <button class="qbtn" id="sentence-speak-btn">&#128266; 문장 듣기</button>
-        <button class="qbtn neutral" id="sentence-reveal-btn">${sentenceStudyState.flipped ? '숨기기' : (mode === 'enOnly' ? '뜻 보기' : '영어 문장 보기')}</button>
+        <button class="qbtn neutral" id="sentence-reveal-btn">${sentenceStudyState.flipped ? '숨기기' : '뜻 보기'}</button>
       </div>
       ${sentenceStudyState.flipped ? `
         <div class="quiz-answer-area" style="margin-top:10px">
-          <div class="quiz-answer" style="text-align:left">${escapeHtml(mode === 'enOnly' ? it.kr : it.en)}</div>
+          <div class="quiz-answer" style="text-align:left">${escapeHtml(it.kr)}</div>
           ${it.point ? `<div class="quiz-note" style="margin-top:10px">${escapeHtml(it.point)}</div>` : ''}
         </div>
+      ` : ''}
+    `;
+  } else {
+    bodyHtml = `
+      <div class="quiz-prompt-label" style="text-align:center">뜻</div>
+      <div class="quiz-prompt" style="font-size:19px;text-align:center">${escapeHtml(it.kr)}</div>
+      <div class="quiz-actions" style="margin:10px 0 0">
+        <button class="qbtn" id="sentence-speak-btn">&#128266; 문장 듣기</button>
+        <button class="qbtn neutral" id="sentence-reveal-btn">${sentenceStudyState.flipped ? '숨기기' : '영어 문장 보기'}</button>
+      </div>
+      ${sentenceStudyState.flipped ? `
+        <div class="quiz-answer-area" style="margin-top:10px">
+          <div class="quiz-answer" style="text-align:left">${renderMarkableSentence(it.en, markKeyPrefix)}</div>
+          ${it.point ? `<div class="quiz-note" style="margin-top:10px">${escapeHtml(it.point)}</div>` : ''}
+        </div>
+        ${hint}
       ` : ''}
     `;
   }
@@ -204,6 +223,7 @@ function bindSentenceStudy() {
   });
   const homeBtn = document.getElementById('sentence-home-btn');
   if (homeBtn) homeBtn.addEventListener('click', () => goto('writingSetup'));
+  bindMarkableSentence(document.getElementById('main'));
 }
 
 // ===== 시험보기: 뜻 보고 문장 쓰기 / 문장 보고 뜻 쓰기 =====
@@ -342,8 +362,9 @@ function renderWritingQuizResultPage() {
   const partial = items.filter(i => i.status === 'partial').length;
 
   const rows = items.map((item, i) => {
-    const promptText = isKrPrompt ? item.it.kr : item.it.en;
-    const answerText = isKrPrompt ? item.it.en : item.it.kr;
+    const markKeyPrefix = `writingQuiz::${setName}::${i}`;
+    const promptText = isKrPrompt ? item.it.kr : renderMarkableSentence(item.it.en, markKeyPrefix + '::prompt');
+    const answerText = isKrPrompt ? renderMarkableSentence(item.it.en, markKeyPrefix + '::answer') : item.it.kr;
     const statusLabel = item.status === 'correct' ? '&#10003; 맞음' : item.status === 'wrong' ? '&#10005; 틀림' : '&#8776; 부분맞음';
     const statusClass = item.status === 'correct' ? 'correct' : item.status === 'wrong' ? 'wrong' : 'partial';
     return `
@@ -351,9 +372,9 @@ function renderWritingQuizResultPage() {
         <div class="trow-top" style="margin-bottom:8px">
           <span class="status-tag ${statusClass}">${statusLabel}</span>
         </div>
-        <div class="quiz-answer" style="text-align:left;margin-bottom:6px">${escapeHtml(promptText)}</div>
+        <div class="quiz-answer" style="text-align:left;margin-bottom:6px">${promptText}</div>
         ${item.userInput && item.userInput.trim() ? `<div class="hint-text" style="margin-bottom:6px">내가 쓴 답: ${escapeHtml(item.userInput)}</div>` : `<div class="hint-text" style="margin-bottom:6px">작성한 답이 없습니다.</div>`}
-        <div class="quiz-ex">정답: ${escapeHtml(answerText)}</div>
+        <div class="quiz-ex">정답: ${answerText}</div>
         ${item.it.point ? `<div class="quiz-note">${escapeHtml(item.it.point)}</div>` : ''}
       </div>
     `;
@@ -373,6 +394,7 @@ function renderWritingQuizResultPage() {
 }
 
 function bindWritingQuizResultPage() {
+  bindMarkableSentence(document.getElementById('main'));
   const againBtn = document.getElementById('wq-again-btn');
   if (againBtn) againBtn.addEventListener('click', () => goto('writingSetup'));
   const homeBtn = document.getElementById('wq-home-btn');

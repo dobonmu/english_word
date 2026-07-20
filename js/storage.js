@@ -6,6 +6,7 @@ const DEFAULT_PROGRESS = () => ({
   starred: {},       // { wordKey: true }
   wrongCount: {},     // { wordKey: number }
   examLog: [],       // [{date, mode, scope, total, correct, wrong, partial}]
+  wordMarks: {},      // Writing/Speaking 문장 안 개별 단어 마킹 { "markKey": "wrong" | "important" }
   settings: {
     ttsRate: 1,
     ttsVoiceEN: '',
