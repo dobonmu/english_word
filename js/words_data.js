@@ -1,4 +1,4 @@
-// 이 파일은 build_words.py 로 자동 생성됩니다. words/*.txt, writing/*.txt 를 수정한 뒤
+// 이 파일은 build_words.py 로 자동 생성됩니다. words/*.txt, writing/*.txt, speaking/*.txt 를 수정한 뒤
 // `python3 build_words.py` 를 다시 실행하세요.
 const VOCAB_DATA = {
   "1단원": [
@@ -812,7 +812,7 @@ const VOCAB_DATA = {
       "meaning": "축축한",
       "ex_en": "The walls of the cave were damp and covered in moss.",
       "ex_kr": "동굴의 벽은 축축하고 이끼로 덮여 있었습니다.",
-      "note": ""
+      "note": "동의어: moist, soggy"
     },
     {
       "id": 2,
@@ -820,7 +820,7 @@ const VOCAB_DATA = {
       "meaning": "대담한",
       "ex_en": "The explorer made a daring attempt to cross the desert alone.",
       "ex_kr": "탐험가는 혼자 사막을 횡단하려는 대담한 시도를 했습니다.",
-      "note": ""
+      "note": "동의어: audacious, intrepid"
     },
     {
       "id": 3,
@@ -828,7 +828,7 @@ const VOCAB_DATA = {
       "meaning": "눈부신",
       "ex_en": "The sun reflected off the snow with a dazzling light.",
       "ex_kr": "태양 빛이 눈에 반사되어 눈부신 빛을 내뿜었습니다.",
-      "note": ""
+      "note": "동의어: brilliant"
     },
     {
       "id": 4,
@@ -836,7 +836,7 @@ const VOCAB_DATA = {
       "meaning": "속이다",
       "ex_en": "Some animals use camouflage to deceive their predators.",
       "ex_kr": "어떤 동물들은 포식자를 속이기 위해 위장술을 사용합니다.",
-      "note": ""
+      "note": "동의어: mislead, dupe, cheat"
     },
     {
       "id": 5,
@@ -844,7 +844,7 @@ const VOCAB_DATA = {
       "meaning": "해독하다",
       "ex_en": "Scholars worked for years to decipher the ancient hieroglyphs.",
       "ex_kr": "학자들은 고대 상형문자를 해독하기 위해 수년간 연구했습니다.",
-      "note": ""
+      "note": "동의어: decode, interpret"
     },
     {
       "id": 6,
@@ -852,7 +852,7 @@ const VOCAB_DATA = {
       "meaning": "감소하다, 거절하다",
       "ex_en": "The population of the species began to decline rapidly.",
       "ex_kr": "그 종의 개체 수가 급격히 감소하기 시작했습니다.",
-      "note": ""
+      "note": "감소하다 동의어: decline, decrease, reduce, abate, alleviate, lower, plummet, plunge / 거절하다 동의어: decline, reject, refuse to"
     },
     {
       "id": 7,
@@ -876,7 +876,7 @@ const VOCAB_DATA = {
       "meaning": "결함",
       "ex_en": "A small defect in the lens caused the blurry images.",
       "ex_kr": "렌즈의 작은 결함이 흐릿한 이미지를 만들어냈습니다.",
-      "note": ""
+      "note": "유의어: issue, mistake"
     },
     {
       "id": 10,
@@ -884,7 +884,7 @@ const VOCAB_DATA = {
       "meaning": "미루다, 연기하다",
       "ex_en": "The committee decided to defer the decision until next month.",
       "ex_kr": "위원회는 결정을 다음 달까지 미루기로 했습니다.",
-      "note": ""
+      "note": "동의어: defer, delay, push back, put off, put on hold, procrastinate, impede"
     },
     {
       "id": 11,
@@ -892,7 +892,7 @@ const VOCAB_DATA = {
       "meaning": "부족한, 결핍된",
       "ex_en": "Plants grown in deficient soil often have stunted growth.",
       "ex_kr": "영양분이 부족한 토양에서 자란 식물은 종종 성장이 저해됩니다.",
-      "note": ""
+      "note": "동의어: lacked, insufficient, not enough"
     },
     {
       "id": 12,
@@ -900,7 +900,7 @@ const VOCAB_DATA = {
       "meaning": "명확한, 확실한",
       "ex_en": "There is no definite proof that the theory is correct.",
       "ex_kr": "그 이론이 맞다는 명확한 증거는 없습니다.",
-      "note": ""
+      "note": "동의어: clear(분명한)"
     },
     {
       "id": 13,
@@ -908,7 +908,7 @@ const VOCAB_DATA = {
       "meaning": "굴절시키다, 피하다",
       "ex_en": "The Earth's magnetic field helps deflect harmful solar radiation.",
       "ex_kr": "지구의 자기장은 해로운 태양 방사선을 굴절시키는 데 도움을 줍니다.",
-      "note": ""
+      "note": "동의어: avoid(피하다)"
     },
     {
       "id": 14,
@@ -916,7 +916,7 @@ const VOCAB_DATA = {
       "meaning": "변형시키다",
       "ex_en": "Extreme pressure can deform the structure of rocks deep underground.",
       "ex_kr": "극심한 압력은 지하 깊은 곳의 암석 구조를 변형시킬 수 있습니다.",
-      "note": ""
+      "note": "동의어: change, transform, modify, deform"
     },
     {
       "id": 15,
@@ -924,7 +924,7 @@ const VOCAB_DATA = {
       "meaning": "능숙한, 솜씨 좋은",
       "ex_en": "The artisan's deft hands shaped the clay into a beautiful vase.",
       "ex_kr": "장인의 능숙한 손길이 점토를 아름다운 꽃병으로 빚어냈습니다.",
-      "note": ""
+      "note": "동의어: adept, skillful"
     },
     {
       "id": 16,
@@ -940,7 +940,7 @@ const VOCAB_DATA = {
       "meaning": "의도적인, 신중한",
       "ex_en": "The bird made a deliberate movement to attract a mate.",
       "ex_kr": "그 새는 짝을 유혹하기 위해 의도적인 움직임을 보였습니다.",
-      "note": ""
+      "note": "신중한 동의어: considerate / 의도적인 동의어: intended, planned"
     },
     {
       "id": 18,
@@ -956,7 +956,7 @@ const VOCAB_DATA = {
       "meaning": "설명하다, 묘사하다",
       "ex_en": "The report clearly delineates the steps for the project.",
       "ex_kr": "그 보고서는 프로젝트의 단계를 명확하게 설명하고 있습니다.",
-      "note": ""
+      "note": "설명하다 동의어: account for, explain, detail, elaborate, illustrate, describe"
     },
     {
       "id": 20,
@@ -972,7 +972,7 @@ const VOCAB_DATA = {
       "meaning": "파괴하다, 허물다",
       "ex_en": "The old factory was demolished to make room for a park.",
       "ex_kr": "그 오래된 공장은 공원을 만들기 위해 철거되었습니다.",
-      "note": ""
+      "note": "철거하다/파괴하다/없애다 동의어: get rid of, remove, discard, dispose of"
     },
     {
       "id": 22,
@@ -980,7 +980,7 @@ const VOCAB_DATA = {
       "meaning": "입증하다, 보여주다",
       "ex_en": "The experiment was designed to demonstrate the law of gravity.",
       "ex_kr": "그 실험은 중력의 법칙을 입증하기 위해 설계되었습니다.",
-      "note": ""
+      "note": "입증하다 동의어: prove / 보여주다 동의어: showcase"
     },
     {
       "id": 23,
@@ -1012,7 +1012,7 @@ const VOCAB_DATA = {
       "meaning": "묘사하다",
       "ex_en": "The painting depicts a scene from the daily life of ancient Greeks.",
       "ex_kr": "그 그림은 고대 그리스인의 일상생활 장면을 묘사합니다.",
-      "note": ""
+      "note": "동의어: describe"
     },
     {
       "id": 27,
@@ -1052,7 +1052,7 @@ const VOCAB_DATA = {
       "meaning": "내려가다, 계승되다",
       "ex_en": "The divers began to descend into the dark water.",
       "ex_kr": "잠수부들이 어두운 물속으로 내려가기 시작했습니다.",
-      "note": ""
+      "note": "반대어: ascend(올라가다)"
     },
     {
       "id": 32,
@@ -1060,7 +1060,7 @@ const VOCAB_DATA = {
       "meaning": "지정하다",
       "ex_en": "The area was designated as a national wildlife refuge.",
       "ex_kr": "그 구역은 국립 야생동물 보호구역으로 지정되었습니다.",
-      "note": ""
+      "note": "동의어: assign"
     },
     {
       "id": 33,
@@ -1092,7 +1092,7 @@ const VOCAB_DATA = {
       "meaning": "방해하다, 단념시키다",
       "ex_en": "High fences were built to deter intruders.",
       "ex_kr": "침입자를 막기 위해 높은 울타리가 세워졌습니다.",
-      "note": ""
+      "note": "동의어: stop A from B, prohibit A from B (A를 B로부터 막다)"
     },
     {
       "id": 37,
@@ -1108,7 +1108,7 @@ const VOCAB_DATA = {
       "meaning": "결정하다, 알아내다",
       "ex_en": "DNA testing can help determine the identity of the remains.",
       "ex_kr": "DNA 검사는 유해의 신원을 알아내는 데 도움을 줄 수 있습니다.",
-      "note": ""
+      "note": "결정하다 동의어: decide / 찾다 동의어: find out, search for, look for, seek"
     },
     {
       "id": 39,
@@ -1148,7 +1148,7 @@ const VOCAB_DATA = {
       "meaning": "헌신하다, 바치다",
       "ex_en": "She decided to devote her life to environmental protection.",
       "ex_kr": "그녀는 환경 보호에 일생을 바치기로 했습니다.",
-      "note": ""
+      "note": "동의어: strive to, struggle, try to, attempt to(노력하다) / be devoted to 명사, be dedicated to 명사, be committed to 명사(~에 헌신되다)"
     },
     {
       "id": 44,
@@ -1180,7 +1180,7 @@ const VOCAB_DATA = {
       "meaning": "희석하다",
       "ex_en": "You should dilute the concentrated juice with water.",
       "ex_kr": "농축 주스는 물로 희석해서 마셔야 합니다.",
-      "note": ""
+      "note": "동의어: without, with few, but for, barring"
     },
     {
       "id": 48,
@@ -1188,7 +1188,7 @@ const VOCAB_DATA = {
       "meaning": "줄어들다",
       "ex_en": "The sound of the music began to diminish as we walked away.",
       "ex_kr": "우리가 멀어지자 음악 소리가 줄어들기 시작했습니다.",
-      "note": ""
+      "note": "동의어: reduce, lower, abate, ease, alleviate"
     },
     {
       "id": 49,
@@ -1196,7 +1196,7 @@ const VOCAB_DATA = {
       "meaning": "버리다",
       "ex_en": "Please discard any expired medication safely.",
       "ex_kr": "유통기한이 지난 약은 안전하게 버려주세요.",
-      "note": ""
+      "note": "동의어: dispose of, get rid of, remove"
     },
     {
       "id": 50,
@@ -1204,7 +1204,7 @@ const VOCAB_DATA = {
       "meaning": "방해하다, 중단시키다",
       "ex_en": "The loud noise could disrupt the birds' nesting habits.",
       "ex_kr": "큰 소음은 새들의 둥지 트기 습성을 방해할 수 있습니다.",
-      "note": ""
+      "note": "동의어: stop, keep, disrupt, prohibit A from B, suspend"
     }
   ]
 };
@@ -1257,6 +1257,104 @@ const WRITING_DATA = {
       "en": "I look forward to your reply.",
       "kr": "당신의 답변을 기다리겠습니다.",
       "point": "이메일을 마무리하는 관용구"
+    }
+  ]
+};
+const SPEAKING_DATA = {
+  "Part1_교육과진로": [
+    {
+      "id": 1,
+      "q_en": "Where do you usually study to maintain focus?",
+      "q_kr": "보통 어디에서 집중력을 유지하기 위해 공부하나요?",
+      "a_en": "I usually study at a quiet library. I find it easier to concentrate when I am surrounded by other people who are also working hard.",
+      "a_kr": "저는 보통 조용한 도서관에서 공부합니다. 저와 마찬가지로 열심히 일하는 다른 사람들에게 둘러싸여 있을 때 집중하기가 더 쉽다고 생각합니다.",
+      "point": "surrounded by, surrounded at: ~에 둘러싸여 / motivate someone to: ~에게 동기부여를 하다 / keep my eye on the ball, focused on my tasks: 집중력을 유지하도록 해주다"
+    },
+    {
+      "id": 2,
+      "q_en": "Do you prefer studying alone or with friends?",
+      "q_kr": "혼자 공부하는 것과 친구와 함께 공부하는 것 중 어느 것을 선호하나요?",
+      "a_en": "I prefer studying alone. When I am with friends, I tend to get distracted by conversations. Studying by myself allows me to manage my time more efficiently and focus deeply.",
+      "a_kr": "저는 혼자 공부하는 것을 선호합니다. 친구들과 함께 있을 때는 대화 때문에 산만해지는 경향이 있습니다. 혼자 공부하는 것은 제가 시간을 더 효율적으로 관리하고 깊이 집중할 수 있게 해줍니다.",
+      "point": "tend to ~하는 경향이 있다 / get distracted by ~에 정신이 팔리다 / to streamline my workflow: 업무 절차를 간소화하다"
+    },
+    {
+      "id": 3,
+      "q_en": "Do you agree that taking notes while studying can improve learning efficiency?",
+      "q_kr": "공부하면서 필기하는 것이 학습 효율성을 향상시킬 수 있다는 생각에 동의하나요?",
+      "a_en": "I strongly agree. Writing things down helps me organize my thoughts and remember information longer. It transforms passive reading into active learning.",
+      "a_kr": "저는 적극 동의합니다. 무언가를 적는 것은 제 생각을 정리하고 정보를 더 오래 기억하도록 도와줍니다. 그것은 수동적인 독서를 능동적인 학습으로 바뀌줍니다.",
+      "point": ""
+    },
+    {
+      "id": 4,
+      "q_en": "Is the popularity of online learning platforms beneficial to students' overall learning experience?",
+      "q_kr": "온라인 학습 플랫폼의 유행이 학생들의 전반적인 학습 경험에 유익하다고 생각하나요?",
+      "a_en": "Yes, it is beneficial because it provides flexibility. Students can access high-quality lectures from anywhere at any time, which levels the playing field for those in remote areas.",
+      "a_kr": "네, 유연성을 제공하기 때문에 유익합니다. 학생들은 언제 어디서나 고품질의 강의를 이용할 수 있으며, 이는 소외 지역 학생들에게 평등한 기회의 장을 제공합니다.",
+      "point": "to have seamless access to premium content at any time: 언제든 프리미엄 콘텐츠에 매끄럽게 접근하다 / to enjoy content at any time"
+    },
+    {
+      "id": 5,
+      "q_en": "Do you think university students should focus only on their studies without doing internships or part-time jobs?",
+      "q_kr": "대학생들이 인턴십이나 아르바이트를 하지 않고 학업에만 집중해야 한다고 생각하나요?",
+      "a_en": "I disagree. Practical experience through internships is just as important as academic knowledge. It helps students develop real-world skills that are essential for their future careers.",
+      "a_kr": "동의하지 않습니다. 인턴십을 통한 실무 경험은 학문적 지식만큼 중요합니다. 그것은 학생들이 미래 직업에 필수적인 실무적인 지식을 기르는 데 도움을 줍니다.",
+      "point": "essential(에센셜) 필수적인 / academic(아카데믹) 학문적인 / internship(인턴쉽) / careers(커리얼쓰) 직업, 경력 / it equips students with practical(프렉티컬), industry-ready expertise(엑스퍼타이즈): 실무적이고 산업 현장에 바로 투입 가능한 전문성을 갖추게 해준다 / it empowers(임파월쓰) students to bridge(브뤼지) the gap between theory(씨어뤼) and practice: 이론과 실무 사이의 간극을 메울 수 있게 해준다"
+    }
+  ],
+  "Part2_직업과근무환경": [
+    {
+      "id": 1,
+      "q_en": "Do you prefer working remotely or working in an office?",
+      "q_kr": "원격으로 근무하는 것과 사무실에서 근무하는 것 중 어느 것을 선호하나요?",
+      "a_en": "I prefer working remotely. It saves a lot of time and energy that would otherwise be spent on commuting. This allows for a better work-life balance.",
+      "a_kr": "저는 원격으로 근무하는 것을 선호합니다. 통근에 소비될 많은 시간과 에너지를 절약해 줍니다. 이는 더 나은 일과 삶의 균형을 가능하게 합니다.",
+      "point": "be tied up(타이드 업) in daily transit(트뤤짓): 매일 통근에 시간을 보내다 / be consumed by the daily grind of travel: 매일 반복되는 이동으로 시간을 다 써버리다"
+    },
+    {
+      "id": 2,
+      "q_en": "Do you agree that teamwork is less effective when working remotely due to fewer communication opportunities?",
+      "q_kr": "원격으로 근무할 때 의사소통의 기회가 적기 때문에 팀워크가 원활하지 않다는 것에 동의하나요?",
+      "a_en": "I somewhat agree. While digital tools help, face-to-face interaction is often necessary to build trust and resolve complex issues quickly.",
+      "a_kr": "저는 어느 정도 동의합니다. 디지털 도구가 도움이 되지만, 신뢰를 쌓고 복잡한 문제를 신속히 해결하기 위해서는 대면 상호작용이 종종 필요합니다.",
+      "point": "foster(뭐스터) rapport(뤄폴트): 유대감을 형성하다 / streamline(스트뤼임라인) the resolution(뤠솔루션) to: ~을 신속하게 해결하다 / intricate(인트뤼케이트) challenges(첼뤼지쓰): 복잡한 문제"
+    }
+  ],
+  "Part3_AI와스마트기기": [
+    {
+      "id": 1,
+      "q_en": "Do you prefer getting help from AI tools when working or studying, or doing it alone?",
+      "q_kr": "일하거나 공부할 때 AI 도구의 도움을 받는 것을 선호하나요, 아니면 혼자서 하는 것을 선호하나요?",
+      "a_en": "I prefer using AI tools as assistants. They can handle repetitive tasks or analyze data quickly, which allows me to focus on more creative and critical thinking aspects.",
+      "a_kr": "저는 AI 도구를 보조자로 사용하는 것을 선호합니다. AI는 반복적인 일을 처리하거나 데이터를 빠르게 분석할 수 있어, 제가 더 창의적이고 비판적인 사고가 필요한 부분에 집중할 수 있게 해줍니다.",
+      "point": "automate(오토메이트) mundane chores and accelerate data-driven insights: 반복적인 잡무를 자동화하고 데이터 기반 통찰을 가속화하다 / optimize(옵티마이즈) routine workflows and perform rapid(뤠핏) large-scale data(데라) synthesis(씬쎄시쓰): 일상적인 업무 흐름을 최적화하고 대규모 데이터를 신속하게 종합 분석하다"
+    },
+    {
+      "id": 2,
+      "q_en": "Do you agree that it is good to regularly stay away from smart devices for mental health?",
+      "q_kr": "정신 건강을 위해 주기적으로 스마트 기기를 멀리하는 것이 좋다는 의견에 동의하나요?",
+      "a_en": "I absolutely agree. A 'digital detox' reduces stress and prevents burnout. It helps people reconnect with the real world and improves their sleep quality.",
+      "a_kr": "저는 전적으로 동의합니다. '디지털 단식'은 스트레스를 줄이고 번아웃을 방지합니다. 사람들이 현실 세계와 다시 연결되도록 도와주고 수면의 질을 향상시켜 줍니다.",
+      "point": "encourages people to engage more mindfully with their physical surroundings: 사람들이 주변 물리적 환경에 더 신경 써서 참여하도록 장려하다"
+    }
+  ],
+  "Part4_교통과주거": [
+    {
+      "id": 1,
+      "q_en": "Do you agree or disagree that the government should invest more in public transportation than in roads?",
+      "q_kr": "정부가 도로보다 대중교통에 더 많이 투자해야 한다는 주장에 동의하나요, 동의하지 않나요?",
+      "a_en": "I agree. Investing in public transit is more environmentally friendly and reduces traffic congestion. It provides a more efficient way for a large number of people to move around.",
+      "a_kr": "동의합니다. 대중교통에 투자하는 것은 더 친환경적이고 교통 체증을 줄여줍니다. 많은 사람들이 이동하기에 더 효율적인 방법을 제공합니다.",
+      "point": "promotes ecological sustainability and alleviates(엘리비에잇) urban gridlock(그뤼드락): 생태학적 지속가능성을 촉진하고 도시의 교통 정체를 완화하다"
+    },
+    {
+      "id": 2,
+      "q_en": "Do you prefer living in a single-family house or in shared housing like an apartment?",
+      "q_kr": "단독 주택에서 사는 것과 아파트와 같은 공동 주택에서 사는 것 중 어느 쪽을 선호하나요?",
+      "a_en": "I prefer living in an apartment. Apartments usually offer better security and convenient facilities like gyms or nearby convenience stores.",
+      "a_kr": "저는 아파트에서 사는 것을 선호합니다. 아파트는 보통 더 나은 보안과 헬스장이나 근처 편의점 같은 편리한 시설을 제공합니다.",
+      "point": "provide enhanced safety measures and a wide array of premium amenities: 강화된 안전 조치와 다양한 고급 편의시설을 제공하다 / ensure a secure living environment and seamless access to integrated(인터그뤠이트) facilities(퍼실리티쓰): 안전한 주거 환경과 통합된 시설에 매끄러운 접근을 보장하다"
     }
   ]
 };
