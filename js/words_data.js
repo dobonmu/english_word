@@ -1232,13 +1232,13 @@ const WRITING_DATA = {
       "id": 4,
       "en": "Several of the wooden dining tables have rough edges and splinters.",
       "kr": "몇몇 나무 식탁의 모서리가 거칠고 가시가 돋아 있습니다.",
-      "point": "인접한: adjacent to / 바로 맞은편: right across"
+      "point": "rough edges(거친 모서리), splinters(가시)"
     },
     {
       "id": 5,
       "en": "The water fountain near the entrance is leaking, making the floor quite slippery.",
       "kr": "입구 근처의 식수대에서 물이 새서 바닥이 꽤 미끄럽습니다.",
-      "point": "leaking(새는), slippery(미끄러운)"
+      "point": "leaking(새는), slippery(미끄러운) / 인접한(near의 동의어): adjacent to / 바로 맞은편: right across"
     },
     {
       "id": 6,
