@@ -40,33 +40,3 @@ function bindMarkableSentence(container) {
     });
   });
 }
-
-// point(학습포인트) 안의 각 표현이 문장(sentence) 안에 실제로 등장하면
-// 그 부분을 <mark class="hl-point">로 감싸서 빨간색으로 강조 표시한다.
-// 대소문자는 무시하고 매칭하되, 원문의 대소문자는 그대로 유지한다.
-function highlightPointInSentence(sentence, phrases) {
-  if (!phrases || phrases.length === 0) return escapeHtml(sentence);
-  // 긴 표현부터 먼저 매칭해야 짧은 표현이 긴 표현의 일부를 잘라먹지 않는다.
-  const sorted = phrases.slice().sort((a, b) => b.length - a.length);
-  const ranges = []; // [start, end)
-  sorted.forEach(phrase => {
-    const clean = phrase.replace(/\([^)]*\)/g, '').trim(); // "surrounded by(써라운디드 바이)" 같은 발음 표기 제거
-    if (!clean) return;
-    const idx = sentence.toLowerCase().indexOf(clean.toLowerCase());
-    if (idx === -1) return;
-    const start = idx, end = idx + clean.length;
-    const overlaps = ranges.some(r => start < r[1] && end > r[0]);
-    if (!overlaps) ranges.push([start, end]);
-  });
-  if (ranges.length === 0) return escapeHtml(sentence);
-  ranges.sort((a, b) => a[0] - b[0]);
-  let html = '';
-  let cursor = 0;
-  ranges.forEach(([start, end]) => {
-    html += escapeHtml(sentence.slice(cursor, start));
-    html += `<mark class="hl-point">${escapeHtml(sentence.slice(start, end))}</mark>`;
-    cursor = end;
-  });
-  html += escapeHtml(sentence.slice(cursor));
-  return html;
-}

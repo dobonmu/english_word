@@ -1,6 +1,5 @@
 // ===== Writing 학습 =====
-// 1. 문장 보기: 문장/한글/학습포인트를 모두 보여주고, 문장 안 학습포인트에 해당하는
-//    부분을 빨간색으로 강조 표시.
+// 1. 문장 보기: 문장/한글/학습포인트를 모두 보여줌.
 // 2. 학습 포인트 공부: 표현(영어)/뜻(한글)을 모두 보여주며 학습.
 // 3. 학습 포인트 연습: 한글 뜻만 보여주고 영어는 가려서, 눌러야 확인 가능(정답에는
 //    영어와 그 표현의 대체 가능한 다른 표현도 모두 공개).
@@ -59,10 +58,6 @@ function renderPointGroups(point, keyPrefix) {
       </div>
     </div>
   `).join('');
-}
-
-function allPointPhrases(point) {
-  return parsePoint(point).flatMap(g => g.phrases);
 }
 
 function renderWritingSetup() {
@@ -145,7 +140,7 @@ function renderWritingSetup() {
   return modeTabs + `
     <div class="section-card">
       <div class="section-title">&#128221; 문장 보기</div>
-      <p class="hint-text" style="margin-bottom:14px">영어 문장, 한글 해석, 학습 포인트를 모두 보여줍니다. 문장 안에서 학습 포인트에 해당하는 부분은 빨간색으로 강조됩니다.</p>
+      <p class="hint-text" style="margin-bottom:14px">영어 문장, 한글 해석, 학습 포인트를 모두 보여줍니다.</p>
       <div class="field">
         <label>학습 세트 선택</label>
         <div class="grid-cards">${cards}</div>
@@ -191,7 +186,7 @@ function bindWritingSetup() {
   });
 }
 
-// ===== 1. 문장 보기: 문장 + 한글 + 학습포인트를 모두 보여주고, 학습포인트 표현은 문장 안에서 빨갛게 강조 =====
+// ===== 1. 문장 보기: 문장 + 한글 + 학습포인트를 모두 보여줌 =====
 function renderSentenceStudy() {
   const name = sentenceStudyState.setName;
   const items = (name && WRITING_DATA[name]) || [];
@@ -203,8 +198,6 @@ function renderSentenceStudy() {
   const dots = items.map((_, i) => `<button class="qmark ${i === idx ? 'cur' : ''}" data-s-jump="${i}"></button>`).join('');
   const markKeyPrefix = `writingPoint::${name}::${idx}`;
   const hasPoint = !!(it.point && it.point.trim());
-  const phrases = allPointPhrases(it.point);
-  const highlightedEn = highlightPointInSentence(it.en, phrases);
 
   return `
     <div class="quiz-wrap">
@@ -215,7 +208,7 @@ function renderSentenceStudy() {
       </div>
       <div class="quiz-card" style="text-align:left;align-items:stretch">
         <div class="quiz-prompt-label" style="text-align:center">영어 문장</div>
-        <div class="quiz-prompt" style="font-size:18px;text-align:center;line-height:1.5">${highlightedEn}</div>
+        <div class="quiz-prompt" style="font-size:18px;text-align:center;line-height:1.5">${escapeHtml(it.en)}</div>
         <div class="quiz-actions" style="margin:10px 0 0;justify-content:center">
           <button class="qbtn" id="sentence-speak-btn">&#128266; 문장 듣기</button>
         </div>
