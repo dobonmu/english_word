@@ -1250,7 +1250,7 @@ const WRITING_DATA = {
       "id": 7,
       "en": "It would be great if you could fix the leaking fountain as soon as possible.",
       "kr": "가능한 한 빨리 새는 식수대를 수리해 주신다면 정말 좋을 것 같습니다.",
-      "point": "~라면 좋겠다는 정중한 제안: It would be great if you could ~ / provided that, providing that, assuming that, as long as (~라는 조건하에)"
+      "point": "~라면 좋겠다는 정중한 제안: It would be great if you could ~ / ~라는 조건하에: provided that, providing that, assuming that, as long as"
     },
     {
       "id": 8,

@@ -243,6 +243,8 @@ button,input{font-family:inherit}
 .phrase-chip{display:inline-block;font-size:14px;padding:6px 10px;border-radius:999px;background:var(--surface-2);border:1px solid var(--border);color:var(--text-primary)}
 .phrase-chip.wmark-wrong{border-color:var(--fill-danger)}
 .phrase-chip.wmark-important{border-color:var(--fill-warn)}
+.hl-point{background:transparent;color:var(--fill-danger);font-weight:700}
+.point-hide{filter:blur(5px);user-select:none}
 .quiz-input{width:100%;max-width:320px;padding:12px 14px;border:2px solid var(--border-strong);border-radius:var(--radius);background:var(--surface-1);color:var(--text-primary);font-size:16px;text-align:center;outline:none;margin-top:6px}
 .quiz-input:focus{border-color:var(--fill-accent)}
 .quiz-input.correct{border-color:var(--fill-success);background:var(--bg-success)}

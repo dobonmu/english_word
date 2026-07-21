@@ -1,11 +1,19 @@
-// ===== Writing 학습: 학습포인트(대체 가능한 표현)를 외우고, 예문은 참고로 확인하는 모드 =====
+// ===== Writing 학습 =====
+// 1. 문장 보기: 문장/한글/학습포인트를 모두 보여주고, 문장 안 학습포인트에 해당하는
+//    부분을 빨간색으로 강조 표시.
+// 2. 학습 포인트 공부: 표현(영어)/뜻(한글)을 모두 보여주며 학습.
+// 3. 학습 포인트 연습: 한글 뜻만 보여주고 영어는 가려서, 눌러야 확인 가능(정답에는
+//    영어와 그 표현의 대체 가능한 다른 표현도 모두 공개).
+// 4. 시험보기: 문장 전체를 뜻/영어 상호 전환으로 써보는 기존 시험 모드.
 let writingSetupState = {
-  mode: 'study',          // study(학습포인트 공부) | quiz(시험)
+  mode: 'sentence',        // sentence | pointStudy | pointPractice | quiz
   setName: null,
   quizPromptType: 'kr',    // kr(뜻 보고 문장 쓰기) | en(문장 보고 뜻 쓰기)
 };
 
-let sentenceStudyState = { setName: null, idx: 0, flipped: false };
+let sentenceStudyState = { setName: null, idx: 0 };
+let pointStudyState = { setName: null, idx: 0 };
+let pointPracticeState = { setName: null, idx: 0, revealed: false };
 let writingQuiz = null; // { setName, items: [{it, status, userInput, revealed}], idx }
 
 const WRITING_SET_NAMES = (typeof WRITING_DATA !== 'undefined') ? Object.keys(WRITING_DATA) : [];
@@ -16,12 +24,23 @@ function parsePoint(point) {
   if (!point) return [];
   return point.split('/').map(s => s.trim()).filter(Boolean).map(group => {
     const colonIdx = group.indexOf(':');
-    if (colonIdx === -1) return { label: '', phrases: [group.trim()] };
-    const label = group.slice(0, colonIdx).trim();
-    const rest = group.slice(colonIdx + 1).trim();
+    const label = colonIdx === -1 ? '' : group.slice(0, colonIdx).trim();
+    const rest = colonIdx === -1 ? group : group.slice(colonIdx + 1).trim();
     const phrases = rest.split(',').map(s => s.trim()).filter(Boolean);
     return { label, phrases: phrases.length ? phrases : [rest] };
   });
+}
+
+// 학습포인트를 문장 단위 리스트로 평탄화: [{ setName, sentenceIdx, groupIdx, label, phrases, en, kr }]
+function flattenPoints(setName) {
+  const items = WRITING_DATA[setName] || [];
+  const out = [];
+  items.forEach((it, sentenceIdx) => {
+    parsePoint(it.point).forEach((g, groupIdx) => {
+      out.push({ setName, sentenceIdx, groupIdx, label: g.label, phrases: g.phrases, sentenceEn: it.en, sentenceKr: it.kr });
+    });
+  });
+  return out;
 }
 
 function renderPointGroups(point, keyPrefix) {
@@ -42,11 +61,17 @@ function renderPointGroups(point, keyPrefix) {
   `).join('');
 }
 
+function allPointPhrases(point) {
+  return parsePoint(point).flatMap(g => g.phrases);
+}
+
 function renderWritingSetup() {
   const modeTabs = `
-    <div class="seg" style="margin-bottom:16px">
-      <button class="${writingSetupState.mode === 'study' ? 'on' : ''}" data-w-mode="study">공부하기</button>
-      <button class="${writingSetupState.mode === 'quiz' ? 'on' : ''}" data-w-mode="quiz">시험보기</button>
+    <div class="seg" style="margin-bottom:16px;flex-wrap:wrap">
+      <button class="${writingSetupState.mode === 'sentence' ? 'on' : ''}" data-w-mode="sentence">문장 보기</button>
+      <button class="${writingSetupState.mode === 'pointStudy' ? 'on' : ''}" data-w-mode="pointStudy">학습포인트 공부</button>
+      <button class="${writingSetupState.mode === 'pointPractice' ? 'on' : ''}" data-w-mode="pointPractice">학습포인트 연습</button>
+      <button class="${writingSetupState.mode === 'quiz' ? 'on' : ''}" data-w-mode="quiz">문장 시험보기</button>
     </div>
   `;
 
@@ -85,10 +110,42 @@ function renderWritingSetup() {
     `;
   }
 
+  if (writingSetupState.mode === 'pointStudy') {
+    return modeTabs + `
+      <div class="section-card">
+        <div class="section-title">&#128221; 학습 포인트 공부</div>
+        <p class="hint-text" style="margin-bottom:14px">각 문장의 학습 포인트(대체 가능한 표현)를 영어와 한글 뜻을 모두 보면서 익히는 모드입니다.</p>
+        <div class="field">
+          <label>학습 세트 선택</label>
+          <div class="grid-cards">${cards}</div>
+        </div>
+        <div class="row-btns" style="justify-content:flex-start">
+          <button class="big-btn" id="start-point-study-btn">공부 시작</button>
+        </div>
+      </div>
+    `;
+  }
+
+  if (writingSetupState.mode === 'pointPractice') {
+    return modeTabs + `
+      <div class="section-card">
+        <div class="section-title">&#127919; 학습 포인트 연습</div>
+        <p class="hint-text" style="margin-bottom:14px">한글 뜻만 보고 영어 표현을 맞혀보는 연습 모드입니다. 정답을 확인하면 영어 표현과 대체 가능한 다른 표현들도 함께 보여줍니다.</p>
+        <div class="field">
+          <label>학습 세트 선택</label>
+          <div class="grid-cards">${cards}</div>
+        </div>
+        <div class="row-btns" style="justify-content:flex-start">
+          <button class="big-btn" id="start-point-practice-btn">연습 시작</button>
+        </div>
+      </div>
+    `;
+  }
+
   return modeTabs + `
     <div class="section-card">
-      <div class="section-title">&#128221; Writing 공부하기</div>
-      <p class="hint-text" style="margin-bottom:14px">각 문장에서 배울 핵심 표현(대체 가능한 표현)을 중심으로 외우고, 예문은 참고로 확인하는 모드입니다.</p>
+      <div class="section-title">&#128221; 문장 보기</div>
+      <p class="hint-text" style="margin-bottom:14px">영어 문장, 한글 해석, 학습 포인트를 모두 보여줍니다. 문장 안에서 학습 포인트에 해당하는 부분은 빨간색으로 강조됩니다.</p>
       <div class="field">
         <label>학습 세트 선택</label>
         <div class="grid-cards">${cards}</div>
@@ -115,8 +172,18 @@ function bindWritingSetup() {
   }));
   const startStudyBtn = document.getElementById('start-sentence-study-btn');
   if (startStudyBtn) startStudyBtn.addEventListener('click', () => {
-    sentenceStudyState = { setName: writingSetupState.setName, idx: 0, flipped: false };
+    sentenceStudyState = { setName: writingSetupState.setName, idx: 0 };
     goto('sentenceStudy');
+  });
+  const startPointStudyBtn = document.getElementById('start-point-study-btn');
+  if (startPointStudyBtn) startPointStudyBtn.addEventListener('click', () => {
+    pointStudyState = { setName: writingSetupState.setName, idx: 0 };
+    goto('pointStudy');
+  });
+  const startPointPracticeBtn = document.getElementById('start-point-practice-btn');
+  if (startPointPracticeBtn) startPointPracticeBtn.addEventListener('click', () => {
+    pointPracticeState = { setName: writingSetupState.setName, idx: 0, revealed: false };
+    goto('pointPractice');
   });
   const startQuizBtn = document.getElementById('start-writing-quiz-btn');
   if (startQuizBtn) startQuizBtn.addEventListener('click', () => {
@@ -124,7 +191,7 @@ function bindWritingSetup() {
   });
 }
 
-// ===== 공부하기: 학습포인트(대체 가능한 표현)가 메인, 예문은 참고용으로 아래 표시 =====
+// ===== 1. 문장 보기: 문장 + 한글 + 학습포인트를 모두 보여주고, 학습포인트 표현은 문장 안에서 빨갛게 강조 =====
 function renderSentenceStudy() {
   const name = sentenceStudyState.setName;
   const items = (name && WRITING_DATA[name]) || [];
@@ -136,6 +203,8 @@ function renderSentenceStudy() {
   const dots = items.map((_, i) => `<button class="qmark ${i === idx ? 'cur' : ''}" data-s-jump="${i}"></button>`).join('');
   const markKeyPrefix = `writingPoint::${name}::${idx}`;
   const hasPoint = !!(it.point && it.point.trim());
+  const phrases = allPointPhrases(it.point);
+  const highlightedEn = highlightPointInSentence(it.en, phrases);
 
   return `
     <div class="quiz-wrap">
@@ -145,24 +214,19 @@ function renderSentenceStudy() {
         <span>${escapeHtml(name)}</span>
       </div>
       <div class="quiz-card" style="text-align:left;align-items:stretch">
-        <div class="quiz-prompt-label" style="text-align:center">학습 포인트 (대체 가능한 표현)</div>
-        ${hasPoint ? `
-          <div class="point-groups">${renderPointGroups(it.point, markKeyPrefix)}</div>
-          <div class="hint-text" style="text-align:center;margin-top:6px">표현을 누르면 틀린 부분(빨강)/중요 표시(노랑)를 남길 수 있어요.</div>
-        ` : `<div class="hint-text" style="text-align:center">이 문장에는 별도 학습 포인트가 없습니다.</div>`}
-        <div class="quiz-actions" style="margin:14px 0 0">
-          <button class="qbtn neutral" id="sentence-reveal-btn">${sentenceStudyState.flipped ? '예문 숨기기' : '예문 보기'}</button>
+        <div class="quiz-prompt-label" style="text-align:center">영어 문장</div>
+        <div class="quiz-prompt" style="font-size:18px;text-align:center;line-height:1.5">${highlightedEn}</div>
+        <div class="quiz-actions" style="margin:10px 0 0;justify-content:center">
+          <button class="qbtn" id="sentence-speak-btn">&#128266; 문장 듣기</button>
         </div>
-        ${sentenceStudyState.flipped ? `
-          <div class="quiz-answer-area" style="margin-top:10px">
-            <div class="quiz-prompt-label">예문</div>
-            <div class="quiz-ex" style="margin-top:6px">
-              <span class="en">${escapeHtml(it.en)}</span><br>${escapeHtml(it.kr)}
-            </div>
-            <div class="quiz-actions" style="margin:10px 0 0">
-              <button class="qbtn" id="sentence-speak-btn">&#128266; 예문 듣기</button>
-            </div>
-          </div>
+        <div class="quiz-answer-area" style="margin-top:12px">
+          <div class="quiz-prompt-label">뜻</div>
+          <div class="quiz-answer" style="text-align:left;margin-top:6px">${escapeHtml(it.kr)}</div>
+        </div>
+        ${hasPoint ? `
+          <div class="quiz-prompt-label" style="margin-top:14px">학습 포인트 (대체 가능한 표현)</div>
+          <div class="point-groups">${renderPointGroups(it.point, markKeyPrefix)}</div>
+          <div class="hint-text" style="margin-top:6px">표현을 누르면 틀린 부분(빨강)/중요 표시(노랑)를 남길 수 있어요.</div>
         ` : ''}
       </div>
       <div class="quiz-navrow">
@@ -182,24 +246,16 @@ function bindSentenceStudy() {
   const items = (name && WRITING_DATA[name]) || [];
   document.querySelectorAll('[data-s-jump]').forEach(b => b.addEventListener('click', () => {
     sentenceStudyState.idx = parseInt(b.dataset.sJump);
-    sentenceStudyState.flipped = false;
     render();
   }));
   const prevBtn = document.getElementById('sentence-prev');
   if (prevBtn) prevBtn.addEventListener('click', () => {
     sentenceStudyState.idx = Math.max(0, sentenceStudyState.idx - 1);
-    sentenceStudyState.flipped = false;
     render();
   });
   const nextBtn = document.getElementById('sentence-next');
   if (nextBtn) nextBtn.addEventListener('click', () => {
     sentenceStudyState.idx = Math.min(items.length - 1, sentenceStudyState.idx + 1);
-    sentenceStudyState.flipped = false;
-    render();
-  });
-  const revealBtn = document.getElementById('sentence-reveal-btn');
-  if (revealBtn) revealBtn.addEventListener('click', () => {
-    sentenceStudyState.flipped = !sentenceStudyState.flipped;
     render();
   });
   const speakBtn = document.getElementById('sentence-speak-btn');
@@ -212,7 +268,157 @@ function bindSentenceStudy() {
   bindMarkableSentence(document.getElementById('main'));
 }
 
-// ===== 시험보기: 뜻 보고 문장 쓰기 / 문장 보고 뜻 쓰기 =====
+// ===== 2. 학습 포인트 공부: 영어/한글을 모두 보여줌 =====
+function renderPointStudy() {
+  const name = pointStudyState.setName;
+  const points = flattenPoints(name);
+  if (points.length === 0) return `<div class="empty">이 세트에는 학습 포인트가 없습니다.</div>`;
+  const idx = Math.min(pointStudyState.idx, points.length - 1);
+  const p = points[idx];
+  const total = points.length;
+  const progressPct = Math.round(((idx + 1) / total) * 100);
+  const dots = points.map((_, i) => `<button class="qmark ${i === idx ? 'cur' : ''}" data-ps-jump="${i}"></button>`).join('');
+  const markKeyPrefix = `writingPoint::${name}::${p.sentenceIdx}`;
+
+  return `
+    <div class="quiz-wrap">
+      <div class="quiz-progress">
+        <span>${idx + 1} / ${total}</span>
+        <div class="quiz-bar"><div class="quiz-bar-fill" style="width:${progressPct}%"></div></div>
+        <span>${escapeHtml(name)}</span>
+      </div>
+      <div class="quiz-card" style="text-align:left;align-items:stretch">
+        ${p.label ? `<div class="quiz-prompt-label" style="text-align:center">${escapeHtml(p.label)}</div>` : ''}
+        <div class="point-phrases" style="justify-content:center">
+          ${p.phrases.map((ph, pi) => {
+            const markKey = `${markKeyPrefix}::${p.groupIdx}::${pi}`;
+            const mark = wordMarkOf(markKey);
+            const cls = mark ? ` wmark-${mark}` : '';
+            return `<span class="phrase-chip wmark${cls}" data-wmark-key="${escapeHtml(markKey)}" style="font-size:16px">${escapeHtml(ph)}</span>`;
+          }).join('')}
+        </div>
+        <div class="hint-text" style="text-align:center;margin-top:8px">표현을 누르면 틀린 부분(빨강)/중요 표시(노랑)를 남길 수 있어요.</div>
+        <div class="quiz-answer-area" style="margin-top:14px">
+          <div class="quiz-prompt-label">이 표현이 쓰인 문장</div>
+          <div class="quiz-ex" style="margin-top:6px">
+            <span class="en">${escapeHtml(p.sentenceEn)}</span><br>${escapeHtml(p.sentenceKr)}
+          </div>
+        </div>
+      </div>
+      <div class="quiz-navrow">
+        <button class="nbtn" id="ps-prev" ${idx === 0 ? 'disabled' : ''}>&#8592;</button>
+        <div class="quiz-marks">${dots}</div>
+        <button class="nbtn" id="ps-next" ${idx === total - 1 ? 'disabled' : ''}>&#8594;</button>
+      </div>
+      <div class="row-btns">
+        <button class="lbtn" id="ps-home-btn">학습 세트 선택으로 돌아가기</button>
+      </div>
+    </div>
+  `;
+}
+
+function bindPointStudy() {
+  const name = pointStudyState.setName;
+  const points = flattenPoints(name);
+  document.querySelectorAll('[data-ps-jump]').forEach(b => b.addEventListener('click', () => {
+    pointStudyState.idx = parseInt(b.dataset.psJump);
+    render();
+  }));
+  const prevBtn = document.getElementById('ps-prev');
+  if (prevBtn) prevBtn.addEventListener('click', () => {
+    pointStudyState.idx = Math.max(0, pointStudyState.idx - 1);
+    render();
+  });
+  const nextBtn = document.getElementById('ps-next');
+  if (nextBtn) nextBtn.addEventListener('click', () => {
+    pointStudyState.idx = Math.min(points.length - 1, pointStudyState.idx + 1);
+    render();
+  });
+  const homeBtn = document.getElementById('ps-home-btn');
+  if (homeBtn) homeBtn.addEventListener('click', () => goto('writingSetup'));
+  bindMarkableSentence(document.getElementById('main'));
+}
+
+// ===== 3. 학습 포인트 연습: 한글만 보이고 영어는 가려짐. 정답 확인시 영어+대체표현 모두 공개 =====
+function renderPointPractice() {
+  const name = pointPracticeState.setName;
+  const points = flattenPoints(name);
+  if (points.length === 0) return `<div class="empty">이 세트에는 학습 포인트가 없습니다.</div>`;
+  const idx = Math.min(pointPracticeState.idx, points.length - 1);
+  const p = points[idx];
+  const total = points.length;
+  const progressPct = Math.round(((idx + 1) / total) * 100);
+  const dots = points.map((_, i) => `<button class="qmark ${i === idx ? 'cur' : ''}" data-pp-jump="${i}"></button>`).join('');
+  const revealed = pointPracticeState.revealed;
+
+  return `
+    <div class="quiz-wrap">
+      <div class="quiz-progress">
+        <span>${idx + 1} / ${total}</span>
+        <div class="quiz-bar"><div class="quiz-bar-fill" style="width:${progressPct}%"></div></div>
+        <span>${escapeHtml(name)}</span>
+      </div>
+      <div class="quiz-card" style="text-align:left;align-items:stretch">
+        <div class="quiz-prompt-label" style="text-align:center">이 뜻에 맞는 영어 표현을 떠올려보세요</div>
+        <div class="quiz-prompt" style="font-size:18px;text-align:center">${escapeHtml(p.label || p.sentenceKr)}</div>
+        <div class="quiz-actions" style="margin:12px 0 0;justify-content:center">
+          <button class="qbtn neutral" id="pp-reveal-btn">${revealed ? '정답 숨기기' : '정답 보기'}</button>
+        </div>
+        ${revealed ? `
+          <div class="quiz-answer-area" style="margin-top:12px">
+            <div class="quiz-prompt-label">정답 (영어 표현 + 대체 가능한 표현)</div>
+            <div class="point-phrases" style="margin-top:8px">
+              ${p.phrases.map(ph => `<span class="phrase-chip" style="color:var(--fill-success);border-color:var(--fill-success)">${escapeHtml(ph)}</span>`).join('')}
+            </div>
+            <div class="quiz-prompt-label" style="margin-top:14px">이 표현이 쓰인 문장</div>
+            <div class="quiz-ex" style="margin-top:6px">
+              <span class="en">${escapeHtml(p.sentenceEn)}</span><br>${escapeHtml(p.sentenceKr)}
+            </div>
+          </div>
+        ` : ''}
+      </div>
+      <div class="quiz-navrow">
+        <button class="nbtn" id="pp-prev" ${idx === 0 ? 'disabled' : ''}>&#8592;</button>
+        <div class="quiz-marks">${dots}</div>
+        <button class="nbtn" id="pp-next" ${idx === total - 1 ? 'disabled' : ''}>&#8594;</button>
+      </div>
+      <div class="row-btns">
+        <button class="lbtn" id="pp-home-btn">학습 세트 선택으로 돌아가기</button>
+      </div>
+    </div>
+  `;
+}
+
+function bindPointPractice() {
+  const name = pointPracticeState.setName;
+  const points = flattenPoints(name);
+  document.querySelectorAll('[data-pp-jump]').forEach(b => b.addEventListener('click', () => {
+    pointPracticeState.idx = parseInt(b.dataset.ppJump);
+    pointPracticeState.revealed = false;
+    render();
+  }));
+  const prevBtn = document.getElementById('pp-prev');
+  if (prevBtn) prevBtn.addEventListener('click', () => {
+    pointPracticeState.idx = Math.max(0, pointPracticeState.idx - 1);
+    pointPracticeState.revealed = false;
+    render();
+  });
+  const nextBtn = document.getElementById('pp-next');
+  if (nextBtn) nextBtn.addEventListener('click', () => {
+    pointPracticeState.idx = Math.min(points.length - 1, pointPracticeState.idx + 1);
+    pointPracticeState.revealed = false;
+    render();
+  });
+  const revealBtn = document.getElementById('pp-reveal-btn');
+  if (revealBtn) revealBtn.addEventListener('click', () => {
+    pointPracticeState.revealed = !pointPracticeState.revealed;
+    render();
+  });
+  const homeBtn = document.getElementById('pp-home-btn');
+  if (homeBtn) homeBtn.addEventListener('click', () => goto('writingSetup'));
+}
+
+// ===== 4. 문장 시험보기: 뜻 보고 문장 쓰기 / 문장 보고 뜻 쓰기 =====
 function startWritingQuiz(setName, promptType) {
   const items = (setName && WRITING_DATA[setName]) || [];
   if (items.length === 0) { toast('선택한 세트에 문장이 없습니다.'); return; }

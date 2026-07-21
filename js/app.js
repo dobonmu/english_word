@@ -6,7 +6,7 @@ let progress = loadProgress();
 applyTheme();
 
 let state = {
-  page: 'home',          // home | browse | quizSetup | quiz | quizResult | writeSetup | writeQuiz | writeResult | writingSetup | sentenceStudy | writingQuiz | writingQuizResult | speakingSetup | speakingPractice | mock | review | settings
+  page: 'home',          // home | browse | quizSetup | quiz | quizResult | writeSetup | writeQuiz | writeResult | writingSetup | sentenceStudy | pointStudy | pointPractice | writingQuiz | writingQuizResult | speakingSetup | speakingPractice | mock | review | settings
   unit: UNIT_NAMES[0] || null,
   view: 'list',           // list | card
   search: '',
@@ -152,7 +152,7 @@ function samePageGroup(page, navId) {
     browse: ['browse'],
     quizSetup: ['quizSetup', 'quiz', 'quizResult'],
     writeSetup: ['writeSetup', 'writeQuiz', 'writeResult'],
-    writingSetup: ['writingSetup', 'sentenceStudy', 'writingQuiz', 'writingQuizResult'],
+    writingSetup: ['writingSetup', 'sentenceStudy', 'pointStudy', 'pointPractice', 'writingQuiz', 'writingQuizResult'],
     speakingSetup: ['speakingSetup', 'speakingPractice'],
     mock: ['mockSetup', 'mock', 'mockQuiz', 'mockResult'],
     review: ['review'],
@@ -186,6 +186,8 @@ function renderPage() {
     case 'writeResult': return renderQuizResult();
     case 'writingSetup': return renderWritingSetup();
     case 'sentenceStudy': return renderSentenceStudy();
+    case 'pointStudy': return renderPointStudy();
+    case 'pointPractice': return renderPointPractice();
     case 'writingQuiz': return renderWritingQuizPage();
     case 'writingQuizResult': return renderWritingQuizResultPage();
     case 'speakingSetup': return renderSpeakingSetup();
@@ -208,6 +210,8 @@ function bindPageEvents() {
     case 'quizResult': case 'writeResult': case 'mockResult': return bindQuizResult();
     case 'writingSetup': return bindWritingSetup();
     case 'sentenceStudy': return bindSentenceStudy();
+    case 'pointStudy': return bindPointStudy();
+    case 'pointPractice': return bindPointPractice();
     case 'writingQuiz': return bindWritingQuizPage();
     case 'writingQuizResult': return bindWritingQuizResultPage();
     case 'speakingSetup': return bindSpeakingSetup();
