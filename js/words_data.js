@@ -1140,7 +1140,7 @@ const VOCAB_DATA = {
       "meaning": "~이 없는",
       "ex_en": "The desert is almost devoid of water.",
       "ex_kr": "사막에는 물이 거의 없습니다.",
-      "note": ""
+      "note": "동의어: without, with few, but for, barring"
     },
     {
       "id": 43,
@@ -1180,7 +1180,7 @@ const VOCAB_DATA = {
       "meaning": "희석하다",
       "ex_en": "You should dilute the concentrated juice with water.",
       "ex_kr": "농축 주스는 물로 희석해서 마셔야 합니다.",
-      "note": "동의어: without, with few, but for, barring"
+      "note": ""
     },
     {
       "id": 48,

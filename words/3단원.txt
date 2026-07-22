@@ -39,12 +39,12 @@ Determine|결정하다, 알아내다|DNA testing can help determine the identity
 Detrimental|해로운|Smoking has a detrimental effect on lung health.|흡연은 폐 건강에 해로운 영향을 미칩니다.
 Devastate|황폐화하다|The hurricane devastated the entire coastal town.|허리케인이 해안 마을 전체를 황폐화했습니다.
 Devise|고안하다|Engineers are trying to devise a more efficient battery.|엔지니어들은 더 효율적인 배터리를 고안하려 노력 중입니다.
-Devoid|~이 없는|The desert is almost devoid of water.|사막에는 물이 거의 없습니다.
+Devoid|~이 없는|The desert is almost devoid of water.|사막에는 물이 거의 없습니다.|동의어: without, with few, but for, barring
 Devote|헌신하다, 바치다|She decided to devote her life to environmental protection.|그녀는 환경 보호에 일생을 바치기로 했습니다.|동의어: strive to, struggle, try to, attempt to(노력하다) / be devoted to 명사, be dedicated to 명사, be committed to 명사(~에 헌신되다)
 Diffuse|확산시키다, 퍼진|The light became diffuse as it passed through the fog.|빛이 안개를 통과하면서 확산되었습니다.
 Digest|소화하다, 요약하다|Some animals have a complex stomach to digest tough plants.|어떤 동물들은 질긴 식물을 소화하기 위해 복잡한 위를 가지고 있습니다.
 Diligent|부지런한|Through diligent study, he was able to master the language.|부지런한 공부를 통해 그는 그 언어를 마스터할 수 있었습니다.
-Dilute|희석하다|You should dilute the concentrated juice with water.|농축 주스는 물로 희석해서 마셔야 합니다.|동의어: without, with few, but for, barring
+Dilute|희석하다|You should dilute the concentrated juice with water.|농축 주스는 물로 희석해서 마셔야 합니다.
 Diminish|줄어들다|The sound of the music began to diminish as we walked away.|우리가 멀어지자 음악 소리가 줄어들기 시작했습니다.|동의어: reduce, lower, abate, ease, alleviate
 Discard|버리다|Please discard any expired medication safely.|유통기한이 지난 약은 안전하게 버려주세요.|동의어: dispose of, get rid of, remove
 Disrupt|방해하다, 중단시키다|The loud noise could disrupt the birds' nesting habits.|큰 소음은 새들의 둥지 트기 습성을 방해할 수 있습니다.|동의어: stop, keep, disrupt, prohibit A from B, suspend
