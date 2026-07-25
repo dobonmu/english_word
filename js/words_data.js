@@ -1206,6 +1206,408 @@ const VOCAB_DATA = {
       "ex_kr": "큰 소음은 새들의 둥지 트기 습성을 방해할 수 있습니다.",
       "note": "동의어: stop, keep, disrupt, prohibit A from B, suspend"
     }
+  ],
+  "4단원": [
+    {
+      "id": 1,
+      "word": "Eccentric",
+      "meaning": "별난, 기이한",
+      "ex_en": "The scientist was known for his eccentric habits.",
+      "ex_kr": "그 과학자는 별난 습관으로 유명했습니다.",
+      "note": "동의어: peculiar, quirky, unconventional"
+    },
+    {
+      "id": 2,
+      "word": "Eclipse",
+      "meaning": "가리다, 무색하게 하다",
+      "ex_en": "The importance of the new discovery will eclipse previous theories.",
+      "ex_kr": "새로운 발견의 중요성은 이전 이론들을 무색하게 할 것입니다.",
+      "note": "동의어: obscure, overshadow, block"
+    },
+    {
+      "id": 3,
+      "word": "Ecosystem",
+      "meaning": "생태계",
+      "ex_en": "Pollutants can cause long-term damage to the marine ecosystem.",
+      "ex_kr": "오염 물질은 해양 생태계에 장기적인 피해를 줄 수 있습니다.",
+      "note": ""
+    },
+    {
+      "id": 4,
+      "word": "Edible",
+      "meaning": "먹을 수 있는",
+      "ex_en": "Not all wild mushrooms are edible; some are highly poisonous.",
+      "ex_kr": "모든 야생 버섯을 먹을 수 있는 것은 아니며, 일부는 독성이 매우 강합니다.",
+      "note": ""
+    },
+    {
+      "id": 5,
+      "word": "Efface",
+      "meaning": "지우다, 삭제하다",
+      "ex_en": "Over time, wind and rain will efface the inscriptions on the stone.",
+      "ex_kr": "시간이 흐르면 바람과 비가 돌에 새겨진 비문을 지워버릴 것입니다.",
+      "note": "동의어: erase, obliterate, wipe out"
+    },
+    {
+      "id": 6,
+      "word": "Eject",
+      "meaning": "내뿜다, 쫓아내다",
+      "ex_en": "Volcanoes eject ash and lava during an eruption.",
+      "ex_kr": "화산은 화산재와 용암을 내뿜습니다.",
+      "note": ""
+    },
+    {
+      "id": 7,
+      "word": "Elaborate",
+      "meaning": "정교한, 자세히 설명하다",
+      "ex_en": "The artisan created an elaborate design on the wooden box.",
+      "ex_kr": "장인은 나무 상자에 정교한 문양을 만들었습니다.",
+      "note": "동의어: detailed, intricate, sophisticated"
+    },
+    {
+      "id": 8,
+      "word": "Elastic",
+      "meaning": "탄력 있는",
+      "ex_en": "Rubber is a highly elastic material that returns to its original shape.",
+      "ex_kr": "고무는 원래 모양으로 돌아오는 탄력이 매우 좋은 재료입니다.",
+      "note": ""
+    },
+    {
+      "id": 9,
+      "word": "Elegant",
+      "meaning": "우아한, 명쾌한",
+      "ex_en": "The mathematician found an elegant solution to the problem.",
+      "ex_kr": "수학자는 그 문제에 대한 명쾌한 해답을 찾아냈습니다.",
+      "note": ""
+    },
+    {
+      "id": 10,
+      "word": "Elementary",
+      "meaning": "기본적인, 초보의",
+      "ex_en": "Understanding atoms is an elementary part of chemistry.",
+      "ex_kr": "원자를 이해하는 것은 화학의 기본적인 부분입니다.",
+      "note": ""
+    },
+    {
+      "id": 11,
+      "word": "Elevate",
+      "meaning": "올리다, 높이다",
+      "ex_en": "The new platform was built to elevate the speakers above the crowd.",
+      "ex_kr": "연설자들을 군중보다 높게 위치시키기 위해 새 단상이 제작되었습니다.",
+      "note": "동의어: raise, promote, lift"
+    },
+    {
+      "id": 12,
+      "word": "Eliminate",
+      "meaning": "제거하다",
+      "ex_en": "The goal of the campaign is to eliminate poverty.",
+      "ex_kr": "그 캠페인의 목표는 빈곤을 제거하는 것입니다.",
+      "note": ""
+    },
+    {
+      "id": 13,
+      "word": "Elite",
+      "meaning": "엘리트, 최우수층",
+      "ex_en": "Only an elite group of athletes can qualify for the Olympics.",
+      "ex_kr": "오직 엘리트 선수들만이 올림픽 출전 자격을 얻을 수 있습니다.",
+      "note": ""
+    },
+    {
+      "id": 14,
+      "word": "Eloquent",
+      "meaning": "웅변조의, 감동적인",
+      "ex_en": "The leader gave an eloquent speech that inspired the people.",
+      "ex_kr": "지도자는 사람들에게 영감을 주는 웅변조의 연설을 했습니다.",
+      "note": ""
+    },
+    {
+      "id": 15,
+      "word": "Elucidate",
+      "meaning": "명료하게 설명하다",
+      "ex_en": "The teacher tried to elucidate the difficult concept for the students.",
+      "ex_kr": "선생님은 학생들을 위해 어려운 개념을 명료하게 설명하려 애썼습니다.",
+      "note": "동의어: explain, clarify, illuminate"
+    },
+    {
+      "id": 16,
+      "word": "Elusive",
+      "meaning": "찾기 힘든, 잡히지 않는",
+      "ex_en": "The rare leopard is an elusive animal that is seldom seen.",
+      "ex_kr": "희귀한 표범은 좀처럼 보기 힘든 잡기 어려운 동물입니다.",
+      "note": ""
+    },
+    {
+      "id": 17,
+      "word": "Emancipate",
+      "meaning": "해방시키다",
+      "ex_en": "The law was passed to emancipate the workers from unfair labor.",
+      "ex_kr": "불공정 노동으로부터 노동자들을 해방시키기 위해 법이 통과되었습니다.",
+      "note": ""
+    },
+    {
+      "id": 18,
+      "word": "Embargo",
+      "meaning": "통상 금지, 제한",
+      "ex_en": "The government placed an embargo on the export of oil.",
+      "ex_kr": "정부는 석유 수출에 대해 통상 금지령을 내렸습니다.",
+      "note": ""
+    },
+    {
+      "id": 19,
+      "word": "Embark",
+      "meaning": "착수하다, 승선하다",
+      "ex_en": "The researchers are ready to embark on a new expedition.",
+      "ex_kr": "연구원들은 새로운 탐험에 착수할 준비가 되었습니다.",
+      "note": ""
+    },
+    {
+      "id": 20,
+      "word": "Embellish",
+      "meaning": "장식하다, 꾸미다",
+      "ex_en": "He tended to embellish his stories with unnecessary details.",
+      "ex_kr": "그는 자신의 이야기에 불필요한 세부 사항을 덧붙여 꾸미는 경향이 있었습니다.",
+      "note": ""
+    },
+    {
+      "id": 21,
+      "word": "Embody",
+      "meaning": "구체화하다, 포함하다",
+      "ex_en": "The new law embodies the principles of social justice.",
+      "ex_kr": "새로운 법은 사회 정의의 원칙을 구체화하고 있습니다.",
+      "note": ""
+    },
+    {
+      "id": 22,
+      "word": "Embrace",
+      "meaning": "받아들이다, 포용하다",
+      "ex_en": "The company decided to embrace new technology to improve efficiency.",
+      "ex_kr": "회사는 효율성을 높이기 위해 새로운 기술을 받아들이기로 했습니다.",
+      "note": ""
+    },
+    {
+      "id": 23,
+      "word": "Emerge",
+      "meaning": "나타나다, 드러나다",
+      "ex_en": "New evidence began to emerge during the investigation.",
+      "ex_kr": "조사 도중 새로운 증거가 드러나기 시작했습니다.",
+      "note": ""
+    },
+    {
+      "id": 24,
+      "word": "Eminent",
+      "meaning": "저명한, 뛰어난",
+      "ex_en": "An eminent historian was invited to give a lecture.",
+      "ex_kr": "저명한 역사학자가 강연을 위해 초청되었습니다.",
+      "note": "동의어: prominent, distinguished, illustrious"
+    },
+    {
+      "id": 25,
+      "word": "Emit",
+      "meaning": "방출하다",
+      "ex_en": "Chimneys emit smoke into the atmosphere.",
+      "ex_kr": "굴뚝은 대기 중으로 연기를 방출합니다.",
+      "note": ""
+    },
+    {
+      "id": 26,
+      "word": "Emphasize",
+      "meaning": "강조하다",
+      "ex_en": "The professor continued to emphasize the importance of the study.",
+      "ex_kr": "교수는 그 연구의 중요성을 계속해서 강조했습니다.",
+      "note": ""
+    },
+    {
+      "id": 27,
+      "word": "Empirical",
+      "meaning": "경험적인, 실증적인",
+      "ex_en": "The theory is supported by empirical data from many trials.",
+      "ex_kr": "그 이론은 많은 실험에서 얻은 경험적인 데이터에 의해 뒷받침됩니다.",
+      "note": ""
+    },
+    {
+      "id": 28,
+      "word": "Employ",
+      "meaning": "고용하다, 이용하다",
+      "ex_en": "Scientists employ various methods to track animal migration.",
+      "ex_kr": "과학자들은 동물의 이동을 추적하기 위해 다양한 방법을 이용합니다.",
+      "note": "동의어: hire, recruit"
+    },
+    {
+      "id": 29,
+      "word": "Empower",
+      "meaning": "권한을 부여하다",
+      "ex_en": "The scholarship is designed to empower underprivileged students.",
+      "ex_kr": "그 장학금은 소외계층 학생들에게 힘을 실어주기 위해 설계되었습니다.",
+      "note": "동의어: authorize, enable, entrust"
+    },
+    {
+      "id": 30,
+      "word": "Emulate",
+      "meaning": "모방하다, 경쟁하다",
+      "ex_en": "Many young artists try to emulate the style of the masters.",
+      "ex_kr": "많은 젊은 예술가들은 거장들의 화풍을 모방하려 노력합니다.",
+      "note": ""
+    },
+    {
+      "id": 31,
+      "word": "Enclose",
+      "meaning": "둘러싸다, 동봉하다",
+      "ex_en": "The garden is enclosed by a high stone wall.",
+      "ex_kr": "그 정원은 높은 돌담으로 둘러싸여 있습니다.",
+      "note": ""
+    },
+    {
+      "id": 32,
+      "word": "Encounter",
+      "meaning": "마주치다",
+      "ex_en": "Travelers may encounter unexpected problems on the road.",
+      "ex_kr": "여행자들은 여기치 못한 문제들과 길 위에서 마주칠 수 있습니다.",
+      "note": ""
+    },
+    {
+      "id": 33,
+      "word": "Endanger",
+      "meaning": "위험에 빠뜨리다",
+      "ex_en": "Habitat destruction will endanger many native species.",
+      "ex_kr": "서식지 파괴는 많은 토착종을 위험에 빠뜨릴 것입니다.",
+      "note": ""
+    },
+    {
+      "id": 34,
+      "word": "Endeavor",
+      "meaning": "노력하다, 시도",
+      "ex_en": "Writing a book is a long and difficult endeavor.",
+      "ex_kr": "책을 쓰는 것은 길고 어려운 노력(시도)입니다.",
+      "note": ""
+    },
+    {
+      "id": 35,
+      "word": "Endorse",
+      "meaning": "지지하다, 보증하다",
+      "ex_en": "The celebrity was paid to endorse the new product.",
+      "ex_kr": "그 유명 인사는 신제품을 보증(광고)하는 대가로 돈을 받았습니다.",
+      "note": ""
+    },
+    {
+      "id": 36,
+      "word": "Endure",
+      "meaning": "견디다, 지속되다",
+      "ex_en": "Some cactus species can endure long periods of drought.",
+      "ex_kr": "일부 선인장 종은 긴 가뭄의 시기를 견딜 수 있습니다.",
+      "note": ""
+    },
+    {
+      "id": 37,
+      "word": "Enforce",
+      "meaning": "집행하다, 강요하다",
+      "ex_en": "The police are responsible for enforcing the law.",
+      "ex_kr": "경찰은 법을 집행할 책임이 있습니다.",
+      "note": ""
+    },
+    {
+      "id": 38,
+      "word": "Engage",
+      "meaning": "관여하다, 종사하다",
+      "ex_en": "The students were encouraged to engage in the discussion.",
+      "ex_kr": "학생들은 토론에 참여하도록 권장되었습니다.",
+      "note": "동의어: participate in, attract, hire"
+    },
+    {
+      "id": 39,
+      "word": "Engrave",
+      "meaning": "새기다",
+      "ex_en": "They decided to engrave their names on the trophy.",
+      "ex_kr": "그들은 트로피에 자신들의 이름을 새기기로 했습니다.",
+      "note": "동의어: inscribe, carve, imprint"
+    },
+    {
+      "id": 40,
+      "word": "Enhance",
+      "meaning": "향상시키다",
+      "ex_en": "Using salt can enhance the flavor of the food.",
+      "ex_kr": "소금을 사용하는 것은 음식의 풍미를 향상시킬 수 있습니다.",
+      "note": ""
+    },
+    {
+      "id": 41,
+      "word": "Enigma",
+      "meaning": "수수께끼",
+      "ex_en": "The origin of the ancient ruins remains an enigma.",
+      "ex_kr": "고대 유적의 기원은 여전히 수수께끼로 남아 있습니다.",
+      "note": ""
+    },
+    {
+      "id": 42,
+      "word": "Enormous",
+      "meaning": "거대한",
+      "ex_en": "An enormous amount of energy is produced by the sun.",
+      "ex_kr": "태양에 의해 거대한 양의 에너지가 생산됩니다.",
+      "note": ""
+    },
+    {
+      "id": 43,
+      "word": "Ensure",
+      "meaning": "확실하게 하다",
+      "ex_en": "Please check the locks to ensure the safety of the house.",
+      "ex_kr": "집의 안전을 확실히 하기 위해 자물쇠를 확인하세요.",
+      "note": ""
+    },
+    {
+      "id": 44,
+      "word": "Entail",
+      "meaning": "수반하다",
+      "ex_en": "The new project will entail a lot of hard work.",
+      "ex_kr": "새로운 프로젝트는 많은 수고를 수반할 것입니다.",
+      "note": ""
+    },
+    {
+      "id": 45,
+      "word": "Enterprise",
+      "meaning": "기업, 사업",
+      "ex_en": "Starting a new business is a risky enterprise.",
+      "ex_kr": "새로운 사업을 시작하는 것은 위험한 일(사업)입니다.",
+      "note": ""
+    },
+    {
+      "id": 46,
+      "word": "Entire",
+      "meaning": "전체의",
+      "ex_en": "The entire village was flooded after the heavy rain.",
+      "ex_kr": "폭우 후에 마을 전체가 침수되었습니다.",
+      "note": ""
+    },
+    {
+      "id": 47,
+      "word": "Entity",
+      "meaning": "독립체, 존재",
+      "ex_en": "The corporation is a separate legal entity.",
+      "ex_kr": "법인은 별개의 법적 독립체입니다.",
+      "note": "동의어: being, object, body"
+    },
+    {
+      "id": 48,
+      "word": "Environment",
+      "meaning": "환경",
+      "ex_en": "We must work together to protect the environment.",
+      "ex_kr": "우리는 환경을 보호하기 위해 함께 노력해야 합니다.",
+      "note": ""
+    },
+    {
+      "id": 49,
+      "word": "Ephemeral",
+      "meaning": "수명이 짧은, 덧없는",
+      "ex_en": "The beauty of the sunset is ephemeral.",
+      "ex_kr": "일몰의 아름다움은 잠시뿐(덧없음)입니다.",
+      "note": ""
+    },
+    {
+      "id": 50,
+      "word": "Erode",
+      "meaning": "침식시키다, 악화시키다",
+      "ex_en": "Strong waves can erode the coastline over many years.",
+      "ex_kr": "강한 파도는 수년에 걸쳐 해안선을 침식시킬 수 있습니다.",
+      "note": ""
+    }
   ]
 };
 const WRITING_DATA = {

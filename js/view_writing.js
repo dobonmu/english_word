@@ -10,7 +10,7 @@ let writingSetupState = {
   quizPromptType: 'kr',    // kr(뜻 보고 문장 쓰기) | en(문장 보고 뜻 쓰기)
 };
 
-let sentenceStudyState = { setName: null, idx: 0 };
+let sentenceStudyState = { setName: null, idx: 0, viewMode: 'one' }; // viewMode: one(한 문장씩) | all(전체 단락)
 let pointStudyState = { setName: null, idx: 0 };
 let pointPracticeState = { setName: null, idx: 0, revealed: false };
 let writingQuiz = null; // { setName, items: [{it, status, userInput, revealed}], idx }
@@ -53,7 +53,14 @@ function renderPointGroups(point, keyPrefix) {
           const markKey = `${keyPrefix}::${gi}::${pi}`;
           const mark = wordMarkOf(markKey);
           const cls = mark ? ` wmark-${mark}` : '';
-          return `<span class="phrase-chip wmark${cls}" data-wmark-key="${escapeHtml(markKey)}" title="클릭하면 틀린 부분/중요 표시를 바꿀 수 있어요">${escapeHtml(p)}</span>`;
+          const note = wordNoteOf(markKey);
+          const hasNote = !!note;
+          const title = hasNote ? `메모: ${note}` : '메모 남기기';
+          return `<span class="chip-wrap">
+            <span class="phrase-chip wmark${cls}" data-wmark-key="${escapeHtml(markKey)}" title="클릭하면 틀린 부분/중요 표시를 바꿀 수 있어요">${escapeHtml(p)}</span>
+            <button type="button" class="note-btn ${hasNote ? 'has-note' : ''}" data-note-key="${escapeHtml(markKey)}" title="${escapeHtml(title)}">&#128221;</button>
+            ${hasNote ? `<span class="note-preview">${escapeHtml(note)}</span>` : ''}
+          </span>`;
         }).join('')}
       </div>
     </div>
@@ -167,7 +174,7 @@ function bindWritingSetup() {
   }));
   const startStudyBtn = document.getElementById('start-sentence-study-btn');
   if (startStudyBtn) startStudyBtn.addEventListener('click', () => {
-    sentenceStudyState = { setName: writingSetupState.setName, idx: 0 };
+    sentenceStudyState = { setName: writingSetupState.setName, idx: 0, viewMode: sentenceStudyState.viewMode || 'one' };
     goto('sentenceStudy');
   });
   const startPointStudyBtn = document.getElementById('start-point-study-btn');
@@ -187,10 +194,55 @@ function bindWritingSetup() {
 }
 
 // ===== 1. 문장 보기: 문장 + 한글 + 학습포인트를 모두 보여줌 =====
+// viewMode 'one': 한 문장씩 넘기며 보기. 'all': 지문 전체를 단락으로 이어서 한번에 보기.
 function renderSentenceStudy() {
   const name = sentenceStudyState.setName;
   const items = (name && WRITING_DATA[name]) || [];
   if (items.length === 0) return `<div class="empty">진행 중인 학습이 없습니다.</div>`;
+
+  const viewTabs = `
+    <div class="seg" style="margin-bottom:12px">
+      <button class="${sentenceStudyState.viewMode === 'one' ? 'on' : ''}" data-sv-mode="one">한 문장씩 보기</button>
+      <button class="${sentenceStudyState.viewMode === 'all' ? 'on' : ''}" data-sv-mode="all">전체 단락 보기</button>
+    </div>
+  `;
+
+  if (sentenceStudyState.viewMode === 'all') {
+    const paragraphEn = items.map(it => escapeHtml(it.en)).join(' ');
+    const rows = items.map((it, i) => {
+      const markKeyPrefix = `writingPoint::${name}::${i}`;
+      const hasPoint = !!(it.point && it.point.trim());
+      return `
+        <div class="section-card" style="margin-bottom:10px;text-align:left">
+          <div class="hint-text" style="margin-bottom:4px">${i + 1}.</div>
+          <div class="quiz-prompt" style="font-size:16px;text-align:left;line-height:1.5">${escapeHtml(it.en)}</div>
+          <div class="quiz-ex" style="margin-top:6px">${escapeHtml(it.kr)}</div>
+          ${hasPoint ? `
+            <div class="quiz-prompt-label" style="margin-top:10px">학습 포인트</div>
+            <div class="point-groups">${renderPointGroups(it.point, markKeyPrefix)}</div>
+          ` : ''}
+        </div>
+      `;
+    }).join('');
+
+    return `
+      <div class="quiz-wrap">
+        ${viewTabs}
+        <div class="section-card" style="text-align:left">
+          <div class="section-title">${escapeHtml(name)} &#8212; 전체 지문</div>
+          <div class="quiz-prompt" style="font-size:17px;text-align:left;line-height:1.7">${paragraphEn}</div>
+          <div class="quiz-actions" style="margin:12px 0 0;justify-content:flex-start">
+            <button class="qbtn" id="sentence-speak-all-btn">&#128266; 전체 듣기</button>
+          </div>
+        </div>
+        ${rows}
+        <div class="row-btns">
+          <button class="lbtn" id="sentence-home-btn">학습 세트 선택으로 돌아가기</button>
+        </div>
+      </div>
+    `;
+  }
+
   const idx = sentenceStudyState.idx;
   const it = items[idx];
   const total = items.length;
@@ -201,6 +253,7 @@ function renderSentenceStudy() {
 
   return `
     <div class="quiz-wrap">
+      ${viewTabs}
       <div class="quiz-progress">
         <span>${idx + 1} / ${total}</span>
         <div class="quiz-bar"><div class="quiz-bar-fill" style="width:${progressPct}%"></div></div>
@@ -237,6 +290,10 @@ function renderSentenceStudy() {
 function bindSentenceStudy() {
   const name = sentenceStudyState.setName;
   const items = (name && WRITING_DATA[name]) || [];
+  document.querySelectorAll('[data-sv-mode]').forEach(el => el.addEventListener('click', () => {
+    sentenceStudyState.viewMode = el.dataset.svMode;
+    render();
+  }));
   document.querySelectorAll('[data-s-jump]').forEach(b => b.addEventListener('click', () => {
     sentenceStudyState.idx = parseInt(b.dataset.sJump);
     render();
@@ -250,6 +307,11 @@ function bindSentenceStudy() {
   if (nextBtn) nextBtn.addEventListener('click', () => {
     sentenceStudyState.idx = Math.min(items.length - 1, sentenceStudyState.idx + 1);
     render();
+  });
+  const speakAllBtn = document.getElementById('sentence-speak-all-btn');
+  if (speakAllBtn) speakAllBtn.addEventListener('click', () => {
+    const fullText = items.map(it => it.en).join(' ');
+    TTS.speak(fullText, { lang: 'en-US', rate: progress.settings.ttsRate, voiceURI: progress.settings.ttsVoiceEN });
   });
   const speakBtn = document.getElementById('sentence-speak-btn');
   if (speakBtn) speakBtn.addEventListener('click', () => {

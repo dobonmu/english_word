@@ -7,6 +7,7 @@ const DEFAULT_PROGRESS = () => ({
   wrongCount: {},     // { wordKey: number }
   examLog: [],       // [{date, mode, scope, total, correct, wrong, partial}]
   wordMarks: {},      // Writing/Speaking 문장 안 개별 단어 마킹 { "markKey": "wrong" | "important" }
+  wordNotes: {},      // Writing/Speaking 문장 안 개별 표현에 남긴 메모 { "markKey": "메모 텍스트" }
   settings: {
     ttsRate: 1,
     ttsVoiceEN: '',
