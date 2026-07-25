@@ -1614,51 +1614,99 @@ const WRITING_DATA = {
   "시설개선건의편지": [
     {
       "id": 1,
+      "en": "Write an email to the school administrator. In your email, describe what you enjoyed about the cafeteria, explain what problems you noticed, and offer suggestions for improvement.",
+      "kr": "학교 관리자에게 이메일을 쓰세요. 이메일에는 카페테리아에서 좋았던 점을 설명하고, 발견한 문제점을 설명하고, 개선을 위한 제안을 담으세요.",
+      "point": "문제 지시문(작문 과제)"
+    },
+    {
+      "id": 2,
+      "en": "To: school administrator",
+      "kr": "받는 사람: 학교 관리자",
+      "point": "이메일 상단 수신인 표기"
+    },
+    {
+      "id": 3,
+      "en": "Subject: Feedback on the school cafeteria facilities",
+      "kr": "제목: 학교 카페테리아 시설에 대한 의견",
+      "point": "이메일 제목 작성 패턴"
+    },
+    {
+      "id": 4,
       "en": "To whom it may concern,",
       "kr": "관계자분께,",
       "point": "격식 있는 이메일의 시작 표현"
     },
     {
-      "id": 2,
+      "id": 5,
+      "en": "My name is {name}, and I recently visited the school cafeteria with my daughter.",
+      "kr": "제 이름은 {name}이며, 최근에 딸과 함께 학교 카페테리아를 방문했습니다.",
+      "point": "자기소개로 이메일 본론을 시작하는 패턴"
+    },
+    {
+      "id": 6,
       "en": "I am writing to share my thoughts on the facility and suggest some necessary improvements.",
       "kr": "시설에 대한 제 생각을 공유하고 몇 가지 필요한 개선 사항을 제안하고자 이 글을 씁니다.",
       "point": "I am writing to ~ : 용건을 밝히는 편지 시작 패턴"
     },
     {
-      "id": 3,
-      "en": "I was impressed by the wide variety of healthy food options available for the students.",
-      "kr": "학생들이 이용할 수 있는 건강한 음식 선택권이 매우 다양해서 깊은 인상을 받았습니다.",
+      "id": 7,
+      "en": "First of all, I was impressed by the wide variety of healthy food options available for the students.",
+      "kr": "우선, 학생들이 이용할 수 있는 건강한 음식 선택권이 매우 다양해서 깊은 인상을 받았습니다.",
       "point": "다양한(동의어): a wide range of, wide, comprehensive, extensive, broad, a diverse array of, a variety of, an assortment of"
     },
     {
-      "id": 4,
-      "en": "Several of the wooden dining tables have rough edges and splinters.",
-      "kr": "몇몇 나무 식탁의 모서리가 거칠고 가시가 돋아 있습니다.",
+      "id": 8,
+      "en": "It is great to see the school prioritizing nutrition.",
+      "kr": "학교가 영양을 우선시하는 모습을 보니 좋았습니다.",
+      "point": "~해서 좋다: It is great to see ~"
+    },
+    {
+      "id": 9,
+      "en": "However, I noticed a few issues that need attention.",
+      "kr": "하지만 주의가 필요한 몇 가지 문제도 발견했습니다.",
+      "point": "문제 제기로 전환하는 표현: However, I noticed ~"
+    },
+    {
+      "id": 10,
+      "en": "Several of the wooden dining tables have rough edges and splinters, which could accidentally hurt the students.",
+      "kr": "몇몇 나무 식탁의 모서리가 거칠고 가시가 돋아 있어서, 학생들이 다칠 수도 있습니다.",
       "point": "rough edges(거친 모서리), splinters(가시)"
     },
     {
-      "id": 5,
-      "en": "The water fountain near the entrance is leaking, making the floor quite slippery.",
-      "kr": "입구 근처의 식수대에서 물이 새서 바닥이 꽤 미끄럽습니다.",
+      "id": 11,
+      "en": "In addition, the water fountain near the entrance is leaking, making the floor quite slippery and dangerous.",
+      "kr": "또한, 입구 근처의 식수대에서 물이 새서 바닥이 꽤 미끄럽고 위험합니다.",
       "point": "leaking(새는), slippery(미끄러운) / 인접한(near의 동의어): adjacent to / 바로 맞은편: right across"
     },
     {
-      "id": 6,
-      "en": "I would like to suggest that the maintenance team sand down the table surfaces.",
-      "kr": "관리팀이 식탁 표면을 사포 등으로 매끄럽게 갈아낼 것을 제안합니다.",
+      "id": 12,
+      "en": "I would like to suggest that the maintenance team sand down the table surfaces to make them smooth.",
+      "kr": "관리팀이 식탁 표면을 매끄럽게 사포질해 줄 것을 제안하고 싶습니다.",
       "point": "sand down: 사포 등으로 갈아서 매끄럽게 하다"
     },
     {
-      "id": 7,
-      "en": "It would be great if you could fix the leaking fountain as soon as possible.",
-      "kr": "가능한 한 빨리 새는 식수대를 수리해 주신다면 정말 좋을 것 같습니다.",
+      "id": 13,
+      "en": "Also, it would be great if you could fix the leaking fountain as soon as possible to prevent any slipping accidents.",
+      "kr": "또한, 미끄럼 사고를 방지하기 위해 가능한 한 빨리 새는 식수대를 수리해 주신다면 정말 좋을 것 같습니다.",
       "point": "~라면 좋겠다는 정중한 제안: It would be great if you could ~ / ~라는 조건하에: provided that, providing that, assuming that, as long as"
     },
     {
-      "id": 8,
+      "id": 14,
+      "en": "Thank you for your dedication to providing a safe environment for our children.",
+      "kr": "우리 아이들에게 안전한 환경을 제공하기 위해 헌신해 주셔서 감사합니다.",
+      "point": "~에 대한 헌신에 감사하며 마무리하는 표현: Thank you for your dedication to ~"
+    },
+    {
+      "id": 15,
       "en": "I look forward to your reply.",
       "kr": "당신의 답변을 기다리겠습니다.",
       "point": "이메일을 마무리하는 관용구"
+    },
+    {
+      "id": 16,
+      "en": "Best regards,",
+      "kr": "감사합니다,",
+      "point": "이메일 끝맺음 인사"
     }
   ]
 };
