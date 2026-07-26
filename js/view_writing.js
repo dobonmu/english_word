@@ -3,17 +3,22 @@
 // 2. 학습 포인트 공부: 표현(영어)/뜻(한글)을 모두 보여주며 학습.
 // 3. 학습 포인트 연습: 한글 뜻만 보여주고 영어는 가려서, 눌러야 확인 가능(정답에는
 //    영어와 그 표현의 대체 가능한 다른 표현도 모두 공개).
-// 4. 시험보기: 문장 전체를 뜻/영어 상호 전환으로 써보는 기존 시험 모드.
+// 4. 문장 시험보기: 문장 전체를 뜻/영어 상호 전환으로 써보는 기존 시험 모드.
+// 5. 전문 작성 시험: 지문 전체 또는 문장별로, 뜻만 보고/아무것도 안 보고 처음부터
+//    끝까지 직접 타이핑해서 채점받는 시험(글자 단위 완전 일치로 채점, 틀린 부분 표시).
 let writingSetupState = {
-  mode: 'sentence',        // sentence | pointStudy | pointPractice | quiz
+  mode: 'sentence',        // sentence | pointStudy | pointPractice | quiz | fullWrite
   setName: null,
   quizPromptType: 'kr',    // kr(뜻 보고 문장 쓰기) | en(문장 보고 뜻 쓰기)
+  fullWriteUnit: 'whole',  // whole(지문 전체) | sentence(문장별)
+  fullWriteHint: 'kr',     // kr(뜻만 보고) | none(아무것도 안 보고)
 };
 
 let sentenceStudyState = { setName: null, idx: 0, viewMode: 'one' }; // viewMode: one(한 문장씩) | all(전체 단락)
 let pointStudyState = { setName: null, idx: 0 };
 let pointPracticeState = { setName: null, idx: 0, revealed: false };
 let writingQuiz = null; // { setName, items: [{it, status, userInput, revealed}], idx }
+let writingFullWriteQuiz = null; // { setName, unit, hint, items: [{prompt, answer, userInput, revealed, diff}], idx }
 
 const WRITING_SET_NAMES = (typeof WRITING_DATA !== 'undefined') ? Object.keys(WRITING_DATA) : [];
 
@@ -74,6 +79,7 @@ function renderWritingSetup() {
       <button class="${writingSetupState.mode === 'pointStudy' ? 'on' : ''}" data-w-mode="pointStudy">학습포인트 공부</button>
       <button class="${writingSetupState.mode === 'pointPractice' ? 'on' : ''}" data-w-mode="pointPractice">학습포인트 연습</button>
       <button class="${writingSetupState.mode === 'quiz' ? 'on' : ''}" data-w-mode="quiz">문장 시험보기</button>
+      <button class="${writingSetupState.mode === 'fullWrite' ? 'on' : ''}" data-w-mode="fullWrite">전문 작성 시험</button>
     </div>
   `;
 
@@ -107,6 +113,38 @@ function renderWritingSetup() {
         </div>
         <div class="row-btns" style="justify-content:flex-start">
           <button class="big-btn" id="start-writing-quiz-btn">시험 시작</button>
+        </div>
+      </div>
+    `;
+  }
+
+  if (writingSetupState.mode === 'fullWrite') {
+    const topWrong = renderTopWrongWords(`writingFull::${writingSetupState.setName}`);
+    return modeTabs + `
+      <div class="section-card">
+        <div class="section-title">&#128221;&#10145;&#65039;&#128273; 전문 작성 시험</div>
+        <p class="hint-text" style="margin-bottom:14px">지문 전체 또는 문장별로 처음부터 끝까지 직접 타이핑해서 채점받는 시험입니다. 글자 단위로 정답과 완전히 일치해야 정답 처리되며, 어디가 틀렸는지 표시해줍니다.</p>
+        <div class="field">
+          <label>학습 세트 선택</label>
+          <div class="grid-cards">${cards}</div>
+        </div>
+        <div class="field">
+          <label>작성 단위</label>
+          <div class="seg">
+            <button class="${writingSetupState.fullWriteUnit === 'whole' ? 'on' : ''}" data-w-fwunit="whole">지문 전체 한번에</button>
+            <button class="${writingSetupState.fullWriteUnit === 'sentence' ? 'on' : ''}" data-w-fwunit="sentence">문장별로</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>힌트 수준</label>
+          <div class="seg">
+            <button class="${writingSetupState.fullWriteHint === 'kr' ? 'on' : ''}" data-w-fwhint="kr">뜻만 보고 작성</button>
+            <button class="${writingSetupState.fullWriteHint === 'none' ? 'on' : ''}" data-w-fwhint="none">아무것도 안 보고 작성</button>
+          </div>
+        </div>
+        ${topWrong}
+        <div class="row-btns" style="justify-content:flex-start">
+          <button class="big-btn" id="start-writing-fullwrite-btn">시험 시작</button>
         </div>
       </div>
     `;
@@ -172,6 +210,14 @@ function bindWritingSetup() {
     writingSetupState.quizPromptType = el.dataset.wPrompt;
     render();
   }));
+  document.querySelectorAll('[data-w-fwunit]').forEach(el => el.addEventListener('click', () => {
+    writingSetupState.fullWriteUnit = el.dataset.wFwunit;
+    render();
+  }));
+  document.querySelectorAll('[data-w-fwhint]').forEach(el => el.addEventListener('click', () => {
+    writingSetupState.fullWriteHint = el.dataset.wFwhint;
+    render();
+  }));
   const startStudyBtn = document.getElementById('start-sentence-study-btn');
   if (startStudyBtn) startStudyBtn.addEventListener('click', () => {
     sentenceStudyState = { setName: writingSetupState.setName, idx: 0, viewMode: sentenceStudyState.viewMode || 'one' };
@@ -190,6 +236,10 @@ function bindWritingSetup() {
   const startQuizBtn = document.getElementById('start-writing-quiz-btn');
   if (startQuizBtn) startQuizBtn.addEventListener('click', () => {
     startWritingQuiz(writingSetupState.setName, writingSetupState.quizPromptType);
+  });
+  const startFullWriteBtn = document.getElementById('start-writing-fullwrite-btn');
+  if (startFullWriteBtn) startFullWriteBtn.addEventListener('click', () => {
+    startWritingFullWrite(writingSetupState.setName, writingSetupState.fullWriteUnit, writingSetupState.fullWriteHint);
   });
 }
 
@@ -645,5 +695,192 @@ function bindWritingQuizResultPage() {
   const againBtn = document.getElementById('wq-again-btn');
   if (againBtn) againBtn.addEventListener('click', () => goto('writingSetup'));
   const homeBtn = document.getElementById('wq-home-btn');
+  if (homeBtn) homeBtn.addEventListener('click', () => goto('home'));
+}
+
+// ===== 5. 전문 작성 시험: 지문 전체 또는 문장별로 처음부터 끝까지 직접 타이핑 =====
+// unit: whole(지문 전체를 하나로 이어서 한번에) | sentence(문장 하나씩)
+// hint: kr(한글 뜻을 보여줌) | none(세트 이름 외 아무 힌트도 없음, 순수 암기)
+function startWritingFullWrite(setName, unit, hint) {
+  const items = (setName && WRITING_DATA[setName]) || [];
+  if (items.length === 0) { toast('선택한 세트에 문장이 없습니다.'); return; }
+  let quizItems;
+  if (unit === 'whole') {
+    quizItems = [{
+      promptKr: items.map(it => it.kr).join(' '),
+      answer: items.map(it => it.en).join(' '),
+      userInput: '', revealed: false, diff: null,
+    }];
+  } else {
+    quizItems = items.map(it => ({
+      promptKr: it.kr, answer: it.en, userInput: '', revealed: false, diff: null,
+    }));
+  }
+  writingFullWriteQuiz = { setName, unit, hint, items: quizItems, idx: 0 };
+  goto('writingFullWrite');
+}
+
+function renderWritingFullWritePage() {
+  if (!writingFullWriteQuiz) return `<div class="empty">진행 중인 시험이 없습니다.</div>`;
+  const { setName, unit, hint, items, idx } = writingFullWriteQuiz;
+  const item = items[idx];
+  const total = items.length;
+  const progressPct = Math.round(((idx + 1) / total) * 100);
+  const unitLabel = unit === 'whole' ? '지문 전체' : `문장 ${idx + 1}/${total}`;
+
+  const marks = items.map((it, i) => {
+    let cls = '';
+    if (i === idx) cls += ' cur';
+    if (it.diff) cls += it.correct ? ' correct' : ' wrong';
+    return `<button class="qmark${cls}" data-fw-jump="${i}"></button>`;
+  }).join('');
+
+  return `
+    <div class="quiz-wrap">
+      <div class="quiz-progress">
+        <span>${idx + 1} / ${total}</span>
+        <div class="quiz-bar"><div class="quiz-bar-fill" style="width:${progressPct}%"></div></div>
+        <span>${escapeHtml(setName)} · ${unit === 'whole' ? '전체' : '문장별'} · ${hint === 'kr' ? '뜻 보고' : '암기'}</span>
+      </div>
+      <div class="quiz-card" style="text-align:left;align-items:stretch">
+        <div class="quiz-prompt-label" style="text-align:center">${unitLabel} 영어로 작성하세요</div>
+        ${hint === 'kr' ? `<div class="quiz-prompt" style="font-size:16px;text-align:left;line-height:1.6">${escapeHtml(item.promptKr)}</div>` : `<p class="hint-text" style="text-align:center">힌트 없이 암기해서 작성해보세요.</p>`}
+        <div class="quiz-answer-area">
+          <textarea id="fw-input" placeholder="영어로 작성하세요" rows="${unit === 'whole' ? 8 : 3}"
+            style="width:100%;padding:12px 14px;border:2px solid var(--border-strong);border-radius:var(--radius);background:var(--surface-1);color:var(--text-primary);font-size:15px;line-height:1.5;resize:vertical;box-sizing:border-box" ${item.revealed ? 'disabled' : ''}>${escapeHtml(item.userInput || '')}</textarea>
+        </div>
+        ${item.revealed ? `
+          <div class="quiz-answer-area" style="margin-top:4px">
+            <div class="${item.correct ? 'quiz-answer' : 'quiz-answer wrong-answer'}" style="text-align:left">
+              ${item.correct ? '&#10003; 정답입니다!' : '&#10005; 정답과 다릅니다.'}
+            </div>
+            <div class="quiz-prompt-label" style="margin-top:10px">정답 (틀린 부분 표시)</div>
+            <div class="diff-box">${renderDiffAnswer(item.diff)}</div>
+            ${!item.correct ? `
+              <div class="quiz-prompt-label" style="margin-top:10px">내가 쓴 답</div>
+              <div class="diff-box">${renderDiffUserInput(item.diff)}</div>
+            ` : ''}
+          </div>
+        ` : ''}
+      </div>
+      <div class="quiz-actions">
+        ${!item.revealed ? `
+          <button class="qbtn neutral" id="fw-check-btn">채점하기</button>
+        ` : `
+          <button class="qbtn" id="fw-retry-btn">다시 써보기</button>
+        `}
+      </div>
+      <div class="quiz-navrow">
+        <button class="nbtn" id="fw-prev" ${idx === 0 ? 'disabled' : ''}>&#8592;</button>
+        <div class="quiz-marks">${marks}</div>
+        <button class="nbtn" id="fw-next">${idx === total - 1 ? '&#10003;' : '&#8594;'}</button>
+      </div>
+      <div class="row-btns">
+        <button class="lbtn" id="fw-finish-btn">시험 종료하고 결과 보기</button>
+      </div>
+    </div>
+  `;
+}
+
+function commitWritingFullWriteInput() {
+  if (!writingFullWriteQuiz) return;
+  const input = document.getElementById('fw-input');
+  const item = writingFullWriteQuiz.items[writingFullWriteQuiz.idx];
+  if (input && item && !item.revealed) item.userInput = input.value;
+}
+
+function checkWritingFullWriteItem(item, setName) {
+  item.revealed = true;
+  item.diff = diffWords(item.answer, item.userInput);
+  item.correct = isExactMatch(item.answer, item.userInput);
+  if (!item.correct) recordWrongWords(`writingFull::${setName}`, item.diff);
+}
+
+function bindWritingFullWritePage() {
+  const { items, idx, setName } = writingFullWriteQuiz;
+  const item = items[idx];
+  const input = document.getElementById('fw-input');
+  if (input) {
+    input.focus();
+    input.addEventListener('input', () => { item.userInput = input.value; });
+  }
+  document.querySelectorAll('[data-fw-jump]').forEach(b => b.addEventListener('click', () => {
+    commitWritingFullWriteInput();
+    writingFullWriteQuiz.idx = parseInt(b.dataset.fwJump);
+    render();
+  }));
+  const prevBtn = document.getElementById('fw-prev');
+  if (prevBtn) prevBtn.addEventListener('click', () => {
+    commitWritingFullWriteInput();
+    writingFullWriteQuiz.idx = Math.max(0, writingFullWriteQuiz.idx - 1);
+    render();
+  });
+  const nextBtn = document.getElementById('fw-next');
+  if (nextBtn) nextBtn.addEventListener('click', () => {
+    commitWritingFullWriteInput();
+    if (writingFullWriteQuiz.idx === items.length - 1) finishWritingFullWrite();
+    else { writingFullWriteQuiz.idx += 1; render(); }
+  });
+  const checkBtn = document.getElementById('fw-check-btn');
+  if (checkBtn) checkBtn.addEventListener('click', () => {
+    commitWritingFullWriteInput();
+    checkWritingFullWriteItem(item, setName);
+    render();
+  });
+  const retryBtn = document.getElementById('fw-retry-btn');
+  if (retryBtn) retryBtn.addEventListener('click', () => {
+    item.revealed = false;
+    item.diff = null;
+    render();
+  });
+  const finishBtn = document.getElementById('fw-finish-btn');
+  if (finishBtn) finishBtn.addEventListener('click', () => { commitWritingFullWriteInput(); finishWritingFullWrite(); });
+}
+
+function finishWritingFullWrite() {
+  writingFullWriteQuiz.items.forEach((it, i) => {
+    if (!it.revealed) checkWritingFullWriteItem(it, writingFullWriteQuiz.setName);
+  });
+  goto('writingFullWriteResult');
+}
+
+function renderWritingFullWriteResultPage() {
+  if (!writingFullWriteQuiz) return `<div class="empty">시험 결과가 없습니다.</div>`;
+  const { setName, unit, items } = writingFullWriteQuiz;
+  const correct = items.filter(i => i.correct).length;
+  const total = items.length;
+
+  const rows = items.map((item, i) => `
+    <div class="section-card" style="margin-bottom:10px">
+      <div class="trow-top" style="margin-bottom:8px">
+        <span class="status-tag ${item.correct ? 'correct' : 'wrong'}">${item.correct ? '&#10003; 정답' : '&#10005; 틀림'}</span>
+      </div>
+      <div class="quiz-prompt-label">${unit === 'whole' ? '지문 전체' : `문장 ${i + 1}`}</div>
+      <div class="diff-box" style="margin-top:6px">${renderDiffAnswer(item.diff)}</div>
+      ${!item.correct ? `
+        <div class="quiz-prompt-label" style="margin-top:8px">내가 쓴 답</div>
+        <div class="diff-box">${renderDiffUserInput(item.diff)}</div>
+      ` : ''}
+    </div>
+  `).join('');
+
+  return `
+    <div class="section-card">
+      <div class="section-title">&#128221;&#10145;&#65039;&#128273; 전문 작성 시험 결과</div>
+      <p class="hint-text">${escapeHtml(setName)} · ${unit === 'whole' ? '지문 전체' : '문장별'} · 총 ${total}문제 중 정답 ${correct} / 오답 ${total - correct}</p>
+      ${renderTopWrongWords(`writingFull::${setName}`)}
+      <div class="row-btns" style="justify-content:flex-start;margin-top:10px">
+        <button class="big-btn" id="fw-again-btn">다시 시험보기</button>
+        <button class="big-btn secondary" id="fw-home-btn">홈으로</button>
+      </div>
+    </div>
+    ${rows}
+  `;
+}
+
+function bindWritingFullWriteResultPage() {
+  const againBtn = document.getElementById('fw-again-btn');
+  if (againBtn) againBtn.addEventListener('click', () => goto('writingSetup'));
+  const homeBtn = document.getElementById('fw-home-btn');
   if (homeBtn) homeBtn.addEventListener('click', () => goto('home'));
 }

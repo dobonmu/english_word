@@ -6,7 +6,7 @@ let progress = loadProgress();
 applyTheme();
 
 let state = {
-  page: 'home',          // home | browse | quizSetup | quiz | quizResult | writeSetup | writeQuiz | writeResult | writingSetup | sentenceStudy | pointStudy | pointPractice | writingQuiz | writingQuizResult | speakingSetup | speakingPractice | mock | review | settings
+  page: 'home',          // home | browse | quizSetup | quiz | quizResult | writeSetup | writeQuiz | writeResult | writingSetup | sentenceStudy | pointStudy | pointPractice | writingQuiz | writingQuizResult | writingFullWrite | writingFullWriteResult | speakingSetup | speakingPractice | speakingFullWrite | speakingFullWriteResult | mock | review | settings
   unit: UNIT_NAMES[0] || null,
   view: 'list',           // list | card
   search: '',
@@ -152,8 +152,8 @@ function samePageGroup(page, navId) {
     browse: ['browse'],
     quizSetup: ['quizSetup', 'quiz', 'quizResult'],
     writeSetup: ['writeSetup', 'writeQuiz', 'writeResult'],
-    writingSetup: ['writingSetup', 'sentenceStudy', 'pointStudy', 'pointPractice', 'writingQuiz', 'writingQuizResult'],
-    speakingSetup: ['speakingSetup', 'speakingPractice'],
+    writingSetup: ['writingSetup', 'sentenceStudy', 'pointStudy', 'pointPractice', 'writingQuiz', 'writingQuizResult', 'writingFullWrite', 'writingFullWriteResult'],
+    speakingSetup: ['speakingSetup', 'speakingPractice', 'speakingFullWrite', 'speakingFullWriteResult'],
     mock: ['mockSetup', 'mock', 'mockQuiz', 'mockResult'],
     review: ['review'],
   };
@@ -190,8 +190,12 @@ function renderPage() {
     case 'pointPractice': return renderPointPractice();
     case 'writingQuiz': return renderWritingQuizPage();
     case 'writingQuizResult': return renderWritingQuizResultPage();
+    case 'writingFullWrite': return renderWritingFullWritePage();
+    case 'writingFullWriteResult': return renderWritingFullWriteResultPage();
     case 'speakingSetup': return renderSpeakingSetup();
     case 'speakingPractice': return renderSpeakingPractice();
+    case 'speakingFullWrite': return renderSpeakingFullWritePage();
+    case 'speakingFullWriteResult': return renderSpeakingFullWriteResultPage();
     case 'mockSetup': return renderQuizSetup(false, true);
     case 'mockQuiz': return renderQuiz();
     case 'mockResult': return renderQuizResult();
@@ -214,8 +218,12 @@ function bindPageEvents() {
     case 'pointPractice': return bindPointPractice();
     case 'writingQuiz': return bindWritingQuizPage();
     case 'writingQuizResult': return bindWritingQuizResultPage();
+    case 'writingFullWrite': return bindWritingFullWritePage();
+    case 'writingFullWriteResult': return bindWritingFullWriteResultPage();
     case 'speakingSetup': return bindSpeakingSetup();
     case 'speakingPractice': return bindSpeakingPractice();
+    case 'speakingFullWrite': return bindSpeakingFullWritePage();
+    case 'speakingFullWriteResult': return bindSpeakingFullWriteResultPage();
   }
 }
 

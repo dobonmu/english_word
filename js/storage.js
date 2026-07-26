@@ -8,6 +8,7 @@ const DEFAULT_PROGRESS = () => ({
   examLog: [],       // [{date, mode, scope, total, correct, wrong, partial}]
   wordMarks: {},      // Writing/Speaking 문장 안 개별 단어 마킹 { "markKey": "wrong" | "important" }
   wordNotes: {},      // Writing/Speaking 문장 안 개별 표현에 남긴 메모 { "markKey": "메모 텍스트" }
+  fullWriteWrongWords: {}, // Writing/Speaking 전문 작성 시험에서 틀린 단어 누적 카운트 { "setName::word": count }
   settings: {
     ttsRate: 1,
     ttsVoiceEN: '',
