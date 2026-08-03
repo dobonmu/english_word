@@ -2151,6 +2151,38 @@ const SPEAKING_DATA = {
       "a_en": "A city can become more convenient when it offers reliable public transportation, safe sidewalks, and enough green spaces for people to relax.",
       "a_kr": "도시는 안정적인 대중교통, 안전한 보도블록, 그리고 사람들이 쉴 수 있는 충분한 녹지 공간을 제공할 때 더 편리해질 수 있습니다.",
       "point": "reliable public transportation: efficient transit, dependable transport / safe sidewalks: secure walkways, pedestrian-friendly paths"
+    },
+    {
+      "id": 3,
+      "q_en": "Do you think public transportation is a necessary part of city life?",
+      "q_kr": "도시 생활에서 대중교통이 필수적인 부분이라고 생각하나요?",
+      "a_en": "Yes, I do. A good public transportation system makes daily life easier and reduces the pressure on private cars.",
+      "a_kr": "네, 그렇습니다. 좋은 대중교통 시스템은 일상을 더 쉽게 만들고 개인 차량에 대한 부담을 줄여줍니다.",
+      "point": "public transportation system: transit network, commuting system / reduce the pressure on private cars: ease traffic burden"
+    },
+    {
+      "id": 4,
+      "q_en": "How can governments encourage people to use public transportation more often?",
+      "q_kr": "정부는 사람들에게 대중교통을 더 자주 이용하도록 어떻게 권장할 수 있나요?",
+      "a_en": "Governments can encourage people by making buses and trains more affordable, convenient, and reliable.",
+      "a_kr": "정부는 버스와 기차를 더 저렴하고 편리하며 신뢰할 수 있게 만들면 사람들에게 대중교통 이용을 권장할 수 있습니다.",
+      "point": "make transport more affordable: reduce fares, lower costs / convenient and reliable: easy and dependable"
+    },
+    {
+      "id": 5,
+      "q_en": "Do you think cars will remain the main form of transportation in the future?",
+      "q_kr": "자동차가 미래에도 주요 교통 수단으로 남을 것이라고 생각하나요?",
+      "a_en": "I think public transportation will become more important as cities grow and environmental concerns increase.",
+      "a_kr": "저는 도시가 성장하고 환경 문제가 증가함에 따라 대중교통이 더 중요해질 것이라고 생각합니다.",
+      "point": "become more important: gain greater significance / environmental concerns: eco issues"
+    },
+    {
+      "id": 6,
+      "q_en": "How can cities improve the quality of life for residents?",
+      "q_kr": "도시가 주민들의 삶의 질을 향상시키려면 어떻게 해야 하나요?",
+      "a_en": "Cities can improve quality of life by offering better public services, cleaner streets, and more green spaces.",
+      "a_kr": "도시는 더 나은 공공 서비스, 더 깨끗한 거리, 더 많은 녹지 공간을 제공함으로써 삶의 질을 향상시킬 수 있습니다.",
+      "point": "improve quality of life: enhance daily living / greener environment: more greenery"
     }
   ]
 };
