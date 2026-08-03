@@ -31,3 +31,8 @@ stellar|눈부신|a stellar performance|눈부신 공연|excellent
 strengthen|강화하다|strengthen a team|팀을 강화하다|make stronger
 supply|공급하다|supply food|식량을 공급하다|provide
 melt|녹다|melt ice|얼음을 녹이다|become liquid
+improve|향상시키다|improve your skills|기술을 향상시키다|make better
+benefit|이익, 혜택|benefit from education|교육의 혜택을 받다|advantage
+support|지원하다|support a family|가정을 지원하다|help or encourage
+develop|개발하다|develop a plan|계획을 개발하다|grow or create
+value|가치|value education|교육의 가치를 높이다|importance

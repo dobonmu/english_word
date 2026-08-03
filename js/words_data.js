@@ -1873,6 +1873,46 @@ const VOCAB_DATA = {
       "ex_en": "melt ice",
       "ex_kr": "얼음을 녹이다",
       "note": "become liquid"
+    },
+    {
+      "id": 34,
+      "word": "improve",
+      "meaning": "향상시키다",
+      "ex_en": "improve your skills",
+      "ex_kr": "기술을 향상시키다",
+      "note": "make better"
+    },
+    {
+      "id": 35,
+      "word": "benefit",
+      "meaning": "이익, 혜택",
+      "ex_en": "benefit from education",
+      "ex_kr": "교육의 혜택을 받다",
+      "note": "advantage"
+    },
+    {
+      "id": 36,
+      "word": "support",
+      "meaning": "지원하다",
+      "ex_en": "support a family",
+      "ex_kr": "가정을 지원하다",
+      "note": "help or encourage"
+    },
+    {
+      "id": 37,
+      "word": "develop",
+      "meaning": "개발하다",
+      "ex_en": "develop a plan",
+      "ex_kr": "계획을 개발하다",
+      "note": "grow or create"
+    },
+    {
+      "id": 38,
+      "word": "value",
+      "meaning": "가치",
+      "ex_en": "value education",
+      "ex_kr": "교육의 가치를 높이다",
+      "note": "importance"
     }
   ]
 };
@@ -2183,6 +2223,30 @@ const SPEAKING_DATA = {
       "a_en": "Cities can improve quality of life by offering better public services, cleaner streets, and more green spaces.",
       "a_kr": "도시는 더 나은 공공 서비스, 더 깨끗한 거리, 더 많은 녹지 공간을 제공함으로써 삶의 질을 향상시킬 수 있습니다.",
       "point": "improve quality of life: enhance daily living / greener environment: more greenery"
+    },
+    {
+      "id": 7,
+      "q_en": "Do you think the government should invest more in public transportation than in roads?",
+      "q_kr": "정부가 도로보다 대중교통에 더 많이 투자해야 한다고 생각하나요?",
+      "a_en": "I agree that public transportation deserves more investment because it serves more people and reduces traffic problems.",
+      "a_kr": "저는 대중교통이 더 많은 사람에게 서비스를 제공하고 교통 문제를 줄이기 때문에 더 많은 투자가 필요하다고 생각합니다.",
+      "point": "invest more in public transportation: allocate more funding / serve more people: benefit a larger population"
+    },
+    {
+      "id": 8,
+      "q_en": "How do you think people in your country usually commute to work?",
+      "q_kr": "당신의 나라 사람들은 보통 출근할 때 어떻게 이동하나요?",
+      "a_en": "Most people commute by car or bus, depending on the distance and the availability of public transit.",
+      "a_kr": "대부분의 사람들은 거리와 대중교통 이용 가능성에 따라 차나 버스를 이용해 출퇴근합니다.",
+      "point": "commute to work: travel to work / availability of public transit: access to public transport"
+    },
+    {
+      "id": 9,
+      "q_en": "Would you prefer to live in a big city or a smaller town?",
+      "q_kr": "큰 도시와 작은 도시 중 어느 쪽에서 사는 것을 더 선호하나요?",
+      "a_en": "I would prefer to live in a big city because there are more opportunities for work and entertainment.",
+      "a_kr": "저는 일과 오락의 기회가 더 많기 때문에 큰 도시에서 사는 것을 선호합니다.",
+      "point": "more opportunities: greater choice / entertainment: leisure activities"
     }
   ]
 };
