@@ -1608,6 +1608,272 @@ const VOCAB_DATA = {
       "ex_kr": "강한 파도는 수년에 걸쳐 해안선을 침식시킬 수 있습니다.",
       "note": ""
     }
+  ],
+  "5단원": [
+    {
+      "id": 1,
+      "word": "invent",
+      "meaning": "발명하다",
+      "ex_en": "invent a new device",
+      "ex_kr": "새로운 장치를 발명하다",
+      "note": "to create something new"
+    },
+    {
+      "id": 2,
+      "word": "forge",
+      "meaning": "조작하다, 위조하다",
+      "ex_en": "forge a document",
+      "ex_kr": "문서를 위조하다",
+      "note": "to make something false"
+    },
+    {
+      "id": 3,
+      "word": "manufacture",
+      "meaning": "제조하다",
+      "ex_en": "manufacture cars",
+      "ex_kr": "자동차를 제조하다",
+      "note": "produce in large amounts"
+    },
+    {
+      "id": 4,
+      "word": "aspect",
+      "meaning": "측면",
+      "ex_en": "an important aspect",
+      "ex_kr": "중요한 측면",
+      "note": "a part or feature"
+    },
+    {
+      "id": 5,
+      "word": "dimension",
+      "meaning": "차원",
+      "ex_en": "the dimension of the problem",
+      "ex_kr": "문제의 차원",
+      "note": "a level or extent"
+    },
+    {
+      "id": 6,
+      "word": "side",
+      "meaning": "측면",
+      "ex_en": "on the side",
+      "ex_kr": "옆에서",
+      "note": "a position or direction"
+    },
+    {
+      "id": 7,
+      "word": "ease",
+      "meaning": "완화하다",
+      "ex_en": "ease the pain",
+      "ex_kr": "통증을 완화하다",
+      "note": "reduce discomfort"
+    },
+    {
+      "id": 8,
+      "word": "promote",
+      "meaning": "촉진하다",
+      "ex_en": "promote health",
+      "ex_kr": "건강을 증진하다",
+      "note": "encourage"
+    },
+    {
+      "id": 9,
+      "word": "assist",
+      "meaning": "돕다",
+      "ex_en": "assist students",
+      "ex_kr": "학생들을 돕다",
+      "note": "help"
+    },
+    {
+      "id": 10,
+      "word": "list",
+      "meaning": "목록",
+      "ex_en": "make a list",
+      "ex_kr": "목록을 작성하다",
+      "note": "a series"
+    },
+    {
+      "id": 11,
+      "word": "include",
+      "meaning": "포함하다",
+      "ex_en": "include many details",
+      "ex_kr": "많은 세부사항을 포함하다",
+      "note": "contain"
+    },
+    {
+      "id": 12,
+      "word": "tough",
+      "meaning": "힘든, 거친",
+      "ex_en": "a tough exam",
+      "ex_kr": "힘든 시험",
+      "note": "hard or strong"
+    },
+    {
+      "id": 13,
+      "word": "sufficient",
+      "meaning": "충분한",
+      "ex_en": "sufficient evidence",
+      "ex_kr": "충분한 증거",
+      "note": "enough"
+    },
+    {
+      "id": 14,
+      "word": "ample",
+      "meaning": "충분한",
+      "ex_en": "ample time",
+      "ex_kr": "충분한 시간",
+      "note": "more than enough"
+    },
+    {
+      "id": 15,
+      "word": "enough",
+      "meaning": "충분한",
+      "ex_en": "enough money",
+      "ex_kr": "충분한 돈",
+      "note": "adequate"
+    },
+    {
+      "id": 16,
+      "word": "severe",
+      "meaning": "심각한",
+      "ex_en": "severe weather",
+      "ex_kr": "심각한 날씨",
+      "note": "harsh"
+    },
+    {
+      "id": 17,
+      "word": "weak point",
+      "meaning": "약점",
+      "ex_en": "a weak point",
+      "ex_kr": "약점",
+      "note": "a disadvantage"
+    },
+    {
+      "id": 18,
+      "word": "change",
+      "meaning": "변화",
+      "ex_en": "change jobs",
+      "ex_kr": "직업을 바꾸다",
+      "note": "alter"
+    },
+    {
+      "id": 19,
+      "word": "concentrate on",
+      "meaning": "~에 집중하다",
+      "ex_en": "concentrate on study",
+      "ex_kr": "공부에 집중하다",
+      "note": "focus on"
+    },
+    {
+      "id": 20,
+      "word": "weigh",
+      "meaning": "무게를 재다, 고려하다",
+      "ex_en": "weigh the options",
+      "ex_kr": "선택지를 고려하다",
+      "note": "consider"
+    },
+    {
+      "id": 21,
+      "word": "stress",
+      "meaning": "강조하다",
+      "ex_en": "stress the importance",
+      "ex_kr": "중요성을 강조하다",
+      "note": "emphasize"
+    },
+    {
+      "id": 22,
+      "word": "highlight",
+      "meaning": "강조하다",
+      "ex_en": "highlight the key point",
+      "ex_kr": "핵심 포인트를 강조하다",
+      "note": "emphasize"
+    },
+    {
+      "id": 23,
+      "word": "mark",
+      "meaning": "표시하다",
+      "ex_en": "mark the answer",
+      "ex_kr": "정답을 표시하다",
+      "note": "indicate"
+    },
+    {
+      "id": 24,
+      "word": "sign",
+      "meaning": "표시하다",
+      "ex_en": "sign the document",
+      "ex_kr": "문서에 서명하다",
+      "note": "signal"
+    },
+    {
+      "id": 25,
+      "word": "remarkable",
+      "meaning": "놀라운",
+      "ex_en": "a remarkable story",
+      "ex_kr": "놀라운 이야기",
+      "note": "unusual"
+    },
+    {
+      "id": 26,
+      "word": "outstanding",
+      "meaning": "뛰어난",
+      "ex_en": "an outstanding student",
+      "ex_kr": "뛰어난 학생",
+      "note": "excellent"
+    },
+    {
+      "id": 27,
+      "word": "exceptional",
+      "meaning": "특별한",
+      "ex_en": "exceptional talent",
+      "ex_kr": "특별한 재능",
+      "note": "extraordinary"
+    },
+    {
+      "id": 28,
+      "word": "excellent",
+      "meaning": "우수한",
+      "ex_en": "excellent work",
+      "ex_kr": "우수한 작업",
+      "note": "very good"
+    },
+    {
+      "id": 29,
+      "word": "stunning",
+      "meaning": "멋진",
+      "ex_en": "a stunning view",
+      "ex_kr": "멋진 풍경",
+      "note": "beautiful"
+    },
+    {
+      "id": 30,
+      "word": "stellar",
+      "meaning": "눈부신",
+      "ex_en": "a stellar performance",
+      "ex_kr": "눈부신 공연",
+      "note": "excellent"
+    },
+    {
+      "id": 31,
+      "word": "strengthen",
+      "meaning": "강화하다",
+      "ex_en": "strengthen a team",
+      "ex_kr": "팀을 강화하다",
+      "note": "make stronger"
+    },
+    {
+      "id": 32,
+      "word": "supply",
+      "meaning": "공급하다",
+      "ex_en": "supply food",
+      "ex_kr": "식량을 공급하다",
+      "note": "provide"
+    },
+    {
+      "id": 33,
+      "word": "melt",
+      "meaning": "녹다",
+      "ex_en": "melt ice",
+      "ex_kr": "얼음을 녹이다",
+      "note": "become liquid"
+    }
   ]
 };
 const WRITING_DATA = {
@@ -1708,6 +1974,68 @@ const WRITING_DATA = {
       "kr": "감사합니다,",
       "point": "이메일 끝맺음 인사"
     }
+  ],
+  "학교카페테리아건의편지": [
+    {
+      "id": 1,
+      "en": "To whom it may concern,",
+      "kr": "관계자분께,",
+      "point": "격식 있는 이메일의 시작 표현"
+    },
+    {
+      "id": 2,
+      "en": "My name is {name}, and I recently visited the school cafeteria with my daughter.",
+      "kr": "제 이름은 {name}이며, 최근에 딸과 함께 학교 카페테리아를 방문했습니다.",
+      "point": "자기소개로 이메일 본론을 시작하는 패턴"
+    },
+    {
+      "id": 3,
+      "en": "I am writing to share my thoughts on the facility and suggest some necessary improvements.",
+      "kr": "시설에 대한 제 생각을 공유하고 몇 가지 필요한 개선 사항을 제안하고자 이 글을 씁니다.",
+      "point": "I am writing to ~ : 용건을 밝히는 편지 시작 패턴"
+    },
+    {
+      "id": 4,
+      "en": "First of all, I was impressed by the wide variety of healthy food options available for the students.",
+      "kr": "우선, 학생들이 이용할 수 있는 건강한 음식 선택권이 매우 다양해서 깊은 인상을 받았습니다.",
+      "point": "다양한(동의어): a wide range of, wide, comprehensive, extensive, broad, a diverse array of, a variety of, an assortment of"
+    },
+    {
+      "id": 5,
+      "en": "However, I noticed a few issues that need attention.",
+      "kr": "하지만 주의가 필요한 몇 가지 문제도 발견했습니다.",
+      "point": "문제 제기로 전환하는 표현: However, I noticed ~"
+    },
+    {
+      "id": 6,
+      "en": "Several of the wooden dining tables have rough edges and splinters, which could accidentally hurt the students.",
+      "kr": "몇몇 나무 식탁의 모서리가 거칠고 가시가 돋아 있어서, 학생들이 다칠 수도 있습니다.",
+      "point": "rough edges(거친 모서리), splinters(가시)"
+    },
+    {
+      "id": 7,
+      "en": "In addition, the water fountain near the entrance is leaking, making the floor quite slippery and dangerous.",
+      "kr": "또한, 입구 근처의 식수대에서 물이 새서 바닥이 꽤 미끄럽고 위험합니다.",
+      "point": "leaking(새는), slippery(미끄러운) / 인접한(near의 동의어): adjacent to / 바로 맞은편: right across"
+    },
+    {
+      "id": 8,
+      "en": "I would like to suggest that the maintenance team sand down the table surfaces to make them smooth.",
+      "kr": "관리팀이 식탁 표면을 매끄럽게 사포질해 줄 것을 제안하고 싶습니다.",
+      "point": "sand down: 사포 등으로 갈아서 매끄럽게 하다"
+    },
+    {
+      "id": 9,
+      "en": "Also, it would be great if you could fix the leaking fountain as soon as possible to prevent any slipping accidents.",
+      "kr": "또한, 미끄럼 사고를 방지하기 위해 가능한 한 빨리 새는 식수대를 수리해 주신다면 정말 좋을 것 같습니다.",
+      "point": "~라면 좋겠다는 정중한 제안: It would be great if you could ~ / ~라는 조건하에: provided that, providing that, assuming that, as long as"
+    },
+    {
+      "id": 10,
+      "en": "Thank you for your dedication to providing a safe environment for our children.",
+      "kr": "우리 아이들에게 안전한 환경을 제공하기 위해 헌신해 주셔서 감사합니다.",
+      "point": "~에 대한 헌신에 감사하며 마무리하는 표현: Thank you for your dedication to ~"
+    }
   ]
 };
 const SPEAKING_DATA = {
@@ -1805,6 +2133,24 @@ const SPEAKING_DATA = {
       "a_en": "I prefer living in an apartment. Apartments usually offer better security and convenient facilities like gyms or nearby convenience stores.",
       "a_kr": "저는 아파트에서 사는 것을 선호합니다. 아파트는 보통 더 나은 보안과 헬스장이나 근처 편의점 같은 편리한 시설을 제공합니다.",
       "point": "provide enhanced safety measures and a wide array of premium amenities: 강화된 안전 조치와 다양한 고급 편의시설을 제공하다 / ensure a secure living environment and seamless access to integrated(인터그뤠이트) facilities(퍼실리티쓰): 안전한 주거 환경과 통합된 시설에 매끄러운 접근을 보장하다"
+    }
+  ],
+  "Part5_사회환경": [
+    {
+      "id": 1,
+      "q_en": "What impact do you think free public transportation will have on our city?",
+      "q_kr": "우리 도시에는 무료 공공 교통이 어떤 영향을 미칠 것이라고 생각하나요?",
+      "a_en": "I believe free public transportation will have a positive environmental impact because it encourages people to leave their cars at home, which reduces carbon emissions and traffic congestion. It also improves accessibility for low-income groups, making the city more inclusive.",
+      "a_kr": "저는 무료 공공 교통이 긍정적인 환경적 영향을 미칠 것이라고 생각합니다. 왜냐하면 사람들이 차를 집에 두게 만들고, 이는 탄소 배출과 교통 체증을 줄이기 때문입니다. 또한 저소득층의 접근성을 높여 도시를 더 포용적으로 만들 것입니다.",
+      "point": "positive environmental impact: positive effect, beneficial, favorable / encourage people to leave their cars at home: persuade people to stop driving"
+    },
+    {
+      "id": 2,
+      "q_en": "How do you think a city can become more convenient for residents?",
+      "q_kr": "도시가 주민들에게 더 편리해지려면 어떻게 해야 한다고 생각하나요?",
+      "a_en": "A city can become more convenient when it provides reliable public transportation, safe sidewalks, and enough green spaces for people to relax.",
+      "a_kr": "도시는 주민들에게 안정적인 대중교통과 안전한 보도블록, 그리고 사람들 who relax in green spaces, etc. 충분한 녹지 공간을 제공할 때 더 편리해질 수 있습니다.",
+      "point": "reliable public transportation: efficient transit, dependable transport / safe sidewalks: secure walkways, pedestrian-friendly paths"
     }
   ]
 };
