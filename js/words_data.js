@@ -2142,14 +2142,14 @@ const SPEAKING_DATA = {
       "q_kr": "우리 도시에는 무료 공공 교통이 어떤 영향을 미칠 것이라고 생각하나요?",
       "a_en": "I believe free public transportation will have a positive environmental impact because it encourages people to leave their cars at home, which reduces carbon emissions and traffic congestion. It also improves accessibility for low-income groups, making the city more inclusive.",
       "a_kr": "저는 무료 공공 교통이 긍정적인 환경적 영향을 미칠 것이라고 생각합니다. 왜냐하면 사람들이 차를 집에 두게 만들고, 이는 탄소 배출과 교통 체증을 줄이기 때문입니다. 또한 저소득층의 접근성을 높여 도시를 더 포용적으로 만들 것입니다.",
-      "point": "positive environmental impact: positive effect, beneficial, favorable / encourage people to leave their cars at home: persuade people to stop driving"
+      "point": "positive environmental impact: beneficial, favorable / encourage people to leave their cars at home: persuade people to stop driving"
     },
     {
       "id": 2,
       "q_en": "How do you think a city can become more convenient for residents?",
       "q_kr": "도시가 주민들에게 더 편리해지려면 어떻게 해야 한다고 생각하나요?",
-      "a_en": "A city can become more convenient when it provides reliable public transportation, safe sidewalks, and enough green spaces for people to relax.",
-      "a_kr": "도시는 주민들에게 안정적인 대중교통과 안전한 보도블록, 그리고 사람들 who relax in green spaces, etc. 충분한 녹지 공간을 제공할 때 더 편리해질 수 있습니다.",
+      "a_en": "A city can become more convenient when it offers reliable public transportation, safe sidewalks, and enough green spaces for people to relax.",
+      "a_kr": "도시는 안정적인 대중교통, 안전한 보도블록, 그리고 사람들이 쉴 수 있는 충분한 녹지 공간을 제공할 때 더 편리해질 수 있습니다.",
       "point": "reliable public transportation: efficient transit, dependable transport / safe sidewalks: secure walkways, pedestrian-friendly paths"
     }
   ]
