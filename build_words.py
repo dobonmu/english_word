@@ -105,6 +105,16 @@ def parse_speaking_file(path):
             a_en = parts[2].strip()
             a_kr = parts[3].strip()
             point = parts[4].strip() if len(parts) > 4 else ""
+            # 5번째 필드(point) 뒤에 "답변영|답변한|표현"이 3개씩 더 있으면 같은 질문에 대한
+            # 추가 모범답변(여러 선생님/버전)으로 취급한다.
+            answers = [{"a_en": a_en, "a_kr": a_kr, "point": point}]
+            extra = parts[5:]
+            for i in range(0, len(extra) - 1, 3):
+                ea_en = extra[i].strip() if i < len(extra) else ""
+                ea_kr = extra[i + 1].strip() if i + 1 < len(extra) else ""
+                ea_point = extra[i + 2].strip() if i + 2 < len(extra) else ""
+                if ea_en:
+                    answers.append({"a_en": ea_en, "a_kr": ea_kr, "point": ea_point})
             items.append({
                 "id": len(items) + 1,
                 "q_en": q_en,
@@ -112,6 +122,7 @@ def parse_speaking_file(path):
                 "a_en": a_en,
                 "a_kr": a_kr,
                 "point": point,
+                "answers": answers,
             })
     return set_name, items
 

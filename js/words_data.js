@@ -1612,311 +1612,487 @@ const VOCAB_DATA = {
   "5단원": [
     {
       "id": 1,
-      "word": "invent",
-      "meaning": "발명하다",
-      "ex_en": "invent a new device",
-      "ex_kr": "새로운 장치를 발명하다",
-      "note": "to create something new"
+      "word": "Fabricate",
+      "meaning": "제작하다, 날조하다",
+      "ex_en": "The company was caught trying to fabricate sales data.",
+      "ex_kr": "그 회사는 매출 데이터를 날조하려다 적발되었습니다.",
+      "note": "동의어: invent, forge, manufacture"
     },
     {
       "id": 2,
-      "word": "forge",
-      "meaning": "조작하다, 위조하다",
-      "ex_en": "forge a document",
-      "ex_kr": "문서를 위조하다",
-      "note": "to make something false"
+      "word": "Facet",
+      "meaning": "측면, 양상",
+      "ex_en": "Each facet of the problem requires careful consideration.",
+      "ex_kr": "문제의 각 측면은 신중한 고려가 필요합니다.",
+      "note": "동의어: aspect, dimension, side"
     },
     {
       "id": 3,
-      "word": "manufacture",
-      "meaning": "제조하다",
-      "ex_en": "manufacture cars",
-      "ex_kr": "자동차를 제조하다",
-      "note": "produce in large amounts"
+      "word": "Facilitate",
+      "meaning": "용이하게 하다",
+      "ex_en": "The new law was designed to facilitate economic growth.",
+      "ex_kr": "새로운 법은 경제 성장을 용이하게 하기 위해 설계되었습니다.",
+      "note": ""
     },
     {
       "id": 4,
-      "word": "aspect",
-      "meaning": "측면",
-      "ex_en": "an important aspect",
-      "ex_kr": "중요한 측면",
-      "note": "a part or feature"
+      "word": "Faction",
+      "meaning": "파벌, 당파",
+      "ex_en": "A small faction within the party disagreed with the leader.",
+      "ex_kr": "정당 내의 작은 파벌이 지도자와 의견을 달리했습니다.",
+      "note": "동의어: ease, promote, assist"
     },
     {
       "id": 5,
-      "word": "dimension",
-      "meaning": "차원",
-      "ex_en": "the dimension of the problem",
-      "ex_kr": "문제의 차원",
-      "note": "a level or extent"
+      "word": "Fade",
+      "meaning": "희미해지다",
+      "ex_en": "The colors of the old painting began to fade over time.",
+      "ex_kr": "오래된 그림의 색깔이 시간이 흐르며 희미해지기 시작했습니다.",
+      "note": ""
     },
     {
       "id": 6,
-      "word": "side",
-      "meaning": "측면",
-      "ex_en": "on the side",
-      "ex_kr": "옆에서",
-      "note": "a position or direction"
+      "word": "Faint",
+      "meaning": "희미한, 어렴풋한",
+      "ex_en": "We could hear the faint sound of thunder in the distance.",
+      "ex_kr": "우리는 멀리서 희미한 천둥소리를 들을 수 있었습니다.",
+      "note": ""
     },
     {
       "id": 7,
-      "word": "ease",
-      "meaning": "완화하다",
-      "ex_en": "ease the pain",
-      "ex_kr": "통증을 완화하다",
-      "note": "reduce discomfort"
+      "word": "Fallacy",
+      "meaning": "오류",
+      "ex_en": "The idea that the sun revolves around the Earth is a famous fallacy.",
+      "ex_kr": "태양이 지구 주위를 돈다는 생각은 유명한 오류입니다.",
+      "note": ""
     },
     {
       "id": 8,
-      "word": "promote",
-      "meaning": "촉진하다",
-      "ex_en": "promote health",
-      "ex_kr": "건강을 증진하다",
-      "note": "encourage"
+      "word": "Famine",
+      "meaning": "기근",
+      "ex_en": "Severe drought can lead to widespread famine.",
+      "ex_kr": "심한 가뭄은 광범위한 기근으로 이어질 수 있습니다.",
+      "note": ""
     },
     {
       "id": 9,
-      "word": "assist",
-      "meaning": "돕다",
-      "ex_en": "assist students",
-      "ex_kr": "학생들을 돕다",
-      "note": "help"
+      "word": "Fascinating",
+      "meaning": "매혹적인",
+      "ex_en": "The history of ancient civilizations is truly fascinating.",
+      "ex_kr": "고대 문명의 역사는 정말 매혹적입니다.",
+      "note": ""
     },
     {
       "id": 10,
-      "word": "list",
-      "meaning": "목록",
-      "ex_en": "make a list",
-      "ex_kr": "목록을 작성하다",
-      "note": "a series"
+      "word": "Fatal",
+      "meaning": "치명적인",
+      "ex_en": "A fatal error in the software caused the entire system to crash.",
+      "ex_kr": "소프트웨어의 치명적인 오류가 시스템 전체를 망가뜨렸습니다.",
+      "note": ""
     },
     {
       "id": 11,
-      "word": "include",
-      "meaning": "포함하다",
-      "ex_en": "include many details",
-      "ex_kr": "많은 세부사항을 포함하다",
-      "note": "contain"
+      "word": "Fatigue",
+      "meaning": "피로",
+      "ex_en": "Muscles can experience fatigue after a long period of exercise.",
+      "ex_kr": "근육은 장시간의 운동 후에 피로를 느낄 수 있습니다.",
+      "note": ""
     },
     {
       "id": 12,
-      "word": "tough",
-      "meaning": "힘든, 거친",
-      "ex_en": "a tough exam",
-      "ex_kr": "힘든 시험",
-      "note": "hard or strong"
+      "word": "Feasible",
+      "meaning": "실행 가능한",
+      "ex_en": "It is not yet feasible to build a permanent base on Mars.",
+      "ex_kr": "화성에 영구적인 기지를 건설하는 것은 아직 실행 가능하지 않습니다.",
+      "note": ""
     },
     {
       "id": 13,
-      "word": "sufficient",
-      "meaning": "충분한",
-      "ex_en": "sufficient evidence",
-      "ex_kr": "충분한 증거",
-      "note": "enough"
+      "word": "Feature",
+      "meaning": "특징, 특징으로 삼다",
+      "ex_en": "The most striking feature of the bird is its colorful feathers.",
+      "ex_kr": "그 새의 가장 두드러진 특징은 화려한 깃털입니다.",
+      "note": "동의어: list, include (~을 포함하다)"
     },
     {
       "id": 14,
-      "word": "ample",
-      "meaning": "충분한",
-      "ex_en": "ample time",
-      "ex_kr": "충분한 시간",
-      "note": "more than enough"
+      "word": "Feeble",
+      "meaning": "연약한, 힘없는",
+      "ex_en": "The patient made a feeble attempt to stand up.",
+      "ex_kr": "환자는 힘없이 일어서려고 했습니다.",
+      "note": ""
     },
     {
       "id": 15,
-      "word": "enough",
-      "meaning": "충분한",
-      "ex_en": "enough money",
-      "ex_kr": "충분한 돈",
-      "note": "adequate"
+      "word": "Ferocious",
+      "meaning": "사나운, 격렬한",
+      "ex_en": "The lion is known as a ferocious predator.",
+      "ex_kr": "사자는 사나운 포식자로 알려져 있습니다.",
+      "note": "동의어: tough"
     },
     {
       "id": 16,
-      "word": "severe",
-      "meaning": "심각한",
-      "ex_en": "severe weather",
-      "ex_kr": "심각한 날씨",
-      "note": "harsh"
+      "word": "Fertile",
+      "meaning": "비옥한",
+      "ex_en": "The Nile Delta provides fertile soil for farming.",
+      "ex_kr": "나일강 삼각주는 농사를 위한 비옥한 토양을 제공합니다.",
+      "note": "동의어: sufficient, ample, enough"
     },
     {
       "id": 17,
-      "word": "weak point",
-      "meaning": "약점",
-      "ex_en": "a weak point",
-      "ex_kr": "약점",
-      "note": "a disadvantage"
+      "word": "Fictitious",
+      "meaning": "허구의",
+      "ex_en": "The author used a fictitious name to remain anonymous.",
+      "ex_kr": "작가는 익명을 유지하기 위해 허구의 이름을 사용했습니다.",
+      "note": ""
     },
     {
       "id": 18,
-      "word": "change",
-      "meaning": "변화",
-      "ex_en": "change jobs",
-      "ex_kr": "직업을 바꾸다",
-      "note": "alter"
+      "word": "Fierce",
+      "meaning": "격렬한, 사나운",
+      "ex_en": "There is fierce competition among the students for the prize.",
+      "ex_kr": "상을 타기 위한 학생들 사이의 격렬한 경쟁이 있습니다.",
+      "note": "동의어: severe, tough"
     },
     {
       "id": 19,
-      "word": "concentrate on",
-      "meaning": "~에 집중하다",
-      "ex_en": "concentrate on study",
-      "ex_kr": "공부에 집중하다",
-      "note": "focus on"
+      "word": "Filament",
+      "meaning": "가는 실, 필라멘트",
+      "ex_en": "The light bulb glows when electricity passes through the filament.",
+      "ex_kr": "전기가 필라멘트를 통과할 때 전구가 빛납니다.",
+      "note": ""
     },
     {
       "id": 20,
-      "word": "weigh",
-      "meaning": "무게를 재다, 고려하다",
-      "ex_en": "weigh the options",
-      "ex_kr": "선택지를 고려하다",
-      "note": "consider"
+      "word": "Filter",
+      "meaning": "여과하다, 필터",
+      "ex_en": "Trees act as natural filters that clean the air.",
+      "ex_kr": "나무는 공기를 정화하는 천연 필터 역할을 합니다.",
+      "note": ""
     },
     {
       "id": 21,
-      "word": "stress",
-      "meaning": "강조하다",
-      "ex_en": "stress the importance",
-      "ex_kr": "중요성을 강조하다",
-      "note": "emphasize"
+      "word": "Finite",
+      "meaning": "한정된",
+      "ex_en": "Fossil fuels are a finite resource that will eventually run out.",
+      "ex_kr": "화석 연료는 결국 고갈될 한정된 자원입니다.",
+      "note": ""
     },
     {
       "id": 22,
-      "word": "highlight",
-      "meaning": "강조하다",
-      "ex_en": "highlight the key point",
-      "ex_kr": "핵심 포인트를 강조하다",
-      "note": "emphasize"
+      "word": "Flaw",
+      "meaning": "결함",
+      "ex_en": "A tiny flaw in the diamond significantly reduced its value.",
+      "ex_kr": "다이아몬드의 아주 작은 결함이 그 가치를 크게 떨어뜨렸습니다.",
+      "note": "동의어: weak point"
     },
     {
       "id": 23,
-      "word": "mark",
-      "meaning": "표시하다",
-      "ex_en": "mark the answer",
-      "ex_kr": "정답을 표시하다",
-      "note": "indicate"
+      "word": "Flee",
+      "meaning": "달아나다",
+      "ex_en": "Many animals flee when they detect a forest fire.",
+      "ex_kr": "많은 동물들이 산불을 감지하면 달아납니다.",
+      "note": ""
     },
     {
       "id": 24,
-      "word": "sign",
-      "meaning": "표시하다",
-      "ex_en": "sign the document",
-      "ex_kr": "문서에 서명하다",
-      "note": "signal"
+      "word": "Flexible",
+      "meaning": "유연한",
+      "ex_en": "Modern robots are becoming more flexible and precise.",
+      "ex_kr": "현대의 로봇들은 더 유연하고 정밀해지고 있습니다.",
+      "note": ""
     },
     {
       "id": 25,
-      "word": "remarkable",
-      "meaning": "놀라운",
-      "ex_en": "a remarkable story",
-      "ex_kr": "놀라운 이야기",
-      "note": "unusual"
+      "word": "Flourish",
+      "meaning": "번창하다",
+      "ex_en": "Art and literature began to flourish during the Renaissance.",
+      "ex_kr": "르네상스 시대에 예술과 문학이 번창하기 시작했습니다.",
+      "note": ""
     },
     {
       "id": 26,
-      "word": "outstanding",
-      "meaning": "뛰어난",
-      "ex_en": "an outstanding student",
-      "ex_kr": "뛰어난 학생",
-      "note": "excellent"
+      "word": "Fluctuate",
+      "meaning": "변동하다",
+      "ex_en": "The price of gold tends to fluctuate daily.",
+      "ex_kr": "금값은 매일 변동하는 경향이 있습니다.",
+      "note": "동의어: change"
     },
     {
       "id": 27,
-      "word": "exceptional",
-      "meaning": "특별한",
-      "ex_en": "exceptional talent",
-      "ex_kr": "특별한 재능",
-      "note": "extraordinary"
+      "word": "Fluent",
+      "meaning": "유창한",
+      "ex_en": "He is fluent in three different languages.",
+      "ex_kr": "그는 3개 국어에 유창합니다.",
+      "note": ""
     },
     {
       "id": 28,
-      "word": "excellent",
-      "meaning": "우수한",
-      "ex_en": "excellent work",
-      "ex_kr": "우수한 작업",
-      "note": "very good"
+      "word": "Fluid",
+      "meaning": "액체, 유동적인",
+      "ex_en": "The situation is still fluid and could change at any moment.",
+      "ex_kr": "상황은 여전히 유동적이며 언제든 변할 수 있습니다.",
+      "note": ""
     },
     {
       "id": 29,
-      "word": "stunning",
-      "meaning": "멋진",
-      "ex_en": "a stunning view",
-      "ex_kr": "멋진 풍경",
-      "note": "beautiful"
+      "word": "Focus",
+      "meaning": "집중하다, 초점",
+      "ex_en": "The focus of the study is on renewable energy.",
+      "ex_kr": "그 연구의 초점은 재생 가능 에너지에 맞춰져 있습니다.",
+      "note": "동의어: concentrate on, weigh, stress, highlight, mark, sign"
     },
     {
       "id": 30,
-      "word": "stellar",
-      "meaning": "눈부신",
-      "ex_en": "a stellar performance",
-      "ex_kr": "눈부신 공연",
-      "note": "excellent"
+      "word": "Forage",
+      "meaning": "먹이를 찾다",
+      "ex_en": "Bears spend most of their time forageing for berries and fish.",
+      "ex_kr": "곰은 대부분의 시간을 베리와 물고기를 찾아다니는 데 보냅니다.",
+      "note": ""
     },
     {
       "id": 31,
-      "word": "strengthen",
-      "meaning": "강화하다",
-      "ex_en": "strengthen a team",
-      "ex_kr": "팀을 강화하다",
-      "note": "make stronger"
+      "word": "Foremost",
+      "meaning": "으뜸가는, 중요한",
+      "ex_en": "He is the foremost expert in the field of genetics.",
+      "ex_kr": "그는 유전학 분야에서 으뜸가는 전문가입니다.",
+      "note": ""
     },
     {
       "id": 32,
-      "word": "supply",
-      "meaning": "공급하다",
-      "ex_en": "supply food",
-      "ex_kr": "식량을 공급하다",
-      "note": "provide"
+      "word": "Formidable",
+      "meaning": "경외감을 갖게 하는, 만만치 않은",
+      "ex_en": "The mountains presented a formidable challenge to the climbers.",
+      "ex_kr": "그 산들은 등반가들에게 만만치 않은 도전을 제시했습니다.",
+      "note": "동의어: remarkable, outstanding, exceptional, excellent, stunning, stellar"
     },
     {
       "id": 33,
-      "word": "melt",
-      "meaning": "녹다",
-      "ex_en": "melt ice",
-      "ex_kr": "얼음을 녹이다",
-      "note": "become liquid"
+      "word": "Fortify",
+      "meaning": "강화하다",
+      "ex_en": "The city walls were built to fortify the town against attacks.",
+      "ex_kr": "도시 성벽은 공격에 대비해 마을을 강화하기 위해 세워졌습니다.",
+      "note": "동의어: strengthen"
     },
     {
       "id": 34,
-      "word": "improve",
-      "meaning": "향상시키다",
-      "ex_en": "improve your skills",
-      "ex_kr": "기술을 향상시키다",
-      "note": "make better"
+      "word": "Foster",
+      "meaning": "육성하다, 촉진하다",
+      "ex_en": "The teacher tried to foster a sense of community in the class.",
+      "ex_kr": "선생님은 반에서 공동체 의식을 육성하려 노력했습니다.",
+      "note": ""
     },
     {
       "id": 35,
-      "word": "benefit",
-      "meaning": "이익, 혜택",
-      "ex_en": "benefit from education",
-      "ex_kr": "교육의 혜택을 받다",
-      "note": "advantage"
+      "word": "Fragile",
+      "meaning": "깨지기 쉬운, 취약한",
+      "ex_en": "Be careful when moving the fragile glass vases.",
+      "ex_kr": "깨지기 쉬운 유리 꽃병을 옮길 때 주의하세요.",
+      "note": ""
     },
     {
       "id": 36,
-      "word": "support",
-      "meaning": "지원하다",
-      "ex_en": "support a family",
-      "ex_kr": "가정을 지원하다",
-      "note": "help or encourage"
+      "word": "Fragment",
+      "meaning": "파편, 조각",
+      "ex_en": "Archaeologists found a fragment of ancient pottery.",
+      "ex_kr": "고고학자들은 고대 도자기 조각을 발견했습니다.",
+      "note": ""
     },
     {
       "id": 37,
-      "word": "develop",
-      "meaning": "개발하다",
-      "ex_en": "develop a plan",
-      "ex_kr": "계획을 개발하다",
-      "note": "grow or create"
+      "word": "Fragrance",
+      "meaning": "향기",
+      "ex_en": "The fragrance of the flowers filled the entire room.",
+      "ex_kr": "꽃향기가 방 전체를 가득 채웠습니다.",
+      "note": ""
     },
     {
       "id": 38,
-      "word": "value",
-      "meaning": "가치",
-      "ex_en": "value education",
-      "ex_kr": "교육의 가치를 높이다",
-      "note": "importance"
+      "word": "Fraud",
+      "meaning": "사기",
+      "ex_en": "The investor was arrested for committing financial fraud.",
+      "ex_kr": "그 투자자는 금융 사기를 저지른 혐의로 체포되었습니다.",
+      "note": ""
+    },
+    {
+      "id": 39,
+      "word": "Freight",
+      "meaning": "화물",
+      "ex_en": "The ship carries freight across the Atlantic Ocean.",
+      "ex_kr": "그 배는 대서양을 가로질러 화물을 운송합니다.",
+      "note": ""
+    },
+    {
+      "id": 40,
+      "word": "Friction",
+      "meaning": "마찰",
+      "ex_en": "The tires provide friction to help the car stop.",
+      "ex_kr": "타이어는 차가 멈추는 것을 돕는 마찰을 제공합니다.",
+      "note": ""
+    },
+    {
+      "id": 41,
+      "word": "Frontier",
+      "meaning": "국경, 미개척 영역",
+      "ex_en": "Space is often called the final frontier.",
+      "ex_kr": "우주는 종종 마지막 미개척 영역이라 불립니다.",
+      "note": ""
+    },
+    {
+      "id": 42,
+      "word": "Frugal",
+      "meaning": "검소한",
+      "ex_en": "Her frugal lifestyle allowed her to save a lot of money.",
+      "ex_kr": "그녀의 검소한 생활 방식은 그녀가 많은 돈을 저축하게 해주었습니다.",
+      "note": ""
+    },
+    {
+      "id": 43,
+      "word": "Frustrate",
+      "meaning": "좌절시키다",
+      "ex_en": "The lack of progress began to frustrate the researchers.",
+      "ex_kr": "진척이 없는 것이 연구원들을 좌절시키기 시작했습니다.",
+      "note": ""
+    },
+    {
+      "id": 44,
+      "word": "Fuel",
+      "meaning": "연료, 부채질하다",
+      "ex_en": "The controversy helped fuel public interest in the issue.",
+      "ex_kr": "그 논란은 그 문제에 대한 대중의 관심을 부채질하는 데 도움을 주었습니다.",
+      "note": ""
+    },
+    {
+      "id": 45,
+      "word": "Fulfill",
+      "meaning": "실현하다, 이행하다",
+      "ex_en": "He was finally able to fulfill his dream of becoming a doctor.",
+      "ex_kr": "그는 마침내 의사가 되겠다는 꿈을 실현할 수 있었습니다.",
+      "note": ""
+    },
+    {
+      "id": 46,
+      "word": "Function",
+      "meaning": "기능, 작동하다",
+      "ex_en": "The main function of the heart is to pump blood.",
+      "ex_kr": "심장의 주요 기능은 혈액을 펌프질하는 것입니다.",
+      "note": ""
+    },
+    {
+      "id": 47,
+      "word": "Fundamental",
+      "meaning": "근본적인",
+      "ex_en": "Freedom of speech is a fundamental human right.",
+      "ex_kr": "표현의 자유는 근본적인 인권입니다.",
+      "note": ""
+    },
+    {
+      "id": 48,
+      "word": "Furious",
+      "meaning": "몹시 화난, 격렬한",
+      "ex_en": "The storm was furious, destroying several small boats.",
+      "ex_kr": "폭풍이 격렬하여 작은 배 여러 척을 파괴했습니다.",
+      "note": ""
+    },
+    {
+      "id": 49,
+      "word": "Furnish",
+      "meaning": "공급하다, 가구를 비치하다",
+      "ex_en": "The company will furnish all the necessary equipment.",
+      "ex_kr": "회사는 필요한 모든 장비를 공급할 것입니다.",
+      "note": "동의어: supply"
+    },
+    {
+      "id": 50,
+      "word": "Fuse",
+      "meaning": "융합하다, 녹이다",
+      "ex_en": "Extreme heat can cause the metal parts to fuse together.",
+      "ex_kr": "극심한 열은 금속 부품들이 서로 융합되게 할 수 있습니다.",
+      "note": "동의어: melt"
     }
   ]
 };
 const WRITING_DATA = {
+  "보행자안전건의편지": [
+    {
+      "id": 1,
+      "en": "School administration office",
+      "kr": "학교 행정실",
+      "point": "이메일 상단 수신인 표기"
+    },
+    {
+      "id": 2,
+      "en": "Subject: Urgent concern regarding pedestrian safety near the school",
+      "kr": "제목: 학교 근처 보행자 안전에 관한 긴급한 우려",
+      "point": "이메일 제목 작성 패턴"
+    },
+    {
+      "id": 3,
+      "en": "To whom it may concern,",
+      "kr": "관계자분께,",
+      "point": "격식 있는 이메일의 시작 표현"
+    },
+    {
+      "id": 4,
+      "en": "My name is {name}, and I am a parent of a student in the fourth grade.",
+      "kr": "제 이름은 {name}이며, 4학년 학생의 학부모입니다.",
+      "point": "자기소개로 이메일 본론을 시작하는 패턴"
+    },
+    {
+      "id": 5,
+      "en": "I am writing to express my appreciation for the school's convenient location near our residential area, which makes it easy for many students to commute.",
+      "kr": "우리 주거 지역과 가까운 학교의 편리한 위치 덕분에 많은 학생들이 통학하기 쉽다는 점에 대해 감사를 표하고자 이 글을 씁니다.",
+      "point": "의견을 전하는 표현(대체 가능): Convey my perspective on ~ / offer my insights regarding ~ / articulate my views on ~"
+    },
+    {
+      "id": 6,
+      "en": "However, I have noticed some safety issues on the sidewalk along the main entrance that require immediate attention.",
+      "kr": "하지만 정문을 따라 있는 보도에서 즉각적인 조치가 필요한 몇 가지 안전 문제를 발견했습니다.",
+      "point": "문제 제기로 전환하는 표현: However, I have noticed ~"
+    },
+    {
+      "id": 7,
+      "en": "Currently, several sections of the sidewalk are uneven and cracked, creating a tripping hazard for students.",
+      "kr": "현재 보도의 여러 구간이 고르지 않고 갈라져 있어 학생들이 걸려 넘어질 위험을 만들고 있습니다.",
+      "point": "uneven and cracked(고르지 않고 갈라진)"
+    },
+    {
+      "id": 8,
+      "en": "In addition, several streetlights in that area are not functioning properly, making it quite dark and unsafe during early morning or late afternoon hours.",
+      "kr": "또한, 그 지역의 몇몇 가로등이 제대로 작동하지 않아 이른 아침이나 늦은 오후 시간대에 꽤 어둡고 위험합니다.",
+      "point": "근처(near의 동의어): adjacent to, right across"
+    },
+    {
+      "id": 9,
+      "en": "I would like to suggest that the school coordinate with the local city council to have the damaged pavement repaired as soon as possible.",
+      "kr": "학교가 지역 시의회와 협력하여 손상된 포장도로를 가능한 한 빨리 수리해 줄 것을 제안하고 싶습니다.",
+      "point": "제안하는 표현(대체 가능): I would like to suggest ~ / I would like to propose that ~ / I would like to put forward a suggestion that ~ / please allow me to offer a recommendation that ~"
+    },
+    {
+      "id": 10,
+      "en": "Additionally, please consider installing brighter streetlights to ensure better visibility for students.",
+      "kr": "추가로, 학생들의 시야 확보를 위해 더 밝은 가로등 설치를 고려해 주시기 바랍니다.",
+      "point": "~라면 좋겠다는 정중한 제안: It would be great if you could ~ / ~라는 조건하에: provided that, providing that, assuming that, as long as"
+    },
+    {
+      "id": 11,
+      "en": "Thank you for your attention to this safety matter.",
+      "kr": "이 안전 문제에 대한 관심에 감사드립니다.",
+      "point": "~에 대한 관심에 감사하며 마무리하는 표현: Thank you for your attention to ~"
+    },
+    {
+      "id": 12,
+      "en": "I look forward to your positive response.",
+      "kr": "긍정적인 답변을 기다리겠습니다.",
+      "point": "이메일을 마무리하는 관용구"
+    },
+    {
+      "id": 13,
+      "en": "Best regards, {name}",
+      "kr": "감사합니다, {name}",
+      "point": "이메일 끝맺음 인사"
+    }
+  ],
   "시설개선건의편지": [
     {
       "id": 1,
@@ -2014,68 +2190,6 @@ const WRITING_DATA = {
       "kr": "감사합니다,",
       "point": "이메일 끝맺음 인사"
     }
-  ],
-  "학교카페테리아건의편지": [
-    {
-      "id": 1,
-      "en": "To whom it may concern,",
-      "kr": "관계자분께,",
-      "point": "격식 있는 이메일의 시작 표현"
-    },
-    {
-      "id": 2,
-      "en": "My name is {name}, and I recently visited the school cafeteria with my daughter.",
-      "kr": "제 이름은 {name}이며, 최근에 딸과 함께 학교 카페테리아를 방문했습니다.",
-      "point": "자기소개로 이메일 본론을 시작하는 패턴"
-    },
-    {
-      "id": 3,
-      "en": "I am writing to share my thoughts on the facility and suggest some necessary improvements.",
-      "kr": "시설에 대한 제 생각을 공유하고 몇 가지 필요한 개선 사항을 제안하고자 이 글을 씁니다.",
-      "point": "I am writing to ~ : 용건을 밝히는 편지 시작 패턴"
-    },
-    {
-      "id": 4,
-      "en": "First of all, I was impressed by the wide variety of healthy food options available for the students.",
-      "kr": "우선, 학생들이 이용할 수 있는 건강한 음식 선택권이 매우 다양해서 깊은 인상을 받았습니다.",
-      "point": "다양한(동의어): a wide range of, wide, comprehensive, extensive, broad, a diverse array of, a variety of, an assortment of"
-    },
-    {
-      "id": 5,
-      "en": "However, I noticed a few issues that need attention.",
-      "kr": "하지만 주의가 필요한 몇 가지 문제도 발견했습니다.",
-      "point": "문제 제기로 전환하는 표현: However, I noticed ~"
-    },
-    {
-      "id": 6,
-      "en": "Several of the wooden dining tables have rough edges and splinters, which could accidentally hurt the students.",
-      "kr": "몇몇 나무 식탁의 모서리가 거칠고 가시가 돋아 있어서, 학생들이 다칠 수도 있습니다.",
-      "point": "rough edges(거친 모서리), splinters(가시)"
-    },
-    {
-      "id": 7,
-      "en": "In addition, the water fountain near the entrance is leaking, making the floor quite slippery and dangerous.",
-      "kr": "또한, 입구 근처의 식수대에서 물이 새서 바닥이 꽤 미끄럽고 위험합니다.",
-      "point": "leaking(새는), slippery(미끄러운) / 인접한(near의 동의어): adjacent to / 바로 맞은편: right across"
-    },
-    {
-      "id": 8,
-      "en": "I would like to suggest that the maintenance team sand down the table surfaces to make them smooth.",
-      "kr": "관리팀이 식탁 표면을 매끄럽게 사포질해 줄 것을 제안하고 싶습니다.",
-      "point": "sand down: 사포 등으로 갈아서 매끄럽게 하다"
-    },
-    {
-      "id": 9,
-      "en": "Also, it would be great if you could fix the leaking fountain as soon as possible to prevent any slipping accidents.",
-      "kr": "또한, 미끄럼 사고를 방지하기 위해 가능한 한 빨리 새는 식수대를 수리해 주신다면 정말 좋을 것 같습니다.",
-      "point": "~라면 좋겠다는 정중한 제안: It would be great if you could ~ / ~라는 조건하에: provided that, providing that, assuming that, as long as"
-    },
-    {
-      "id": 10,
-      "en": "Thank you for your dedication to providing a safe environment for our children.",
-      "kr": "우리 아이들에게 안전한 환경을 제공하기 위해 헌신해 주셔서 감사합니다.",
-      "point": "~에 대한 헌신에 감사하며 마무리하는 표현: Thank you for your dedication to ~"
-    }
   ]
 };
 const SPEAKING_DATA = {
@@ -2086,7 +2200,14 @@ const SPEAKING_DATA = {
       "q_kr": "보통 어디에서 집중력을 유지하기 위해 공부하나요?",
       "a_en": "I usually study at a quiet library. I find it easier to concentrate when I am surrounded by other people who are also working hard.",
       "a_kr": "저는 보통 조용한 도서관에서 공부합니다. 저와 마찬가지로 열심히 일하는 다른 사람들에게 둘러싸여 있을 때 집중하기가 더 쉽다고 생각합니다.",
-      "point": "surrounded by, surrounded at: ~에 둘러싸여 / motivate someone to: ~에게 동기부여를 하다 / keep my eye on the ball, focused on my tasks: 집중력을 유지하도록 해주다"
+      "point": "surrounded by, surrounded at: ~에 둘러싸여 / motivate someone to: ~에게 동기부여를 하다 / keep my eye on the ball, focused on my tasks: 집중력을 유지하도록 해주다",
+      "answers": [
+        {
+          "a_en": "I usually study at a quiet library. I find it easier to concentrate when I am surrounded by other people who are also working hard.",
+          "a_kr": "저는 보통 조용한 도서관에서 공부합니다. 저와 마찬가지로 열심히 일하는 다른 사람들에게 둘러싸여 있을 때 집중하기가 더 쉽다고 생각합니다.",
+          "point": "surrounded by, surrounded at: ~에 둘러싸여 / motivate someone to: ~에게 동기부여를 하다 / keep my eye on the ball, focused on my tasks: 집중력을 유지하도록 해주다"
+        }
+      ]
     },
     {
       "id": 2,
@@ -2094,7 +2215,14 @@ const SPEAKING_DATA = {
       "q_kr": "혼자 공부하는 것과 친구와 함께 공부하는 것 중 어느 것을 선호하나요?",
       "a_en": "I prefer studying alone. When I am with friends, I tend to get distracted by conversations. Studying by myself allows me to manage my time more efficiently and focus deeply.",
       "a_kr": "저는 혼자 공부하는 것을 선호합니다. 친구들과 함께 있을 때는 대화 때문에 산만해지는 경향이 있습니다. 혼자 공부하는 것은 제가 시간을 더 효율적으로 관리하고 깊이 집중할 수 있게 해줍니다.",
-      "point": "tend to ~하는 경향이 있다 / get distracted by ~에 정신이 팔리다 / to streamline my workflow: 업무 절차를 간소화하다"
+      "point": "tend to ~하는 경향이 있다 / get distracted by ~에 정신이 팔리다 / to streamline my workflow: 업무 절차를 간소화하다",
+      "answers": [
+        {
+          "a_en": "I prefer studying alone. When I am with friends, I tend to get distracted by conversations. Studying by myself allows me to manage my time more efficiently and focus deeply.",
+          "a_kr": "저는 혼자 공부하는 것을 선호합니다. 친구들과 함께 있을 때는 대화 때문에 산만해지는 경향이 있습니다. 혼자 공부하는 것은 제가 시간을 더 효율적으로 관리하고 깊이 집중할 수 있게 해줍니다.",
+          "point": "tend to ~하는 경향이 있다 / get distracted by ~에 정신이 팔리다 / to streamline my workflow: 업무 절차를 간소화하다"
+        }
+      ]
     },
     {
       "id": 3,
@@ -2102,7 +2230,14 @@ const SPEAKING_DATA = {
       "q_kr": "공부하면서 필기하는 것이 학습 효율성을 향상시킬 수 있다는 생각에 동의하나요?",
       "a_en": "I strongly agree. Writing things down helps me organize my thoughts and remember information longer. It transforms passive reading into active learning.",
       "a_kr": "저는 적극 동의합니다. 무언가를 적는 것은 제 생각을 정리하고 정보를 더 오래 기억하도록 도와줍니다. 그것은 수동적인 독서를 능동적인 학습으로 바뀌줍니다.",
-      "point": ""
+      "point": "",
+      "answers": [
+        {
+          "a_en": "I strongly agree. Writing things down helps me organize my thoughts and remember information longer. It transforms passive reading into active learning.",
+          "a_kr": "저는 적극 동의합니다. 무언가를 적는 것은 제 생각을 정리하고 정보를 더 오래 기억하도록 도와줍니다. 그것은 수동적인 독서를 능동적인 학습으로 바뀌줍니다.",
+          "point": ""
+        }
+      ]
     },
     {
       "id": 4,
@@ -2110,7 +2245,14 @@ const SPEAKING_DATA = {
       "q_kr": "온라인 학습 플랫폼의 유행이 학생들의 전반적인 학습 경험에 유익하다고 생각하나요?",
       "a_en": "Yes, it is beneficial because it provides flexibility. Students can access high-quality lectures from anywhere at any time, which levels the playing field for those in remote areas.",
       "a_kr": "네, 유연성을 제공하기 때문에 유익합니다. 학생들은 언제 어디서나 고품질의 강의를 이용할 수 있으며, 이는 소외 지역 학생들에게 평등한 기회의 장을 제공합니다.",
-      "point": "to have seamless access to premium content at any time: 언제든 프리미엄 콘텐츠에 매끄럽게 접근하다 / to enjoy content at any time"
+      "point": "to have seamless access to premium content at any time: 언제든 프리미엄 콘텐츠에 매끄럽게 접근하다 / to enjoy content at any time",
+      "answers": [
+        {
+          "a_en": "Yes, it is beneficial because it provides flexibility. Students can access high-quality lectures from anywhere at any time, which levels the playing field for those in remote areas.",
+          "a_kr": "네, 유연성을 제공하기 때문에 유익합니다. 학생들은 언제 어디서나 고품질의 강의를 이용할 수 있으며, 이는 소외 지역 학생들에게 평등한 기회의 장을 제공합니다.",
+          "point": "to have seamless access to premium content at any time: 언제든 프리미엄 콘텐츠에 매끄럽게 접근하다 / to enjoy content at any time"
+        }
+      ]
     },
     {
       "id": 5,
@@ -2118,7 +2260,14 @@ const SPEAKING_DATA = {
       "q_kr": "대학생들이 인턴십이나 아르바이트를 하지 않고 학업에만 집중해야 한다고 생각하나요?",
       "a_en": "I disagree. Practical experience through internships is just as important as academic knowledge. It helps students develop real-world skills that are essential for their future careers.",
       "a_kr": "동의하지 않습니다. 인턴십을 통한 실무 경험은 학문적 지식만큼 중요합니다. 그것은 학생들이 미래 직업에 필수적인 실무적인 지식을 기르는 데 도움을 줍니다.",
-      "point": "essential(에센셜) 필수적인 / academic(아카데믹) 학문적인 / internship(인턴쉽) / careers(커리얼쓰) 직업, 경력 / it equips students with practical(프렉티컬), industry-ready expertise(엑스퍼타이즈): 실무적이고 산업 현장에 바로 투입 가능한 전문성을 갖추게 해준다 / it empowers(임파월쓰) students to bridge(브뤼지) the gap between theory(씨어뤼) and practice: 이론과 실무 사이의 간극을 메울 수 있게 해준다"
+      "point": "essential(에센셜) 필수적인 / academic(아카데믹) 학문적인 / internship(인턴쉽) / careers(커리얼쓰) 직업, 경력 / it equips students with practical(프렉티컬), industry-ready expertise(엑스퍼타이즈): 실무적이고 산업 현장에 바로 투입 가능한 전문성을 갖추게 해준다 / it empowers(임파월쓰) students to bridge(브뤼지) the gap between theory(씨어뤼) and practice: 이론과 실무 사이의 간극을 메울 수 있게 해준다",
+      "answers": [
+        {
+          "a_en": "I disagree. Practical experience through internships is just as important as academic knowledge. It helps students develop real-world skills that are essential for their future careers.",
+          "a_kr": "동의하지 않습니다. 인턴십을 통한 실무 경험은 학문적 지식만큼 중요합니다. 그것은 학생들이 미래 직업에 필수적인 실무적인 지식을 기르는 데 도움을 줍니다.",
+          "point": "essential(에센셜) 필수적인 / academic(아카데믹) 학문적인 / internship(인턴쉽) / careers(커리얼쓰) 직업, 경력 / it equips students with practical(프렉티컬), industry-ready expertise(엑스퍼타이즈): 실무적이고 산업 현장에 바로 투입 가능한 전문성을 갖추게 해준다 / it empowers(임파월쓰) students to bridge(브뤼지) the gap between theory(씨어뤼) and practice: 이론과 실무 사이의 간극을 메울 수 있게 해준다"
+        }
+      ]
     }
   ],
   "Part2_직업과근무환경": [
@@ -2128,7 +2277,14 @@ const SPEAKING_DATA = {
       "q_kr": "원격으로 근무하는 것과 사무실에서 근무하는 것 중 어느 것을 선호하나요?",
       "a_en": "I prefer working remotely. It saves a lot of time and energy that would otherwise be spent on commuting. This allows for a better work-life balance.",
       "a_kr": "저는 원격으로 근무하는 것을 선호합니다. 통근에 소비될 많은 시간과 에너지를 절약해 줍니다. 이는 더 나은 일과 삶의 균형을 가능하게 합니다.",
-      "point": "be tied up(타이드 업) in daily transit(트뤤짓): 매일 통근에 시간을 보내다 / be consumed by the daily grind of travel: 매일 반복되는 이동으로 시간을 다 써버리다"
+      "point": "be tied up(타이드 업) in daily transit(트뤤짓): 매일 통근에 시간을 보내다 / be consumed by the daily grind of travel: 매일 반복되는 이동으로 시간을 다 써버리다",
+      "answers": [
+        {
+          "a_en": "I prefer working remotely. It saves a lot of time and energy that would otherwise be spent on commuting. This allows for a better work-life balance.",
+          "a_kr": "저는 원격으로 근무하는 것을 선호합니다. 통근에 소비될 많은 시간과 에너지를 절약해 줍니다. 이는 더 나은 일과 삶의 균형을 가능하게 합니다.",
+          "point": "be tied up(타이드 업) in daily transit(트뤤짓): 매일 통근에 시간을 보내다 / be consumed by the daily grind of travel: 매일 반복되는 이동으로 시간을 다 써버리다"
+        }
+      ]
     },
     {
       "id": 2,
@@ -2136,7 +2292,14 @@ const SPEAKING_DATA = {
       "q_kr": "원격으로 근무할 때 의사소통의 기회가 적기 때문에 팀워크가 원활하지 않다는 것에 동의하나요?",
       "a_en": "I somewhat agree. While digital tools help, face-to-face interaction is often necessary to build trust and resolve complex issues quickly.",
       "a_kr": "저는 어느 정도 동의합니다. 디지털 도구가 도움이 되지만, 신뢰를 쌓고 복잡한 문제를 신속히 해결하기 위해서는 대면 상호작용이 종종 필요합니다.",
-      "point": "foster(뭐스터) rapport(뤄폴트): 유대감을 형성하다 / streamline(스트뤼임라인) the resolution(뤠솔루션) to: ~을 신속하게 해결하다 / intricate(인트뤼케이트) challenges(첼뤼지쓰): 복잡한 문제"
+      "point": "foster(뭐스터) rapport(뤄폴트): 유대감을 형성하다 / streamline(스트뤼임라인) the resolution(뤠솔루션) to: ~을 신속하게 해결하다 / intricate(인트뤼케이트) challenges(첼뤼지쓰): 복잡한 문제",
+      "answers": [
+        {
+          "a_en": "I somewhat agree. While digital tools help, face-to-face interaction is often necessary to build trust and resolve complex issues quickly.",
+          "a_kr": "저는 어느 정도 동의합니다. 디지털 도구가 도움이 되지만, 신뢰를 쌓고 복잡한 문제를 신속히 해결하기 위해서는 대면 상호작용이 종종 필요합니다.",
+          "point": "foster(뭐스터) rapport(뤄폴트): 유대감을 형성하다 / streamline(스트뤼임라인) the resolution(뤠솔루션) to: ~을 신속하게 해결하다 / intricate(인트뤼케이트) challenges(첼뤼지쓰): 복잡한 문제"
+        }
+      ]
     }
   ],
   "Part3_AI와스마트기기": [
@@ -2146,7 +2309,14 @@ const SPEAKING_DATA = {
       "q_kr": "일하거나 공부할 때 AI 도구의 도움을 받는 것을 선호하나요, 아니면 혼자서 하는 것을 선호하나요?",
       "a_en": "I prefer using AI tools as assistants. They can handle repetitive tasks or analyze data quickly, which allows me to focus on more creative and critical thinking aspects.",
       "a_kr": "저는 AI 도구를 보조자로 사용하는 것을 선호합니다. AI는 반복적인 일을 처리하거나 데이터를 빠르게 분석할 수 있어, 제가 더 창의적이고 비판적인 사고가 필요한 부분에 집중할 수 있게 해줍니다.",
-      "point": "automate(오토메이트) mundane chores and accelerate data-driven insights: 반복적인 잡무를 자동화하고 데이터 기반 통찰을 가속화하다 / optimize(옵티마이즈) routine workflows and perform rapid(뤠핏) large-scale data(데라) synthesis(씬쎄시쓰): 일상적인 업무 흐름을 최적화하고 대규모 데이터를 신속하게 종합 분석하다"
+      "point": "automate(오토메이트) mundane chores and accelerate data-driven insights: 반복적인 잡무를 자동화하고 데이터 기반 통찰을 가속화하다 / optimize(옵티마이즈) routine workflows and perform rapid(뤠핏) large-scale data(데라) synthesis(씬쎄시쓰): 일상적인 업무 흐름을 최적화하고 대규모 데이터를 신속하게 종합 분석하다",
+      "answers": [
+        {
+          "a_en": "I prefer using AI tools as assistants. They can handle repetitive tasks or analyze data quickly, which allows me to focus on more creative and critical thinking aspects.",
+          "a_kr": "저는 AI 도구를 보조자로 사용하는 것을 선호합니다. AI는 반복적인 일을 처리하거나 데이터를 빠르게 분석할 수 있어, 제가 더 창의적이고 비판적인 사고가 필요한 부분에 집중할 수 있게 해줍니다.",
+          "point": "automate(오토메이트) mundane chores and accelerate data-driven insights: 반복적인 잡무를 자동화하고 데이터 기반 통찰을 가속화하다 / optimize(옵티마이즈) routine workflows and perform rapid(뤠핏) large-scale data(데라) synthesis(씬쎄시쓰): 일상적인 업무 흐름을 최적화하고 대규모 데이터를 신속하게 종합 분석하다"
+        }
+      ]
     },
     {
       "id": 2,
@@ -2154,7 +2324,14 @@ const SPEAKING_DATA = {
       "q_kr": "정신 건강을 위해 주기적으로 스마트 기기를 멀리하는 것이 좋다는 의견에 동의하나요?",
       "a_en": "I absolutely agree. A 'digital detox' reduces stress and prevents burnout. It helps people reconnect with the real world and improves their sleep quality.",
       "a_kr": "저는 전적으로 동의합니다. '디지털 단식'은 스트레스를 줄이고 번아웃을 방지합니다. 사람들이 현실 세계와 다시 연결되도록 도와주고 수면의 질을 향상시켜 줍니다.",
-      "point": "encourages people to engage more mindfully with their physical surroundings: 사람들이 주변 물리적 환경에 더 신경 써서 참여하도록 장려하다"
+      "point": "encourages people to engage more mindfully with their physical surroundings: 사람들이 주변 물리적 환경에 더 신경 써서 참여하도록 장려하다",
+      "answers": [
+        {
+          "a_en": "I absolutely agree. A 'digital detox' reduces stress and prevents burnout. It helps people reconnect with the real world and improves their sleep quality.",
+          "a_kr": "저는 전적으로 동의합니다. '디지털 단식'은 스트레스를 줄이고 번아웃을 방지합니다. 사람들이 현실 세계와 다시 연결되도록 도와주고 수면의 질을 향상시켜 줍니다.",
+          "point": "encourages people to engage more mindfully with their physical surroundings: 사람들이 주변 물리적 환경에 더 신경 써서 참여하도록 장려하다"
+        }
+      ]
     }
   ],
   "Part4_교통과주거": [
@@ -2164,7 +2341,14 @@ const SPEAKING_DATA = {
       "q_kr": "정부가 도로보다 대중교통에 더 많이 투자해야 한다는 주장에 동의하나요, 동의하지 않나요?",
       "a_en": "I agree. Investing in public transit is more environmentally friendly and reduces traffic congestion. It provides a more efficient way for a large number of people to move around.",
       "a_kr": "동의합니다. 대중교통에 투자하는 것은 더 친환경적이고 교통 체증을 줄여줍니다. 많은 사람들이 이동하기에 더 효율적인 방법을 제공합니다.",
-      "point": "promotes ecological sustainability and alleviates(엘리비에잇) urban gridlock(그뤼드락): 생태학적 지속가능성을 촉진하고 도시의 교통 정체를 완화하다"
+      "point": "promotes ecological sustainability and alleviates(엘리비에잇) urban gridlock(그뤼드락): 생태학적 지속가능성을 촉진하고 도시의 교통 정체를 완화하다",
+      "answers": [
+        {
+          "a_en": "I agree. Investing in public transit is more environmentally friendly and reduces traffic congestion. It provides a more efficient way for a large number of people to move around.",
+          "a_kr": "동의합니다. 대중교통에 투자하는 것은 더 친환경적이고 교통 체증을 줄여줍니다. 많은 사람들이 이동하기에 더 효율적인 방법을 제공합니다.",
+          "point": "promotes ecological sustainability and alleviates(엘리비에잇) urban gridlock(그뤼드락): 생태학적 지속가능성을 촉진하고 도시의 교통 정체를 완화하다"
+        }
+      ]
     },
     {
       "id": 2,
@@ -2172,7 +2356,19 @@ const SPEAKING_DATA = {
       "q_kr": "단독 주택에서 사는 것과 아파트와 같은 공동 주택에서 사는 것 중 어느 쪽을 선호하나요?",
       "a_en": "I prefer living in an apartment. Apartments usually offer better security and convenient facilities like gyms or nearby convenience stores.",
       "a_kr": "저는 아파트에서 사는 것을 선호합니다. 아파트는 보통 더 나은 보안과 헬스장이나 근처 편의점 같은 편리한 시설을 제공합니다.",
-      "point": "provide enhanced safety measures and a wide array of premium amenities: 강화된 안전 조치와 다양한 고급 편의시설을 제공하다 / ensure a secure living environment and seamless access to integrated(인터그뤠이트) facilities(퍼실리티쓰): 안전한 주거 환경과 통합된 시설에 매끄러운 접근을 보장하다"
+      "point": "provide enhanced safety measures and a wide array of premium amenities: 강화된 안전 조치와 다양한 고급 편의시설을 제공하다 / ensure a secure living environment and seamless access to integrated(인터그뤠이트) facilities(퍼실리티쓰): 안전한 주거 환경과 통합된 시설에 매끄러운 접근을 보장하다",
+      "answers": [
+        {
+          "a_en": "I prefer living in an apartment. Apartments usually offer better security and convenient facilities like gyms or nearby convenience stores.",
+          "a_kr": "저는 아파트에서 사는 것을 선호합니다. 아파트는 보통 더 나은 보안과 헬스장이나 근처 편의점 같은 편리한 시설을 제공합니다.",
+          "point": "provide enhanced safety measures and a wide array of premium amenities: 강화된 안전 조치와 다양한 고급 편의시설을 제공하다 / ensure a secure living environment and seamless access to integrated(인터그뤠이트) facilities(퍼실리티쓰): 안전한 주거 환경과 통합된 시설에 매끄러운 접근을 보장하다"
+        },
+        {
+          "a_en": "I prefer living in a single-family house. The biggest reason is privacy. In a house, I don't have to worry about noise complaints from neighbors. Also, having a private garden or backyard gives me a space to relax and enjoy outdoor activities.",
+          "a_kr": "저는 단독 주택에서 사는 것을 선호합니다. 가장 큰 이유는 사생활 보호입니다. 주택에서는 이웃의 소음 불평을 걱정할 필요가 없습니다. 또한 개인 정원이나 뒷마당이 있으면 휴식을 취하고 야외 활동을 즐길 수 있는 공간이 생깁니다.",
+          "point": "주요 표현: Noise complaints(소음 불만), Backyard(뒷마당), Privacy(사생활)"
+        }
+      ]
     }
   ],
   "Part5_사회환경": [
@@ -2182,7 +2378,19 @@ const SPEAKING_DATA = {
       "q_kr": "우리 도시에는 무료 공공 교통이 어떤 영향을 미칠 것이라고 생각하나요?",
       "a_en": "I believe free public transportation will have a positive environmental impact because it encourages people to leave their cars at home, which reduces carbon emissions and traffic congestion. It also improves accessibility for low-income groups, making the city more inclusive.",
       "a_kr": "저는 무료 공공 교통이 긍정적인 환경적 영향을 미칠 것이라고 생각합니다. 왜냐하면 사람들이 차를 집에 두게 만들고, 이는 탄소 배출과 교통 체증을 줄이기 때문입니다. 또한 저소득층의 접근성을 높여 도시를 더 포용적으로 만들 것입니다.",
-      "point": "positive environmental impact: beneficial, favorable / encourage people to leave their cars at home: persuade people to stop driving"
+      "point": "positive environmental impact: beneficial, favorable / encourage people to leave their cars at home: persuade people to stop driving",
+      "answers": [
+        {
+          "a_en": "I believe free public transportation will have a positive environmental impact because it encourages people to leave their cars at home, which reduces carbon emissions and traffic congestion. It also improves accessibility for low-income groups, making the city more inclusive.",
+          "a_kr": "저는 무료 공공 교통이 긍정적인 환경적 영향을 미칠 것이라고 생각합니다. 왜냐하면 사람들이 차를 집에 두게 만들고, 이는 탄소 배출과 교통 체증을 줄이기 때문입니다. 또한 저소득층의 접근성을 높여 도시를 더 포용적으로 만들 것입니다.",
+          "point": "positive environmental impact: beneficial, favorable / encourage people to leave their cars at home: persuade people to stop driving"
+        },
+        {
+          "a_en": "I believe free public transportation will have a positive environmental impact. It encourages people to leave their cars at home, which significantly reduces carbon emissions and traffic congestion. Moreover, it provides equal mobility for everyone.",
+          "a_kr": "저는 무료 대중교통이 긍정적인 환경적 영향을 미칠 것이라고 생각합니다. 사람들이 차를 집에 두게 만들고, 이는 탄소 배출과 교통 체증을 크게 줄여줍니다. 또한 모든 이에게 평등한 이동성을 제공해 줍니다.",
+          "point": "주요 표현: Carbon emissions(탄소 배출), Traffic congestion(교통 체증), Equal mobility(평등한 이동성)"
+        }
+      ]
     },
     {
       "id": 2,
@@ -2190,7 +2398,14 @@ const SPEAKING_DATA = {
       "q_kr": "도시가 주민들에게 더 편리해지려면 어떻게 해야 한다고 생각하나요?",
       "a_en": "A city can become more convenient when it offers reliable public transportation, safe sidewalks, and enough green spaces for people to relax.",
       "a_kr": "도시는 안정적인 대중교통, 안전한 보도블록, 그리고 사람들이 쉴 수 있는 충분한 녹지 공간을 제공할 때 더 편리해질 수 있습니다.",
-      "point": "reliable public transportation: efficient transit, dependable transport / safe sidewalks: secure walkways, pedestrian-friendly paths"
+      "point": "reliable public transportation: efficient transit, dependable transport / safe sidewalks: secure walkways, pedestrian-friendly paths",
+      "answers": [
+        {
+          "a_en": "A city can become more convenient when it offers reliable public transportation, safe sidewalks, and enough green spaces for people to relax.",
+          "a_kr": "도시는 안정적인 대중교통, 안전한 보도블록, 그리고 사람들이 쉴 수 있는 충분한 녹지 공간을 제공할 때 더 편리해질 수 있습니다.",
+          "point": "reliable public transportation: efficient transit, dependable transport / safe sidewalks: secure walkways, pedestrian-friendly paths"
+        }
+      ]
     },
     {
       "id": 3,
@@ -2198,7 +2413,14 @@ const SPEAKING_DATA = {
       "q_kr": "도시 생활에서 대중교통이 필수적인 부분이라고 생각하나요?",
       "a_en": "Yes, I do. A good public transportation system makes daily life easier and reduces the pressure on private cars.",
       "a_kr": "네, 그렇습니다. 좋은 대중교통 시스템은 일상을 더 쉽게 만들고 개인 차량에 대한 부담을 줄여줍니다.",
-      "point": "public transportation system: transit network, commuting system / reduce the pressure on private cars: ease traffic burden"
+      "point": "public transportation system: transit network, commuting system / reduce the pressure on private cars: ease traffic burden",
+      "answers": [
+        {
+          "a_en": "Yes, I do. A good public transportation system makes daily life easier and reduces the pressure on private cars.",
+          "a_kr": "네, 그렇습니다. 좋은 대중교통 시스템은 일상을 더 쉽게 만들고 개인 차량에 대한 부담을 줄여줍니다.",
+          "point": "public transportation system: transit network, commuting system / reduce the pressure on private cars: ease traffic burden"
+        }
+      ]
     },
     {
       "id": 4,
@@ -2206,7 +2428,14 @@ const SPEAKING_DATA = {
       "q_kr": "정부는 사람들에게 대중교통을 더 자주 이용하도록 어떻게 권장할 수 있나요?",
       "a_en": "Governments can encourage people by making buses and trains more affordable, convenient, and reliable.",
       "a_kr": "정부는 버스와 기차를 더 저렴하고 편리하며 신뢰할 수 있게 만들면 사람들에게 대중교통 이용을 권장할 수 있습니다.",
-      "point": "make transport more affordable: reduce fares, lower costs / convenient and reliable: easy and dependable"
+      "point": "make transport more affordable: reduce fares, lower costs / convenient and reliable: easy and dependable",
+      "answers": [
+        {
+          "a_en": "Governments can encourage people by making buses and trains more affordable, convenient, and reliable.",
+          "a_kr": "정부는 버스와 기차를 더 저렴하고 편리하며 신뢰할 수 있게 만들면 사람들에게 대중교통 이용을 권장할 수 있습니다.",
+          "point": "make transport more affordable: reduce fares, lower costs / convenient and reliable: easy and dependable"
+        }
+      ]
     },
     {
       "id": 5,
@@ -2214,7 +2443,14 @@ const SPEAKING_DATA = {
       "q_kr": "자동차가 미래에도 주요 교통 수단으로 남을 것이라고 생각하나요?",
       "a_en": "I think public transportation will become more important as cities grow and environmental concerns increase.",
       "a_kr": "저는 도시가 성장하고 환경 문제가 증가함에 따라 대중교통이 더 중요해질 것이라고 생각합니다.",
-      "point": "become more important: gain greater significance / environmental concerns: eco issues"
+      "point": "become more important: gain greater significance / environmental concerns: eco issues",
+      "answers": [
+        {
+          "a_en": "I think public transportation will become more important as cities grow and environmental concerns increase.",
+          "a_kr": "저는 도시가 성장하고 환경 문제가 증가함에 따라 대중교통이 더 중요해질 것이라고 생각합니다.",
+          "point": "become more important: gain greater significance / environmental concerns: eco issues"
+        }
+      ]
     },
     {
       "id": 6,
@@ -2222,7 +2458,14 @@ const SPEAKING_DATA = {
       "q_kr": "도시가 주민들의 삶의 질을 향상시키려면 어떻게 해야 하나요?",
       "a_en": "Cities can improve quality of life by offering better public services, cleaner streets, and more green spaces.",
       "a_kr": "도시는 더 나은 공공 서비스, 더 깨끗한 거리, 더 많은 녹지 공간을 제공함으로써 삶의 질을 향상시킬 수 있습니다.",
-      "point": "improve quality of life: enhance daily living / greener environment: more greenery"
+      "point": "improve quality of life: enhance daily living / greener environment: more greenery",
+      "answers": [
+        {
+          "a_en": "Cities can improve quality of life by offering better public services, cleaner streets, and more green spaces.",
+          "a_kr": "도시는 더 나은 공공 서비스, 더 깨끗한 거리, 더 많은 녹지 공간을 제공함으로써 삶의 질을 향상시킬 수 있습니다.",
+          "point": "improve quality of life: enhance daily living / greener environment: more greenery"
+        }
+      ]
     },
     {
       "id": 7,
@@ -2230,7 +2473,14 @@ const SPEAKING_DATA = {
       "q_kr": "정부가 도로보다 대중교통에 더 많이 투자해야 한다고 생각하나요?",
       "a_en": "I agree that public transportation deserves more investment because it serves more people and reduces traffic problems.",
       "a_kr": "저는 대중교통이 더 많은 사람에게 서비스를 제공하고 교통 문제를 줄이기 때문에 더 많은 투자가 필요하다고 생각합니다.",
-      "point": "invest more in public transportation: allocate more funding / serve more people: benefit a larger population"
+      "point": "invest more in public transportation: allocate more funding / serve more people: benefit a larger population",
+      "answers": [
+        {
+          "a_en": "I agree that public transportation deserves more investment because it serves more people and reduces traffic problems.",
+          "a_kr": "저는 대중교통이 더 많은 사람에게 서비스를 제공하고 교통 문제를 줄이기 때문에 더 많은 투자가 필요하다고 생각합니다.",
+          "point": "invest more in public transportation: allocate more funding / serve more people: benefit a larger population"
+        }
+      ]
     },
     {
       "id": 8,
@@ -2238,7 +2488,14 @@ const SPEAKING_DATA = {
       "q_kr": "당신의 나라 사람들은 보통 출근할 때 어떻게 이동하나요?",
       "a_en": "Most people commute by car or bus, depending on the distance and the availability of public transit.",
       "a_kr": "대부분의 사람들은 거리와 대중교통 이용 가능성에 따라 차나 버스를 이용해 출퇴근합니다.",
-      "point": "commute to work: travel to work / availability of public transit: access to public transport"
+      "point": "commute to work: travel to work / availability of public transit: access to public transport",
+      "answers": [
+        {
+          "a_en": "Most people commute by car or bus, depending on the distance and the availability of public transit.",
+          "a_kr": "대부분의 사람들은 거리와 대중교통 이용 가능성에 따라 차나 버스를 이용해 출퇴근합니다.",
+          "point": "commute to work: travel to work / availability of public transit: access to public transport"
+        }
+      ]
     },
     {
       "id": 9,
@@ -2246,7 +2503,123 @@ const SPEAKING_DATA = {
       "q_kr": "큰 도시와 작은 도시 중 어느 쪽에서 사는 것을 더 선호하나요?",
       "a_en": "I would prefer to live in a big city because there are more opportunities for work and entertainment.",
       "a_kr": "저는 일과 오락의 기회가 더 많기 때문에 큰 도시에서 사는 것을 선호합니다.",
-      "point": "more opportunities: greater choice / entertainment: leisure activities"
+      "point": "more opportunities: greater choice / entertainment: leisure activities",
+      "answers": [
+        {
+          "a_en": "I would prefer to live in a big city because there are more opportunities for work and entertainment.",
+          "a_kr": "저는 일과 오락의 기회가 더 많기 때문에 큰 도시에서 사는 것을 선호합니다.",
+          "point": "more opportunities: greater choice / entertainment: leisure activities"
+        }
+      ]
+    }
+  ],
+  "Part6_주거와사회변화": [
+    {
+      "id": 1,
+      "q_en": "Can you describe your current type of housing?",
+      "q_kr": "현재 당신의 거주 형태를 설명해 주실 수 있나요?",
+      "a_en": "I currently live in a high-rise apartment in a busy urban area. It is a convenient place because it is located near a subway station and various shopping centers. The building also has great amenities like a fitness center and 24-hour security.",
+      "a_kr": "저는 현재 번화한 도시 지역의 고층 아파트에 살고 있습니다. 지하철역과 여러 편리한 상업 시설이 가까이 있어 편리한 곳입니다. 이 건물은 또한 피트니스 센터와 24시간 보안 같은 훌륭한 편의시설을 갖추고 있습니다.",
+      "point": "주요 표현: High-rise apartment(고층 아파트), Amenities(편의 시설), Conveniently located(편리한 곳에 위치한)",
+      "answers": [
+        {
+          "a_en": "I currently live in a high-rise apartment in a busy urban area. It is a convenient place because it is located near a subway station and various shopping centers. The building also has great amenities like a fitness center and 24-hour security.",
+          "a_kr": "저는 현재 번화한 도시 지역의 고층 아파트에 살고 있습니다. 지하철역과 여러 편리한 상업 시설이 가까이 있어 편리한 곳입니다. 이 건물은 또한 피트니스 센터와 24시간 보안 같은 훌륭한 편의시설을 갖추고 있습니다.",
+          "point": "주요 표현: High-rise apartment(고층 아파트), Amenities(편의 시설), Conveniently located(편리한 곳에 위치한)"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "q_en": "Do you think there will be more single-person households in the future?",
+      "q_kr": "미래에 1인 가구가 더 많아질 것이라고 생각하나요?",
+      "a_en": "Yes, I definitely think so. Many people now prioritize personal freedom and career goals over starting a family early. Additionally, the rise of convenient services for singles, such as meal kits and small-scale housing, makes living alone much easier than before.",
+      "a_kr": "네, 분명히 그렇게 생각합니다. 많은 사람들이 이제 일찍 가정을 꾸리는 것보다 개인의 자유와 직업적 목표를 우선시합니다. 게다가 밀키트나 소형 주택 같은 1인 가구를 위한 편리한 서비스의 증가는 혼자 사는 것을 이전보다 훨씬 쉽게 만들어 줍니다.",
+      "point": "주요 표현: Prioritize(우선시하다), Single-person household(1인 가구), Small-scale housing(소규모 주택)",
+      "answers": [
+        {
+          "a_en": "Yes, I definitely think so. Many people now prioritize personal freedom and career goals over starting a family early. Additionally, the rise of convenient services for singles, such as meal kits and small-scale housing, makes living alone much easier than before.",
+          "a_kr": "네, 분명히 그렇게 생각합니다. 많은 사람들이 이제 일찍 가정을 꾸리는 것보다 개인의 자유와 직업적 목표를 우선시합니다. 게다가 밀키트나 소형 주택 같은 1인 가구를 위한 편리한 서비스의 증가는 혼자 사는 것을 이전보다 훨씬 쉽게 만들어 줍니다.",
+          "point": "주요 표현: Prioritize(우선시하다), Single-person household(1인 가구), Small-scale housing(소규모 주택)"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "q_en": "Do you agree that young people should move out of their parents' house and become independent as soon as they become legal adults?",
+      "q_kr": "젊은 사람들이 법적으로 성인이 되자마자 부모님 집에서 나와 독립해야 한다는 것에 동의하나요?",
+      "a_en": "I disagree with that idea. Nowadays, the cost of living is extremely high, and it is difficult for young adults to support themselves financially right away. It is more practical to stay with parents while saving money or finishing their education to build a stable foundation.",
+      "a_kr": "저는 그 의견에 동의하지 않습니다. 요즘은 생활비가 매우 높아서 젊은 성인들이 즉시 경제적으로 자립하기 어렵습니다. 안정적인 기반을 다지기 위해 부모님과 함께 머물며 저축을 하거나 교육을 마치는 것이 더 현실적입니다.",
+      "point": "주요 표현: Legal adults(법적 성인), Cost of living(생활비), Build a stable foundation(안정적인 기반을 구축하다)",
+      "answers": [
+        {
+          "a_en": "I disagree with that idea. Nowadays, the cost of living is extremely high, and it is difficult for young adults to support themselves financially right away. It is more practical to stay with parents while saving money or finishing their education to build a stable foundation.",
+          "a_kr": "저는 그 의견에 동의하지 않습니다. 요즘은 생활비가 매우 높아서 젊은 성인들이 즉시 경제적으로 자립하기 어렵습니다. 안정적인 기반을 다지기 위해 부모님과 함께 머물며 저축을 하거나 교육을 마치는 것이 더 현실적입니다.",
+          "point": "주요 표현: Legal adults(법적 성인), Cost of living(생활비), Build a stable foundation(안정적인 기반을 구축하다)"
+        }
+      ]
+    }
+  ],
+  "Part7_문화보존과가치": [
+    {
+      "id": 1,
+      "q_en": "Is it important for you or your family to preserve traditional culture?",
+      "q_kr": "당신이나 당신의 가족에게 전통 문화를 보존하는 것이 중요한가요?",
+      "a_en": "Yes, it is very important. For my family, traditional rituals, such as celebrating the Lunar New Year, serve as a way to stay connected to our roots. It teaches us about our history and strengthens the bond among family members across generations.",
+      "a_kr": "네, 매우 중요합니다. 제 가족에게 설날과 같은 전통 의례는 우리의 뿌리와 계속 연결되어 있는 방법입니다. 그것은 우리에게 역사를 가르쳐주고 세대를 넘어 가족 구성원 간의 유대를 강화해 줍니다.",
+      "point": "주요 표현: Stay connected to our roots(우리의 뿌리와 연결되다), Strengthen the bond(유대를 강화하다)",
+      "answers": [
+        {
+          "a_en": "Yes, it is very important. For my family, traditional rituals, such as celebrating the Lunar New Year, serve as a way to stay connected to our roots. It teaches us about our history and strengthens the bond among family members across generations.",
+          "a_kr": "네, 매우 중요합니다. 제 가족에게 설날과 같은 전통 의례는 우리의 뿌리와 계속 연결되어 있는 방법입니다. 그것은 우리에게 역사를 가르쳐주고 세대를 넘어 가족 구성원 간의 유대를 강화해 줍니다.",
+          "point": "주요 표현: Stay connected to our roots(우리의 뿌리와 연결되다), Strengthen the bond(유대를 강화하다)"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "q_en": "What traditional culture would you like to introduce to foreign friends?",
+      "q_kr": "외국인 친구들에게 어떤 전통 문화를 소개하고 싶나요?",
+      "a_en": "I would love to introduce 'Hanbok' (traditional Korean clothing). I think it is visually stunning and represents the unique aesthetics of Korea. Showing them the history and the occasions when we wear it would be a meaningful way to share our values and beauty.",
+      "a_kr": "저는 '한복'(한국 전통 의상)을 소개하고 싶습니다. 시각적으로 매우 아름답고 한국의 독특한 미학을 대표한다고 생각합니다. 한복을 입는 행사들을 보여주는 것은 우리가 역사와 아름다움을 공유하는 의미 있는 방법이 될 것입니다.",
+      "point": "주요 표현: Visually stunning(시각적으로 매우 아름다운), Unique aesthetics(독특한 미학)",
+      "answers": [
+        {
+          "a_en": "I would love to introduce 'Hanbok' (traditional Korean clothing). I think it is visually stunning and represents the unique aesthetics of Korea. Showing them the history and the occasions when we wear it would be a meaningful way to share our values and beauty.",
+          "a_kr": "저는 '한복'(한국 전통 의상)을 소개하고 싶습니다. 시각적으로 매우 아름답고 한국의 독특한 미학을 대표한다고 생각합니다. 한복을 입는 행사들을 보여주는 것은 우리가 역사와 아름다움을 공유하는 의미 있는 방법이 될 것입니다.",
+          "point": "주요 표현: Visually stunning(시각적으로 매우 아름다운), Unique aesthetics(독특한 미학)"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "q_en": "Do you agree that young people should learn about traditional culture, or should they focus on modern culture?",
+      "q_kr": "젊은 사람들이 전통 문화에 대해 배워야 한다는 생각에 동의하나요, 아니면 현대 문화에 집중해야 한다고 생각하나요?",
+      "a_en": "I believe there should be a balance. While modern culture is essential for keeping up with global trends, learning about traditional culture is crucial for developing a strong sense of identity. We don't have to choose one over the other; we can incorporate traditional elements into modern life to create something new.",
+      "a_kr": "저는 균형이 필요하다고 생각합니다. 현대 문화가 세계적 흐름을 따라가는 데 필수적이지만, 전통 문화를 배우는 것은 강한 정체성을 형성하는 데 매우 중요합니다. 전통적인 요소를 현대 생활에 접목하여 새로운 것을 만들어낼 수 있으므로, 하나를 선택할 필요는 없습니다.",
+      "point": "주요 표현: A strong sense of identity(강한 정체성), Incorporate traditional elements(전통적인 요소를 접목하다)",
+      "answers": [
+        {
+          "a_en": "I believe there should be a balance. While modern culture is essential for keeping up with global trends, learning about traditional culture is crucial for developing a strong sense of identity. We don't have to choose one over the other; we can incorporate traditional elements into modern life to create something new.",
+          "a_kr": "저는 균형이 필요하다고 생각합니다. 현대 문화가 세계적 흐름을 따라가는 데 필수적이지만, 전통 문화를 배우는 것은 강한 정체성을 형성하는 데 매우 중요합니다. 전통적인 요소를 현대 생활에 접목하여 새로운 것을 만들어낼 수 있으므로, 하나를 선택할 필요는 없습니다.",
+          "point": "주요 표현: A strong sense of identity(강한 정체성), Incorporate traditional elements(전통적인 요소를 접목하다)"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "q_en": "Do you agree that promoting traditional culture is a good way to boost tourism and the economy?",
+      "q_kr": "전통 문화를 홍보하는 것이 관광업과 경제를 활성화하는 좋은 방법이라는 것에 동의하나요?",
+      "a_en": "I strongly agree. Culture is a unique selling point for any country. When we promote traditional festivals or historic sites, it attracts international tourists, which directly creates jobs and stimulates local businesses in areas like hospitality, food, and souvenirs.",
+      "a_kr": "강력히 동의합니다. 문화는 모든 국가에게 독보적인 매력 판매 전략(강점)입니다. 전통 축제나 유적지를 홍보하면 국제 관광객을 유치하게 되고, 이는 숙박, 음식, 기념품과 같은 분야에서 직접적인 일자리를 창출하고 지역 경제를 활성화합니다.",
+      "point": "주요 표현: Unique selling point(독보적인 매력 판매점), Stimulate local businesses(지역 경제를 활성화하다), Hospitality industry(서비스업/관광 산업)",
+      "answers": [
+        {
+          "a_en": "I strongly agree. Culture is a unique selling point for any country. When we promote traditional festivals or historic sites, it attracts international tourists, which directly creates jobs and stimulates local businesses in areas like hospitality, food, and souvenirs.",
+          "a_kr": "강력히 동의합니다. 문화는 모든 국가에게 독보적인 매력 판매 전략(강점)입니다. 전통 축제나 유적지를 홍보하면 국제 관광객을 유치하게 되고, 이는 숙박, 음식, 기념품과 같은 분야에서 직접적인 일자리를 창출하고 지역 경제를 활성화합니다.",
+          "point": "주요 표현: Unique selling point(독보적인 매력 판매점), Stimulate local businesses(지역 경제를 활성화하다), Hospitality industry(서비스업/관광 산업)"
+        }
+      ]
     }
   ]
 };

@@ -122,7 +122,27 @@ function renderSpeakingPractice() {
   const dots = items.map((_, i) => `<button class="qmark ${i === idx ? 'cur' : ''}" data-sp-jump="${i}"></button>`).join('');
   const revealed = speakingSession.revealed[idx];
   const markKeyPrefix = `speaking::${setName}::${idx}`;
-  const hasPoint = !!(it.point && it.point.trim());
+  const answers = (it.answers && it.answers.length) ? it.answers : [{ a_en: it.a_en, a_kr: it.a_kr, point: it.point }];
+
+  const answersHtml = answers.map((ans, ai) => {
+    const hasPoint = !!(ans.point && ans.point.trim());
+    const ansMarkPrefix = `${markKeyPrefix}::${ai}`;
+    return `
+      <div class="quiz-answer-area" style="margin-top:${ai === 0 ? '14px' : '20px'};padding-top:${ai === 0 ? '0' : '14px'};border-top:${ai === 0 ? 'none' : '1px dashed var(--border)'}">
+        <div class="quiz-prompt-label">A. 모범 답변${answers.length > 1 ? ` ${ai + 1}` : ''} (따라 말해보세요)</div>
+        <div class="quiz-answer" style="text-align:left;margin-top:6px">${escapeHtml(ans.a_en)}</div>
+        <div class="hint-text" style="margin-top:6px">${escapeHtml(ans.a_kr)}</div>
+        <div class="quiz-actions" style="margin:10px 0 0">
+          <button class="qbtn sp-speak-a-btn" data-a-text="${escapeHtml(ans.a_en)}">&#128266; 답변 듣기</button>
+        </div>
+        ${hasPoint ? `
+          <div class="quiz-prompt-label" style="margin-top:14px">대체 가능한 표현</div>
+          <div class="point-groups">${renderPointGroups(ans.point, ansMarkPrefix)}</div>
+          <div class="hint-text" style="margin-top:6px">표현을 누르면 틀린 부분(빨강)/중요 표시(노랑)를 남길 수 있어요.</div>
+        ` : ''}
+      </div>
+    `;
+  }).join('');
 
   return `
     <div class="quiz-wrap">
@@ -137,23 +157,9 @@ function renderSpeakingPractice() {
         <div class="cmean" style="text-align:center;margin:4px 0 0;font-size:14px">${escapeHtml(it.q_kr)}</div>
         <div class="quiz-actions" style="margin:10px 0 0">
           <button class="qbtn" id="sp-speak-q-btn">&#128266; 질문 듣기</button>
-          <button class="qbtn neutral" id="sp-reveal-btn">${revealed ? '답변 숨기기' : '모범 답변 보기'}</button>
+          <button class="qbtn neutral" id="sp-reveal-btn">${revealed ? '답변 숨기기' : `모범 답변 보기${answers.length > 1 ? ` (${answers.length}개)` : ''}`}</button>
         </div>
-        ${revealed ? `
-          <div class="quiz-answer-area" style="margin-top:14px">
-            <div class="quiz-prompt-label">A. 모범 답변 (따라 말해보세요)</div>
-            <div class="quiz-answer" style="text-align:left;margin-top:6px">${escapeHtml(it.a_en)}</div>
-            <div class="hint-text" style="margin-top:6px">${escapeHtml(it.a_kr)}</div>
-            <div class="quiz-actions" style="margin:10px 0 0">
-              <button class="qbtn" id="sp-speak-a-btn">&#128266; 답변 듣기</button>
-            </div>
-            ${hasPoint ? `
-              <div class="quiz-prompt-label" style="margin-top:14px">대체 가능한 표현</div>
-              <div class="point-groups">${renderPointGroups(it.point, markKeyPrefix)}</div>
-              <div class="hint-text" style="margin-top:6px">표현을 누르면 틀린 부분(빨강)/중요 표시(노랑)를 남길 수 있어요.</div>
-            ` : ''}
-          </div>
-        ` : ''}
+        ${revealed ? answersHtml : ''}
       </div>
       <div class="quiz-navrow">
         <button class="nbtn" id="sp-prev" ${idx === 0 ? 'disabled' : ''}>&#8592;</button>
@@ -193,10 +199,9 @@ function bindSpeakingPractice() {
   if (speakQBtn) speakQBtn.addEventListener('click', () => {
     TTS.speak(it.q_en, { lang: 'en-US', rate: progress.settings.ttsRate, voiceURI: progress.settings.ttsVoiceEN });
   });
-  const speakABtn = document.getElementById('sp-speak-a-btn');
-  if (speakABtn) speakABtn.addEventListener('click', () => {
-    TTS.speak(it.a_en, { lang: 'en-US', rate: progress.settings.ttsRate, voiceURI: progress.settings.ttsVoiceEN });
-  });
+  document.querySelectorAll('.sp-speak-a-btn').forEach(btn => btn.addEventListener('click', () => {
+    TTS.speak(btn.dataset.aText, { lang: 'en-US', rate: progress.settings.ttsRate, voiceURI: progress.settings.ttsVoiceEN });
+  }));
   const homeBtn = document.getElementById('sp-home-btn');
   if (homeBtn) homeBtn.addEventListener('click', () => goto('speakingSetup'));
   bindMarkableSentence(document.getElementById('main'));

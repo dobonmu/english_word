@@ -1,38 +1,50 @@
-invent|발명하다|invent a new device|새로운 장치를 발명하다|to create something new
-forge|조작하다, 위조하다|forge a document|문서를 위조하다|to make something false
-manufacture|제조하다|manufacture cars|자동차를 제조하다|produce in large amounts
-aspect|측면|an important aspect|중요한 측면|a part or feature
-dimension|차원|the dimension of the problem|문제의 차원|a level or extent
-side|측면|on the side|옆에서|a position or direction
-ease|완화하다|ease the pain|통증을 완화하다|reduce discomfort
-promote|촉진하다|promote health|건강을 증진하다|encourage
-assist|돕다|assist students|학생들을 돕다|help
-list|목록|make a list|목록을 작성하다|a series
-include|포함하다|include many details|많은 세부사항을 포함하다|contain
-tough|힘든, 거친|a tough exam|힘든 시험|hard or strong
-sufficient|충분한|sufficient evidence|충분한 증거|enough
-ample|충분한|ample time|충분한 시간|more than enough
-enough|충분한|enough money|충분한 돈|adequate
-severe|심각한|severe weather|심각한 날씨|harsh
-weak point|약점|a weak point|약점|a disadvantage
-change|변화|change jobs|직업을 바꾸다|alter
-concentrate on|~에 집중하다|concentrate on study|공부에 집중하다|focus on
-weigh|무게를 재다, 고려하다|weigh the options|선택지를 고려하다|consider
-stress|강조하다|stress the importance|중요성을 강조하다|emphasize
-highlight|강조하다|highlight the key point|핵심 포인트를 강조하다|emphasize
-mark|표시하다|mark the answer|정답을 표시하다|indicate
-sign|표시하다|sign the document|문서에 서명하다|signal
-remarkable|놀라운|a remarkable story|놀라운 이야기|unusual
-outstanding|뛰어난|an outstanding student|뛰어난 학생|excellent
-exceptional|특별한|exceptional talent|특별한 재능|extraordinary
-excellent|우수한|excellent work|우수한 작업|very good
-stunning|멋진|a stunning view|멋진 풍경|beautiful
-stellar|눈부신|a stellar performance|눈부신 공연|excellent
-strengthen|강화하다|strengthen a team|팀을 강화하다|make stronger
-supply|공급하다|supply food|식량을 공급하다|provide
-melt|녹다|melt ice|얼음을 녹이다|become liquid
-improve|향상시키다|improve your skills|기술을 향상시키다|make better
-benefit|이익, 혜택|benefit from education|교육의 혜택을 받다|advantage
-support|지원하다|support a family|가정을 지원하다|help or encourage
-develop|개발하다|develop a plan|계획을 개발하다|grow or create
-value|가치|value education|교육의 가치를 높이다|importance
+Fabricate|제작하다, 날조하다|The company was caught trying to fabricate sales data.|그 회사는 매출 데이터를 날조하려다 적발되었습니다.|동의어: invent, forge, manufacture
+Facet|측면, 양상|Each facet of the problem requires careful consideration.|문제의 각 측면은 신중한 고려가 필요합니다.|동의어: aspect, dimension, side
+Facilitate|용이하게 하다|The new law was designed to facilitate economic growth.|새로운 법은 경제 성장을 용이하게 하기 위해 설계되었습니다.
+Faction|파벌, 당파|A small faction within the party disagreed with the leader.|정당 내의 작은 파벌이 지도자와 의견을 달리했습니다.|동의어: ease, promote, assist
+Fade|희미해지다|The colors of the old painting began to fade over time.|오래된 그림의 색깔이 시간이 흐르며 희미해지기 시작했습니다.
+Faint|희미한, 어렴풋한|We could hear the faint sound of thunder in the distance.|우리는 멀리서 희미한 천둥소리를 들을 수 있었습니다.
+Fallacy|오류|The idea that the sun revolves around the Earth is a famous fallacy.|태양이 지구 주위를 돈다는 생각은 유명한 오류입니다.
+Famine|기근|Severe drought can lead to widespread famine.|심한 가뭄은 광범위한 기근으로 이어질 수 있습니다.
+Fascinating|매혹적인|The history of ancient civilizations is truly fascinating.|고대 문명의 역사는 정말 매혹적입니다.
+Fatal|치명적인|A fatal error in the software caused the entire system to crash.|소프트웨어의 치명적인 오류가 시스템 전체를 망가뜨렸습니다.
+Fatigue|피로|Muscles can experience fatigue after a long period of exercise.|근육은 장시간의 운동 후에 피로를 느낄 수 있습니다.
+Feasible|실행 가능한|It is not yet feasible to build a permanent base on Mars.|화성에 영구적인 기지를 건설하는 것은 아직 실행 가능하지 않습니다.
+Feature|특징, 특징으로 삼다|The most striking feature of the bird is its colorful feathers.|그 새의 가장 두드러진 특징은 화려한 깃털입니다.|동의어: list, include (~을 포함하다)
+Feeble|연약한, 힘없는|The patient made a feeble attempt to stand up.|환자는 힘없이 일어서려고 했습니다.
+Ferocious|사나운, 격렬한|The lion is known as a ferocious predator.|사자는 사나운 포식자로 알려져 있습니다.|동의어: tough
+Fertile|비옥한|The Nile Delta provides fertile soil for farming.|나일강 삼각주는 농사를 위한 비옥한 토양을 제공합니다.|동의어: sufficient, ample, enough
+Fictitious|허구의|The author used a fictitious name to remain anonymous.|작가는 익명을 유지하기 위해 허구의 이름을 사용했습니다.
+Fierce|격렬한, 사나운|There is fierce competition among the students for the prize.|상을 타기 위한 학생들 사이의 격렬한 경쟁이 있습니다.|동의어: severe, tough
+Filament|가는 실, 필라멘트|The light bulb glows when electricity passes through the filament.|전기가 필라멘트를 통과할 때 전구가 빛납니다.
+Filter|여과하다, 필터|Trees act as natural filters that clean the air.|나무는 공기를 정화하는 천연 필터 역할을 합니다.
+Finite|한정된|Fossil fuels are a finite resource that will eventually run out.|화석 연료는 결국 고갈될 한정된 자원입니다.
+Flaw|결함|A tiny flaw in the diamond significantly reduced its value.|다이아몬드의 아주 작은 결함이 그 가치를 크게 떨어뜨렸습니다.|동의어: weak point
+Flee|달아나다|Many animals flee when they detect a forest fire.|많은 동물들이 산불을 감지하면 달아납니다.
+Flexible|유연한|Modern robots are becoming more flexible and precise.|현대의 로봇들은 더 유연하고 정밀해지고 있습니다.
+Flourish|번창하다|Art and literature began to flourish during the Renaissance.|르네상스 시대에 예술과 문학이 번창하기 시작했습니다.
+Fluctuate|변동하다|The price of gold tends to fluctuate daily.|금값은 매일 변동하는 경향이 있습니다.|동의어: change
+Fluent|유창한|He is fluent in three different languages.|그는 3개 국어에 유창합니다.
+Fluid|액체, 유동적인|The situation is still fluid and could change at any moment.|상황은 여전히 유동적이며 언제든 변할 수 있습니다.
+Focus|집중하다, 초점|The focus of the study is on renewable energy.|그 연구의 초점은 재생 가능 에너지에 맞춰져 있습니다.|동의어: concentrate on, weigh, stress, highlight, mark, sign
+Forage|먹이를 찾다|Bears spend most of their time forageing for berries and fish.|곰은 대부분의 시간을 베리와 물고기를 찾아다니는 데 보냅니다.
+Foremost|으뜸가는, 중요한|He is the foremost expert in the field of genetics.|그는 유전학 분야에서 으뜸가는 전문가입니다.
+Formidable|경외감을 갖게 하는, 만만치 않은|The mountains presented a formidable challenge to the climbers.|그 산들은 등반가들에게 만만치 않은 도전을 제시했습니다.|동의어: remarkable, outstanding, exceptional, excellent, stunning, stellar
+Fortify|강화하다|The city walls were built to fortify the town against attacks.|도시 성벽은 공격에 대비해 마을을 강화하기 위해 세워졌습니다.|동의어: strengthen
+Foster|육성하다, 촉진하다|The teacher tried to foster a sense of community in the class.|선생님은 반에서 공동체 의식을 육성하려 노력했습니다.
+Fragile|깨지기 쉬운, 취약한|Be careful when moving the fragile glass vases.|깨지기 쉬운 유리 꽃병을 옮길 때 주의하세요.
+Fragment|파편, 조각|Archaeologists found a fragment of ancient pottery.|고고학자들은 고대 도자기 조각을 발견했습니다.
+Fragrance|향기|The fragrance of the flowers filled the entire room.|꽃향기가 방 전체를 가득 채웠습니다.
+Fraud|사기|The investor was arrested for committing financial fraud.|그 투자자는 금융 사기를 저지른 혐의로 체포되었습니다.
+Freight|화물|The ship carries freight across the Atlantic Ocean.|그 배는 대서양을 가로질러 화물을 운송합니다.
+Friction|마찰|The tires provide friction to help the car stop.|타이어는 차가 멈추는 것을 돕는 마찰을 제공합니다.
+Frontier|국경, 미개척 영역|Space is often called the final frontier.|우주는 종종 마지막 미개척 영역이라 불립니다.
+Frugal|검소한|Her frugal lifestyle allowed her to save a lot of money.|그녀의 검소한 생활 방식은 그녀가 많은 돈을 저축하게 해주었습니다.
+Frustrate|좌절시키다|The lack of progress began to frustrate the researchers.|진척이 없는 것이 연구원들을 좌절시키기 시작했습니다.
+Fuel|연료, 부채질하다|The controversy helped fuel public interest in the issue.|그 논란은 그 문제에 대한 대중의 관심을 부채질하는 데 도움을 주었습니다.
+Fulfill|실현하다, 이행하다|He was finally able to fulfill his dream of becoming a doctor.|그는 마침내 의사가 되겠다는 꿈을 실현할 수 있었습니다.
+Function|기능, 작동하다|The main function of the heart is to pump blood.|심장의 주요 기능은 혈액을 펌프질하는 것입니다.
+Fundamental|근본적인|Freedom of speech is a fundamental human right.|표현의 자유는 근본적인 인권입니다.
+Furious|몹시 화난, 격렬한|The storm was furious, destroying several small boats.|폭풍이 격렬하여 작은 배 여러 척을 파괴했습니다.
+Furnish|공급하다, 가구를 비치하다|The company will furnish all the necessary equipment.|회사는 필요한 모든 장비를 공급할 것입니다.|동의어: supply
+Fuse|융합하다, 녹이다|Extreme heat can cause the metal parts to fuse together.|극심한 열은 금속 부품들이 서로 융합되게 할 수 있습니다.|동의어: melt
