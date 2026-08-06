@@ -2362,11 +2362,6 @@ const SPEAKING_DATA = {
           "a_en": "I prefer living in an apartment. Apartments usually offer better security and convenient facilities like gyms or nearby convenience stores.",
           "a_kr": "저는 아파트에서 사는 것을 선호합니다. 아파트는 보통 더 나은 보안과 헬스장이나 근처 편의점 같은 편리한 시설을 제공합니다.",
           "point": "provide enhanced safety measures and a wide array of premium amenities: 강화된 안전 조치와 다양한 고급 편의시설을 제공하다 / ensure a secure living environment and seamless access to integrated(인터그뤠이트) facilities(퍼실리티쓰): 안전한 주거 환경과 통합된 시설에 매끄러운 접근을 보장하다"
-        },
-        {
-          "a_en": "I prefer living in a single-family house. The biggest reason is privacy. In a house, I don't have to worry about noise complaints from neighbors. Also, having a private garden or backyard gives me a space to relax and enjoy outdoor activities.",
-          "a_kr": "저는 단독 주택에서 사는 것을 선호합니다. 가장 큰 이유는 사생활 보호입니다. 주택에서는 이웃의 소음 불평을 걱정할 필요가 없습니다. 또한 개인 정원이나 뒷마당이 있으면 휴식을 취하고 야외 활동을 즐길 수 있는 공간이 생깁니다.",
-          "point": "주요 표현: Noise complaints(소음 불만), Backyard(뒷마당), Privacy(사생활)"
         }
       ]
     }
@@ -2384,11 +2379,6 @@ const SPEAKING_DATA = {
           "a_en": "I believe free public transportation will have a positive environmental impact because it encourages people to leave their cars at home, which reduces carbon emissions and traffic congestion. It also improves accessibility for low-income groups, making the city more inclusive.",
           "a_kr": "저는 무료 공공 교통이 긍정적인 환경적 영향을 미칠 것이라고 생각합니다. 왜냐하면 사람들이 차를 집에 두게 만들고, 이는 탄소 배출과 교통 체증을 줄이기 때문입니다. 또한 저소득층의 접근성을 높여 도시를 더 포용적으로 만들 것입니다.",
           "point": "positive environmental impact: beneficial, favorable / encourage people to leave their cars at home: persuade people to stop driving"
-        },
-        {
-          "a_en": "I believe free public transportation will have a positive environmental impact. It encourages people to leave their cars at home, which significantly reduces carbon emissions and traffic congestion. Moreover, it provides equal mobility for everyone.",
-          "a_kr": "저는 무료 대중교통이 긍정적인 환경적 영향을 미칠 것이라고 생각합니다. 사람들이 차를 집에 두게 만들고, 이는 탄소 배출과 교통 체증을 크게 줄여줍니다. 또한 모든 이에게 평등한 이동성을 제공해 줍니다.",
-          "point": "주요 표현: Carbon emissions(탄소 배출), Traffic congestion(교통 체증), Equal mobility(평등한 이동성)"
         }
       ]
     },
@@ -2513,9 +2503,24 @@ const SPEAKING_DATA = {
       ]
     }
   ],
-  "Part6_주거와사회변화": [
+  "Part6_사회와주거": [
     {
       "id": 1,
+      "q_en": "What impact do you think free public transportation will have on society?",
+      "q_kr": "무료 대중교통이 사회에 어떤 영향을 미칠 것이라고 생각하나요?",
+      "a_en": "I believe free public transportation will have a positive environmental impact. It encourages people to leave their cars at home, which significantly reduces carbon emissions and traffic congestion. Moreover, it provides equal mobility for everyone.",
+      "a_kr": "저는 무료 대중교통이 긍정적인 환경적 영향을 미칠 것이라고 생각합니다. 사람들이 차를 집에 두게 만들고, 이는 탄소 배출과 교통 체증을 크게 줄여줍니다. 또한 모든 이에게 평등한 이동성을 제공해 줍니다.",
+      "point": "주요 표현: Carbon emissions(탄소 배출), Traffic congestion(교통 체증), Equal mobility(평등한 이동성)",
+      "answers": [
+        {
+          "a_en": "I believe free public transportation will have a positive environmental impact. It encourages people to leave their cars at home, which significantly reduces carbon emissions and traffic congestion. Moreover, it provides equal mobility for everyone.",
+          "a_kr": "저는 무료 대중교통이 긍정적인 환경적 영향을 미칠 것이라고 생각합니다. 사람들이 차를 집에 두게 만들고, 이는 탄소 배출과 교통 체증을 크게 줄여줍니다. 또한 모든 이에게 평등한 이동성을 제공해 줍니다.",
+          "point": "주요 표현: Carbon emissions(탄소 배출), Traffic congestion(교통 체증), Equal mobility(평등한 이동성)"
+        }
+      ]
+    },
+    {
+      "id": 2,
       "q_en": "Can you describe your current type of housing?",
       "q_kr": "현재 당신의 거주 형태를 설명해 주실 수 있나요?",
       "a_en": "I currently live in a high-rise apartment in a busy urban area. It is a convenient place because it is located near a subway station and various shopping centers. The building also has great amenities like a fitness center and 24-hour security.",
@@ -2530,7 +2535,22 @@ const SPEAKING_DATA = {
       ]
     },
     {
-      "id": 2,
+      "id": 3,
+      "q_en": "Do you prefer living in a single-family house or in shared housing like an apartment?",
+      "q_kr": "단독 주택에서 사는 것과 아파트와 같은 공동 주택에서 사는 것 중 어느 쪽을 선호하나요?",
+      "a_en": "I prefer living in a single-family house. The biggest reason is privacy. In a house, I don't have to worry about noise complaints from neighbors. Also, having a private garden or backyard gives me a space to relax and enjoy outdoor activities.",
+      "a_kr": "저는 단독 주택에서 사는 것을 선호합니다. 가장 큰 이유는 사생활 보호입니다. 주택에서는 이웃의 소음 불평을 걱정할 필요가 없습니다. 또한 개인 정원이나 뒷마당이 있으면 휴식을 취하고 야외 활동을 즐길 수 있는 공간이 생깁니다.",
+      "point": "주요 표현: Noise complaints(소음 불만), Backyard(뒷마당), Privacy(사생활)",
+      "answers": [
+        {
+          "a_en": "I prefer living in a single-family house. The biggest reason is privacy. In a house, I don't have to worry about noise complaints from neighbors. Also, having a private garden or backyard gives me a space to relax and enjoy outdoor activities.",
+          "a_kr": "저는 단독 주택에서 사는 것을 선호합니다. 가장 큰 이유는 사생활 보호입니다. 주택에서는 이웃의 소음 불평을 걱정할 필요가 없습니다. 또한 개인 정원이나 뒷마당이 있으면 휴식을 취하고 야외 활동을 즐길 수 있는 공간이 생깁니다.",
+          "point": "주요 표현: Noise complaints(소음 불만), Backyard(뒷마당), Privacy(사생활)"
+        }
+      ]
+    },
+    {
+      "id": 4,
       "q_en": "Do you think there will be more single-person households in the future?",
       "q_kr": "미래에 1인 가구가 더 많아질 것이라고 생각하나요?",
       "a_en": "Yes, I definitely think so. Many people now prioritize personal freedom and career goals over starting a family early. Additionally, the rise of convenient services for singles, such as meal kits and small-scale housing, makes living alone much easier than before.",
@@ -2545,7 +2565,7 @@ const SPEAKING_DATA = {
       ]
     },
     {
-      "id": 3,
+      "id": 5,
       "q_en": "Do you agree that young people should move out of their parents' house and become independent as soon as they become legal adults?",
       "q_kr": "젊은 사람들이 법적으로 성인이 되자마자 부모님 집에서 나와 독립해야 한다는 것에 동의하나요?",
       "a_en": "I disagree with that idea. Nowadays, the cost of living is extremely high, and it is difficult for young adults to support themselves financially right away. It is more practical to stay with parents while saving money or finishing their education to build a stable foundation.",
